@@ -1,0 +1,161 @@
+/*    ESTILOS GENERALES    */
+
+.presentacion {
+  font-family: "Abril Fatface", cursive;
+}
+
+.titulo-seccion {
+  font-family: "Rubik Dirt", cursive;
+}
+
+.titulo {
+  font-family: "Playfair Display SC", serif;
+}
+
+.texto {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+hr {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  Seccion Oscura  */
+
+.seccion-oscura {
+  background-color: #1b1b32;
+  color: white;
+}
+
+.titulo-oscura {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #e9eaeb;
+}
+
+.sub-titulo-oscura {
+  font-size: 1.5rem;
+  color: #e2e3e4;
+  text-decoration: none;
+}
+
+.texto-oscura {
+  font-size: 1.5rem;
+  color: #bfc0c0;
+}
+
+/*  Seccion Clara  */
+
+.seccion-clara {
+  background-color: white;
+  color: black;
+}
+
+.titulo-clara {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #3b3b3b;
+}
+
+.sub-titulo-clara {
+  font-size: 1.1rem;
+  color: #242424;
+}
+
+.texto-clara {
+  font-size: 1rem;
+  color: black;
+}
+
+.btn-primary {
+  border-radius: 15vh;
+  font-size: 1rem;
+  padding: 1vw;
+  margin: 20px;
+}
+
+/*          REDES SOCIALES     */
+
+figure {
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+figure img {
+  width: 25%;
+}
+
+figcaption {
+  width: 15vw;
+  color: white;
+}
+
+footer {
+  min-height: 500px;
+}
+
+.figcation {
+  padding: 10px;
+  width: 170px;
+}
+
+.footer-texto {
+  font-size: 1.5rem;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.iconos-redes-sociales a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.2 ease-in;
+}
+
+.iconos-redes-sociales i {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.5 ease-in;
+}
+
+.iconos-redes-sociales a:hover {
+  background-color: white;
+  border: 2px solid rgb(13, 110, 253);
+}
+
+.iconos-redes-sociales a:hover i {
+  color: black;
+}
+
+.derecho-de-autor {
+  font-size: 1.1rem;
+  color: #aeaeae;
+  padding-top: 50px;
+}

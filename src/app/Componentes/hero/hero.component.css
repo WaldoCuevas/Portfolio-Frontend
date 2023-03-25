@@ -1,0 +1,137 @@
+/*    ESTILOS GENERALES    */
+
+.presentacion {
+  font-family: "Abril Fatface", cursive;
+}
+
+.titulo-seccion {
+  font-family: "Rubik Dirt", cursive;
+}
+
+.titulo {
+  font-family: "Playfair Display SC", serif;
+}
+
+.texto {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+hr {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  Seccion Oscura  */
+
+.seccion-oscura {
+  background-color: #1b1b32;
+  color: white;
+}
+
+.titulo-oscura {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #e9eaeb;
+}
+
+.sub-titulo-oscura {
+  font-size: 1.5rem;
+  color: #e2e3e4;
+  text-decoration: none;
+}
+
+.texto-oscura {
+  font-size: 1.5rem;
+  color: #bfc0c0;
+}
+
+/*  Seccion Clara  */
+
+.seccion-clara {
+  background-color: white;
+  color: black;
+}
+
+.titulo-clara {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #3b3b3b;
+}
+
+.sub-titulo-clara {
+  font-size: 1.1rem;
+  color: #242424;
+}
+
+.texto-clara {
+  font-size: 1rem;
+  color: black;
+}
+
+.btn-primary {
+  border-radius: 15vh;
+  font-size: 1rem;
+  padding: 1vw;
+  margin: 20px;
+}
+
+/*      HERO        */
+
+.hero {
+  background-color: #f5f6f7;
+  min-height: 450px;
+  text-align: center;
+}
+
+body.dark .hero {
+  background-color: #1b1b32;
+}
+
+body.dark .hero h1 {
+  color: #f7f7f7;
+}
+
+body.dark .hero h2 {
+  color: #b5b5b9;
+}
+
+.hero-principal {
+  padding: 3rem;
+  margin: 20vh;
+}
+
+#avatar-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.hero-inferior-imagen {
+  width: 500px;
+}
+
+/*  media hero  */
+@media screen and (min-width: 700px) {
+  .hero-inferior-imagen {
+    max-width: 600px;
+  }
+
+}

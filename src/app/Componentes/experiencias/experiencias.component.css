@@ -1,0 +1,140 @@
+/*    ESTILOS GENERALES    */
+
+.presentacion {
+  font-family: "Abril Fatface", cursive;
+}
+
+.titulo-seccion {
+  font-family: "Rubik Dirt", cursive;
+}
+
+.titulo {
+  font-family: "Playfair Display SC", serif;
+}
+
+.texto {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+hr {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  Seccion Oscura  */
+
+.seccion-oscura {
+  background-color: #1b1b32;
+  color: white;
+}
+
+.titulo-oscura {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #e9eaeb;
+}
+
+.sub-titulo-oscura {
+  font-size: 1.5rem;
+  color: #e2e3e4;
+  text-decoration: none;
+}
+
+.texto-oscura {
+  font-size: 1.5rem;
+  color: #bfc0c0;
+}
+
+/*  Seccion Clara  */
+
+.seccion-clara {
+  background-color: white;
+  color: black;
+}
+
+.titulo-clara {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #3b3b3b;
+}
+
+.sub-titulo-clara {
+  font-size: 1.1rem;
+  color: #242424;
+}
+
+.texto-clara {
+  font-size: 1rem;
+  color: black;
+}
+
+.btn-primary {
+  border-radius: 15vh;
+  font-size: 1rem;
+  padding: 1vw;
+  margin: 20px;
+}
+
+  /*  EXPERIENCE    */
+
+.experiencia {
+  height: 100vh;
+  padding-top: 10vh;
+}  
+
+.experiencia .columna {
+  padding: 20px;
+  border: 2px solid #808080d4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: all 0.2s ease-in;
+}
+
+.experiencia .columna:hover {
+  color: white;
+  background-color: black;
+}
+
+.experiencia i {
+  font-size: 2.5rem;
+  color: #7ade30;
+  background-color: #0a0a33;
+  padding: 8px 16px;
+  border-radius: 50%;
+}
+
+.experiencia-titulo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+.badges-contenedor {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.badge {
+  padding: 10px;
+  margin: 5px;
+}

@@ -1,0 +1,159 @@
+
+.presentacion {
+  font-family: "Abril Fatface", cursive;
+}
+
+.titulo-seccion {
+  font-family: "Rubik Dirt", cursive;
+}
+
+.titulo {
+  font-family: "Playfair Display SC", serif;
+}
+
+.texto {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+hr {
+  display: none;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*  Seccion Oscura  */
+
+.seccion-oscura {
+  background-color: #1b1b32;
+  color: white;
+}
+
+.titulo-oscura {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #e9eaeb;
+}
+
+.sub-titulo-oscura {
+  font-size: 1.5rem;
+  color: #e2e3e4;
+  text-decoration: none;
+}
+
+.texto-oscura {
+  font-size: 1.5rem;
+  color: #bfc0c0;
+}
+
+/*  Seccion Clara  */
+
+.seccion-clara {
+  background-color: white;
+  color: black;
+}
+
+.titulo-clara {
+  font-size: 3rem;
+  padding: 15px 0;
+  color: #3b3b3b;
+}
+
+.sub-titulo-clara {
+  font-size: 1.1rem;
+  color: #242424;
+}
+
+.texto-clara {
+  font-size: 1rem;
+  color: black;
+}
+
+.btn-primary {
+  border-radius: 15vh;
+  font-size: 1rem;
+  padding: 1vw;
+  margin: 20px;
+}
+
+/*  habilidades  */
+
+.habilidades {
+  max-height: 150vh;
+  padding: 20vh;
+  margin: 10vh 0 10vh;
+}
+
+.habilidades .columna {
+  padding: 20px;
+}
+
+.habilidades .columna h2 {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+.habilidades .columna h2 > button {
+  color:rgb(54, 35, 116);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+/*  porcentajes   */
+
+.habilidad_titulo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.habilidad_nombre {
+  font-size: 1.2rem;
+  color: rgb(95, 95, 95);
+  padding: 2vh;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.habilidad_numero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.progress {
+  background-color: #9080e2;
+  margin: 2vh;
+}
+
+.progress-bar {
+  background-color: #6e57e0;
+}
