@@ -5,23 +5,36 @@
         <div class="row">
 
             <div class="columna col-xs-12 col-md-12 col-xl-4">
-                <div class="container-icono">
-                    <img src="../../../assets/recursos/icon/logo-utn.png" alt="utn-logo" class="educacion-icono-2">
-                </div>
-                <h3 class="educacion-texto titulo-clara titulo">Universidad Tecnologica
-                    Nacional<br>Tecnico
-                    Universitario en
-                    Programación</h3>
-                <p class="sub-titulo-clara texto">Esta carrera me ofrecio conocimientos y prácticas
-                    intensivas que me
-                    permitieron analizar un problema de procesamiento de datos y desarrollar una
-                    solución en un
-                    lenguaje apropiado
-                    utilizando un computador.
-                </p>
-            </div>
 
-            <hr>
+                <!--inicia el for-->
+
+                <div *ngFor="let education of educations">
+
+
+                    <div class="container-icono">
+
+                        {{ this.education.education_image }}
+                        <!--<img src="../../../assets/recursos/icon/logo-utn.png" alt="utn-logo" class="educacion-icono-2">-->
+                    
+                    </div>
+
+                    <h3 class="educacion-texto titulo-clara titulo"> {{ this.education.school }}
+                        <br> {{ this.education.qualification }}
+                    </h3>
+
+
+                    <p class="sub-titulo-clara texto">
+                        {{ this.education.description_r1 }} <br>
+                        {{ this.education.description_r2 }}
+                        {{ this.education.description_r3 }} 
+                        {{ this.education.description_r4 }}
+                        <span> {{ this.education.start }} - {{ this.education.end }} </span>
+                    </p>
+                </div>
+
+                <!--Termina el for-->
+
+            </div>
 
             <div class="columna col-xs-12 col-md-12 col-xl-4">
                 <div class="container-icono">

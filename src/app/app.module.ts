@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //Componentes para el PortFolio en orden asc.
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
@@ -18,12 +18,17 @@ import { ContactoComponent } from './Componentes/contacto/contacto.component';
 import { FooterComponent } from './Componentes/footer/footer.component';
 
 //Componentes para el Login
-import { IniciarSesionComponent } from './Componentes/Login/iniciar-sesion/iniciar-sesion.component';
-import { RegistrarComponent } from './Componentes/Login/registrar/registrar.component';
-import { ListaUsuariosComponent } from './Componentes/Login/lista-usuarios/lista-usuarios.component';
+import { LoginComponent } from './Login/login/login.component';
 
-//Componentes Secundarios
+//Componentes Secundarios + Angular Material
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,16 +42,27 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
     ProyectosComponent,
     ContactoComponent,
     FooterComponent,
-    IniciarSesionComponent,
-    RegistrarComponent,
-    ListaUsuariosComponent,
-    ExperienciasLaboralesComponent
+    ExperienciasLaboralesComponent,
+    LoginComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     NgxHideOnScrollModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

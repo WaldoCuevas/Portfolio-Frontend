@@ -168,3 +168,361 @@ section {
 }
 
 
+
+
+
+
+
+
+
+
+/*
+  Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+*/
+
+/*  media query for Full Screen -> 1200PIXELES o MENOS */
+@media only screen and (max-width: 1200px) {
+  /* Generales  */
+
+  nav button {
+    top: 5vh;
+  }
+
+  .switch {
+    position: absolute;
+    top: 3vh;
+    right: 5vw;
+  }
+
+  /*  Navbar  */
+
+  figure {
+    display: none;
+  }
+
+  .navbar-toggler {
+    background-color: green;
+  }
+
+  /* hero */
+
+  .hero-principal {
+    height: 60vh;
+  }
+
+  .hero-principal h2 {
+    font-size: 1.6rem;
+  }
+
+  /*  About me  */
+
+  .sobre-mi {
+    height: 100vh;
+  }
+
+  .sobre-mi p {
+    font-size: 1rem;
+  }
+
+  /*  Experiencia */
+
+  .experiencia {
+    height: 200vh;
+    padding-top: 5vh;
+    margin: 0;
+  }
+
+  .experiencia h1 {
+    font-size: 2rem;
+  }
+
+  /*  Educacion */
+
+  .educacion {
+    height: 180vh;
+    padding-top: 5vh;
+    margin: 0;
+  }
+
+  .educacion .aprendizaje {
+    text-align: center;
+  }
+
+  hr {
+    display: block;
+    height: 2vh;
+    width: 8vw;
+  }
+
+  /*  Experiencia Laboral   */
+
+  .experiencia_laboral {
+    height: 120vh;
+    padding-top: 5vh;
+    margin: 0;
+  }
+
+  .experiencia_laboral h2 {
+    text-align: center;
+  }
+
+  .experiencia_laboral .container-icono {
+    padding: 0;
+    margin: 0;
+  }
+
+  .experiencia_laboral .container-icono img {
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    width: 50%;
+  }
+
+  .habilidades .accordion-item {
+    margin-top: 2vh;
+  }
+
+  /*  habilidades  */
+
+  .habilidades {
+    height: 120vh;
+  }
+
+  .habilidades .accordion-item {
+    margin-top: 2vh;
+  }
+
+  .habilidades p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* proyectos */
+
+  .proyectos {
+    height: 130vh;
+  }
+
+  .proyecto p {
+    font-size: 1.2rem;
+  }
+
+  .overlay {
+    height: 60vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .proyecto p {
+    display: block;
+  }
+
+  /*  Contacto */
+
+  .contacto {
+    padding-top: 20vh;
+    height: 40vh;
+  }
+}
+
+/*  media query for Media Screen  -> 768Pixeles o MENOS*/
+@media only screen and (max-width: 768px) {
+  /* Generales */
+
+  /*  NavBar*/
+
+  .navbar-toggler {
+    background-color: blue;
+  }
+
+  /*  Hero  */
+
+  .hero-principal {
+    height: 100vh;
+    padding-top: 10vh;
+    margin: 0;
+  }
+
+  .hero-principal h1 {
+    font-size: 2rem;
+  }
+
+  .hero-principal h2 {
+    font-size: 1.5rem;
+  }
+
+  /*  Sobre mi */
+
+  .sobre-mi {
+    padding-top: 10vh;
+    height: 100vh;
+  }
+
+  /*  Experiencia */
+
+  .experiencia {
+    height: 210vh;
+    padding-top: 10vh;
+  }
+
+  /*  Educacion */
+
+  .educacion {
+    height: 180vh;
+    padding-top: 10vh;
+  }
+
+  /*  Experiencia Laboral   */
+
+  .experiencia_laboral {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    padding-top: 10vh;
+  }
+
+  /*  habilidades  */
+
+  /* proyectos */
+
+  .proyectos .container {
+    padding: 0;
+    margin: 0;
+  }
+
+  .proyectos {
+    height: 110vh;
+    padding-top: 10vh;
+  }
+
+  .proyecto img {
+    height: 60vh;
+  }
+
+  .proyectos .container {
+    padding: 0;
+    margin: 0;
+  }
+
+  /*  Contacto */
+}
+
+/*  media query for Small Screen -> 576Pixeles o MENOS*/
+@media only screen and (max-width: 576px) {
+  /*  navbar  */
+
+  .navbar-toggler {
+    background-color: orange;
+  }
+
+  /*  Hero  */
+
+  .hero-principal {
+    padding-top: 10vh;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-principal h1 {
+    font-size: 2rem;
+  }
+
+  .hero-principal h2 {
+    font-size: 1.5rem;
+  }
+
+  /*  Sobre mi */
+
+  .sobre-mi {
+    height: 100vh;
+    padding-top: 10vh;
+  }
+
+  /*  Experiencia */
+
+  .experiencia {
+    height: 210vh;
+    padding-top: 10vh;
+  }
+
+  /*  Educacion */
+
+  .educacion {
+    height: 180vh;
+    padding-top: 10vh;
+  }
+
+  /*  Experiencia Laboral   */
+
+  .experiencia_laboral {
+    height: 100vh;
+    padding-top: 10vh;
+  }
+
+  /*  habilidades  */
+
+  .habilidades {
+    height: 120vh;
+    padding-top: 10vh;
+  }
+
+  /* proyectos */
+
+  .proyectos {
+    height: 110vh;
+    padding-top: 10vh;
+  }
+
+  .proyecto img {
+    height: 60vh;
+    width: 100vw;
+  }
+
+  .proyectos .container {
+    padding: 0;
+    margin: 0;
+  }
+
+  /*  Contacto */
+
+  .rectangulo {
+    height: 60vh;
+  }
+
+  footer {
+    padding-top: 30vh;
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+  .sobre-mi {
+    height: 80vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sobre-mi p {
+    font-size: 1rem;
+  }
+
+  .experiencia {
+    height: 240vh;
+  }
+
+  .educacion {
+    height: 200vh;
+  }
+
+  .experiencia_laboral {
+    height: 110vh;
+  }
+
+
+}

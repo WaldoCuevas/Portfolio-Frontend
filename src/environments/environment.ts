@@ -3,8 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //Metodos Get
+  urlGetData:'http://localhost:8080/api/get',
+  //Metodos Post
+  urlPostData:'https://localhost:8080/api/add',
+  //Metodos Put
+  urlPutData:'https://localhost:8080/api/modify',
+  //Metodos Delete
+  urlDeleteData:'https://localhost:8080/api/delete'
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,0 +1,40 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Technologys } from 'src/app/Model/technologys';
+
+// Variables de entorno
+import { environment } from '../../../environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TechnologysService {
+
+  constructor(private httpClient:HttpClient) { }
+
+  //Metodos Get
+
+  public getDataTechnology(id: number): Observable<Technologys[]> {
+    return this.httpClient.get<Technologys[]>(environment.urlGetData + 'DataTechnology/' + `${id}`);
+  }
+
+  //Metodos Post
+
+  public addDataTechnology(technologys: Technologys): Observable<Technologys[]> {
+    return this.httpClient.post<Technologys[]>(environment.urlPostData + 'DataTechnology',technologys);
+  }
+
+  //Metodos Put
+
+  public modifyDataTechnology(id: number, technologys: Technologys): Observable<Technologys[]> {
+    return this.httpClient.put<Technologys[]>(environment.urlPutData + 'DataTechnology/' + `${id}`, technologys);
+  }
+
+  //Metodos Delete
+  
+  public deleteDataTechnology(id: number): Observable<any> {
+    return this.httpClient.delete(environment.urlDeleteData + "DataTechnology/" + `${id}`);
+  }
+
+}

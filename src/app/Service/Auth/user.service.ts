@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/Model/user';
+import { User } from 'src/app/Model/Auth/user';
+
+// Variables de entorno
+import { environment } from '../../../environments/environment';
+import { Login } from 'src/app/Model/Auth/login';
+import { JwtDto } from 'src/app/Model/Auth/jwt-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -10,28 +15,31 @@ export class UserService {
   constructor(private httpClient: HttpClient) {}
 
   //Metodos Get
-  urlGetData = 'https://localhost:8080/api/get';
 
-  public GetPersonalData(id:number):Observable<Object>{
-    return this.httpClient.get<User>(this.urlGetData + 'PersonalData/' + `${id}`);
+  public GetPersonalData(): Observable<User> {
+    return this.httpClient.get<User>(environment.urlGetData + 'PersonalData');
   }
 
   //Metodos Post
-  urlPostData = 'https://localhost:8080/api/add';
-  public AddPersonalData(user:User):Observable<User>{
-    return this.httpClient.post<User>(this.urlPostData + 'PersonalData', user );
+
+  public AddPersonalData(user: User): Observable<User> {
+    return this.httpClient.post<User>(environment.urlPostData + 'PersonalData', user);
+  }
+
+  login(login: Login): Observable<JwtDto> {
+    return this.httpClient.post<JwtDto>(`${environment.urlPostData + 'login'}`, Login);
   }
 
   //Metodos Put
-  urlPutData = 'https://localhost:8080/api/modify';
-  public ModifyPersonalData(id:number, user:User):Observable<User>{
-    return this.httpClient.put<User>(this.urlPutData + 'PersonalData', id, user );
+
+  public ModifyPersonalData(user: User): Observable<Object> {
+    return this.httpClient.put<User>(environment.urlPutData + 'PersonalData',user);
   }
 
   //Metodos Delete
-  urlDeleteData = 'https://localhost:8080/api/delete';
-  public DeletePersonalData(id:number):Observable<Object>{
-    return this.httpClient.delete(this.urlDeleteData + 'PersonalData/' + `${id}`);
+  
+  public DeletePersonalData(): Observable<any> {
+    return this.httpClient.delete(environment.urlDeleteData + "PersonalData");
   }
 
 }
