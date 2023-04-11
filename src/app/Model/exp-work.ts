@@ -4,9 +4,9 @@ export class ExpWork {
     workplace: string;
     workstation: string;
     job: string;
-    description_r1: string;
-    description_r2: string;
-    description_r3: string;
-    start: string;
-    end: string;
+    description_work_exp_r1: string;
+    description_work_exp_r2: string;
+    description_work_exp_r3: string;
+    start_work_exp: string;
+    end_work_exp: string;
   }

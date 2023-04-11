@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Login/login/login.component';
 import { HeroComponent } from './Componentes/hero/hero.component';
-import { SobreMiComponent } from './Componentes/sobre-mi/sobre-mi.component';
-import { ExperienciasComponent } from './Componentes/experiencias/experiencias.component';
-import { EducacionComponent } from './Componentes/educacion/educacion.component';
-import { ExperienciasLaboralesComponent } from './Componentes/experiencias-laborales/experiencias-laborales.component';
-import { HabilidadesComponent } from './Componentes/habilidades/habilidades.component';
-import { ProyectosComponent } from './Componentes/proyectos/proyectos.component';
+import { AboutMeComponent } from './Componentes/about-me/about-me.component';
+import { TechnologysComponent } from './Componentes/technologys/technologys.component';
+import { EducationsComponent } from './Componentes/educations/educations.component';
+import { ExpWorkComponent } from './Componentes/exp-work/exp-work.component';
+import { SkillsComponent } from './Componentes/skills/skills.component';
+import { ProjectsComponent } from './Componentes/projects/projects.component';
 
 
 // Rutas aqui ->>
@@ -18,12 +18,12 @@ const routes: Routes = [
   // secciones
   { path:"hero", component:HeroComponent},
   { path:"login", component: LoginComponent },
-  { path:"about-me", component: SobreMiComponent },
-  { path:"exp", component: ExperienciasComponent },
-  { path:"education", component: EducacionComponent },
-  { path:"exp-work", component: ExperienciasLaboralesComponent },
-  { path:"skills", component: HabilidadesComponent },
-  { path:"projects", component: ProyectosComponent },
+  { path:"about-me", component: AboutMeComponent },
+  { path:"exp", component: TechnologysComponent },
+  { path:"education", component: EducationsComponent },
+  { path:"exp-work", component: ExpWorkComponent },
+  { path:"skills", component: SkillsComponent },
+  { path:"projects", component: ProjectsComponent },
 
   //login
   { path:"login", component: LoginComponent }

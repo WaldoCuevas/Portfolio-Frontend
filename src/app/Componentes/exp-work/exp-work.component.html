@@ -1,0 +1,80 @@
+<!--Experiencia Laboral-->
+<section id="experiencia_laboral" class="experiencia_laboral seccion-clara d-flex flex-column">
+    <h2 class="titulo-clara texto-negro titulo-seccion">Experiencia Laboral</h2>
+
+    <!--Carrousel-->
+    <div id="experiencia_laboral-carrusel" class="carousel carousel-dark slide">
+
+        <div class="container text-center experiencia_laboral-contenedor">
+
+            <div class="row">
+
+                <div class="columna col-xs-12 col-md-12 col-xl-2">
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#experiencia_laboral-carrusel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                </div>
+
+
+                <div class="columna col-xs-12 col-md-12 col-xl-8">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <!--Experiencia laboral -->
+                            <div class="row" *ngFor="let expWork of expWorks">
+                                <div class="columana col-12 col-xl-6">
+                                    <div class="container-icono">
+                                    
+                                        <img src="{{ this.expWork.work_image}}" alt="Imagen_work_exp"
+                                            class="educacion-icono-2">
+
+                                    </div>
+                                </div>
+                                <div class="columana col-12 col-xl-6">
+                                    <div class="container-data">
+
+                                        <h4 class="experiencia-texto titulo-clara ">Institución: 
+                                            {{ this.expWork.workplace }}
+                                        </h4>
+
+                                        <h4 class="educacion-texto texto-clara texto"><span>Puesto</span>:
+                                            {{ this.expWork.workstation }}</h4>
+
+                                        <h4 class="educacion-texto texto-clara texto"><span>Aplicación</span>:
+                                            {{ this.expWork.job }} </h4>
+
+                                        <p class="aprendizaje sub-titulo-clara texto">
+                                            <span class="span">Logros/Funciones: </span> <br>
+                                            &lowast; <span>{{ this.expWork.description_work_exp_r1 }} </span> <br>
+                                            &lowast; <span>{{ this.expWork.description_work_exp_r2 }} </span> <br>
+                                            &lowast; <span>{{ this.expWork.description_work_exp_r3 }} </span> 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!-- fin experiencia-->
+
+                    </div>
+                </div>
+
+
+                <div class="columna col-xs-12 col-md-12 col-xl-2">
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#experiencia_laboral-carrusel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

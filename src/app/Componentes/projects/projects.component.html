@@ -1,0 +1,75 @@
+<!--Proyectos-->
+<section id="proyectos" class="proyectos seccion-clara d-flex flex-column">
+    <h2 class="titulo-clara texto-negro titulo-seccion">Proyectos</h2>
+
+    <div class="container text-center proyectos-contenedor">
+        <!--Carrousel-->
+        <div id="proyectos-carrusel" class="carousel carousel-dark slide">
+
+            <div class="row">
+
+                <div class="columna col-xs-2 col-md-2 col-xl-2">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#proyectos-carrusel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                </div>
+
+                <div class="columna col-xs-8 col-md-8 col-xl-8" >
+                    <!--inner-->
+                    <div class="carousel-inner" >
+
+                        <div *ngFor="let projects of Projects" class="carousel-item active" >
+                            
+                            <div class="columna col-xs-12 col-md-12 col-xl-12" >
+                                <div class="proyecto">
+                                    <img src="{{ this.projects.project_image }}" alt="StockTracking project"> 
+                                    <div class="overlay">
+
+                                        <div class="titulo-contenedor">
+                                            <h3 class="presentacion">{{ this.projects.project_title }}</h3>
+                                            <p class="titulo"><span class="project_name">{{ this.projects.project_name }}</span></p>
+                                            <div class="descripcion-contenedor">
+                                                <p>
+                                                    {{ this.projects.project_description }} </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="iconos-contenedor">
+                                            <a routerLink="{{this.projects.link_project}}" target="_blank" rel="noopener noreferrer"> <i
+                                                    class="bi bi-laptop"></i>
+                                            </a>
+                                            <a routerLink="{{this.projects.link_github}}" target="_blank"
+                                                rel="noopener noreferrer"> <i class="fa-brands fa-github"></i> </a>
+                                        </div>
+                                        <span> {{ this.projects.start_project }} - {{ this.projects.end_project }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--inner-->
+                </div>
+
+                <div class="columna col-xs-2 col-md-2 col-xl-2">
+                    <button class="carousel-control-next" type="button" data-bs-target="#proyectos-carrusel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <a href="https://github.com/WaldoCuevas" target="_blank" rel="noopener noreferrer">
+        <button type="button" class="btn btn-primary">
+            Ver más proyectos <i class="bi bi-arrow-right-circle"></i>
+        </button>
+    </a>
+</section>

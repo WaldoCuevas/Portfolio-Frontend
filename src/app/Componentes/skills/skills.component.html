@@ -1,0 +1,41 @@
+<!--Habilidades-->
+<section id="habilidades" class="habilidades seccion-oscura">
+    <h1 class="titulo-oscura titulo-seccion">Habilidades</h1>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-12 col-xl-3">
+
+                <div >
+                    <div class="habilidad_titulo">
+                        <h3 class="habilidad_nombre texto">{{this.skill.skills_name}}</h3>
+                        <span class="habilidad_numero">%{{this.skill.skill_porcent}}</span>
+                    </div>
+
+                    <!--[imageSrc]="this.skill.skill_image"
+                        [imageWidth]="100"
+                        [imageHeight]="100"
+                        [showImage]="true"-->
+                    <div class="text-center">
+                        <circle-progress 
+                        [percent]="this.skill.skill_porcent" 
+                        [radius]="100" 
+                        [outerStrokeWidth]="16"
+                        [innerStrokeWidth]="8" 
+                        [outerStrokeColor]="'#78C000'" 
+                        [innerStrokeColor]="'#C7E596'"
+                        [animation]="true" 
+                        [animationDuration]="300">
+                        </circle-progress>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>

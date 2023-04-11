@@ -15,19 +15,19 @@ export class SkillsService {
 
   //Metodos Get
 
-  public getDataSkill(id: number): Observable<Skills[]> {
-    return this.httpClient.get<Skills[]>(environment.urlGetData + 'DataSkill/' + `${id}`);
+  public getDataSkill(): Observable<Skills[]> {
+    return this.httpClient.get<Skills[]>(environment.urlGetData + 'DataSkill');
   }
   //Metodos Post
 
-  public addDataSkill(skills: Skills): Observable<Skills[]> {
-    return this.httpClient.post<Skills[]>(environment.urlPostData + 'DataSkill',skills);
+  public addDataSkill(skills: Skills): Observable<Skills> {
+    return this.httpClient.post<Skills>(environment.urlPostData + 'DataSkill',skills);
   }
 
   //Metodos Put
 
-  public modifyDataSkill(id: number, skills: Skills): Observable<Skills[]> {
-    return this.httpClient.put<Skills[]>(environment.urlPutData + 'DataSkill/' + `${id}`, skills);
+  public modifyDataSkill(id: number, skills: Skills): Observable<Skills> {
+    return this.httpClient.put<Skills>(environment.urlPutData + 'DataSkill/' + `${id}`, skills);
   }
 
   //Metodos Delete

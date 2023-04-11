@@ -15,20 +15,20 @@ export class TechnologysService {
 
   //Metodos Get
 
-  public getDataTechnology(id: number): Observable<Technologys[]> {
-    return this.httpClient.get<Technologys[]>(environment.urlGetData + 'DataTechnology/' + `${id}`);
+  public getDataTechnology(): Observable<Technologys[]> {
+    return this.httpClient.get<Technologys[]>(environment.urlGetData + 'DataTechnology');
   }
 
   //Metodos Post
 
-  public addDataTechnology(technologys: Technologys): Observable<Technologys[]> {
-    return this.httpClient.post<Technologys[]>(environment.urlPostData + 'DataTechnology',technologys);
+  public addDataTechnology(technologys: Technologys): Observable<Technologys> {
+    return this.httpClient.post<Technologys>(environment.urlPostData + 'DataTechnology',technologys);
   }
 
   //Metodos Put
 
-  public modifyDataTechnology(id: number, technologys: Technologys): Observable<Technologys[]> {
-    return this.httpClient.put<Technologys[]>(environment.urlPutData + 'DataTechnology/' + `${id}`, technologys);
+  public modifyDataTechnology(id: number, technologys: Technologys): Observable<Technologys> {
+    return this.httpClient.put<Technologys>(environment.urlPutData + 'DataTechnology/' + `${id}`, technologys);
   }
 
   //Metodos Delete

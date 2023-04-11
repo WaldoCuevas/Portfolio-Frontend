@@ -3,15 +3,17 @@ import { User } from 'src/app/Model/Auth/user';
 import { UserService } from 'src/app/Service/Auth/user.service';
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  selector: 'app-about-me',
+  templateUrl: './about-me.component.html',
+  styleUrls: ['./about-me.component.css'],
 })
-export class HeroComponent implements OnInit {
+export class AboutMeComponent implements OnInit {
+  
+  user: User;
 
-  user:User;
+  darkmode: boolean = false;
 
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.GetPersonalData();
@@ -34,5 +36,4 @@ export class HeroComponent implements OnInit {
   public ModifyPersonalData(): any {}
 
   public DeletePersonalData(): void {}
-
 }

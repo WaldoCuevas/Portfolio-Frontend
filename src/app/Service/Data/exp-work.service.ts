@@ -16,20 +16,20 @@ export class ExpWorkService {
 
   //Metodos Get
 
-  public getDataWork(id: number): Observable<ExpWork[]> {
-    return this.httpClient.get<ExpWork[]>(environment.urlGetData + 'DataWork/' + `${id}`);
+  public getDataWork(): Observable<ExpWork[]> {
+    return this.httpClient.get<ExpWork[]>(environment.urlGetData + 'DataWork');
   }
 
   //Metodos Post
 
-  public addDataWork(ExpWork: ExpWork): Observable<ExpWork[]> {
-    return this.httpClient.post<ExpWork[]>(environment.urlPostData + 'DataWork',ExpWork);
+  public addDataWork(ExpWork: ExpWork): Observable<ExpWork> {
+    return this.httpClient.post<ExpWork>(environment.urlPostData + 'DataWork',ExpWork);
   }
 
   //Metodos Put
 
-  public modifyDataWork(id: number, ExpWork: ExpWork): Observable<ExpWork[]> {
-    return this.httpClient.put<ExpWork[]>(environment.urlPutData + 'DataWork/' + `${id}`, ExpWork);
+  public modifyDataWork(id: number, ExpWork: ExpWork): Observable<ExpWork> {
+    return this.httpClient.put<ExpWork>(environment.urlPutData + 'DataWork/' + `${id}`, ExpWork);
   }
 
   //Metodos Delete

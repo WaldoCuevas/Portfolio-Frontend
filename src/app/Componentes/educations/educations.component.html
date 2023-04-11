@@ -1,0 +1,41 @@
+<!--Educación-->
+<section id="educacion" class="educacion seccion-clara">
+    <div class="container text-center">
+        <h1 class="titulo-clara titulo-seccion">Educación</h1>
+        <div class="row">
+
+            <div *ngFor="let education of educations" class="columna col-xs-12 col-md-12 col-xl-4">
+
+                <!--inicia el for-->
+
+                <div>
+
+                    <div class="container-icono">
+
+                        <img src="{{ this.education.education_image }}" alt="education_logo" class="educacion-icono-2">
+                    </div>
+
+
+                    <h3 class="educacion-texto titulo-clara titulo"> 
+                        {{ this.education.school }} <br> 
+                        {{ this.education.qualification }} <br>
+                        {{ this.education.start_education }} - {{ this.education.end_education }}
+                    </h3>
+
+
+                    <p class="sub-titulo-clara texto">
+                        {{ this.education.description_education_r1 }} <br>
+                        {{ this.education.description_education_r2 }} <br>
+                        {{ this.education.description_education_r3 }} <br>
+                        {{ this.education.description_education_r4 }} <br>
+                        
+                    </p>
+                </div>
+
+                <!--Termina el for-->
+
+            </div>
+
+        </div>
+    </div>
+</section>

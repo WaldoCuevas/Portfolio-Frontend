@@ -8,13 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 //Componentes para el PortFolio en orden asc.
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
 import { HeroComponent } from './Componentes/hero/hero.component';
-import { SobreMiComponent } from './Componentes/sobre-mi/sobre-mi.component';
-import { ExperienciasComponent } from './Componentes/experiencias/experiencias.component';
-import { EducacionComponent } from './Componentes/educacion/educacion.component';
-import { ExperienciasLaboralesComponent } from './Componentes/experiencias-laborales/experiencias-laborales.component';
-import { HabilidadesComponent } from './Componentes/habilidades/habilidades.component';
-import { ProyectosComponent } from './Componentes/proyectos/proyectos.component';
-import { ContactoComponent } from './Componentes/contacto/contacto.component';
+import { AboutMeComponent } from './Componentes/about-me/about-me.component';
+import { TechnologysComponent } from './Componentes/technologys/technologys.component';
+import { EducationsComponent } from './Componentes/educations/educations.component';
+import { ExpWorkComponent } from './Componentes/exp-work/exp-work.component';
+import { SkillsComponent } from './Componentes/skills/skills.component';
+import { ProjectsComponent } from './Componentes/projects/projects.component';
+import { ContactComponent } from './Componentes/contact/contact.component';
 import { FooterComponent } from './Componentes/footer/footer.component';
 
 //Componentes para el Login
@@ -27,24 +27,21 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HeroComponent,
-    SobreMiComponent,
-    ExperienciasComponent,
-    EducacionComponent,
-    HabilidadesComponent,
-    ProyectosComponent,
-    ContactoComponent,
     FooterComponent,
-    ExperienciasLaboralesComponent,
     LoginComponent,
     NotFoundComponent,
+    EducationsComponent,
+    ExpWorkComponent,
+    ProjectsComponent,
+    SkillsComponent,
+    TechnologysComponent,
+    AboutMeComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

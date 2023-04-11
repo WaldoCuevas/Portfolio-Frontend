@@ -21,14 +21,14 @@ export class EducationsService {
 
   //Metodos Post
 
-  public addDataEducation(educations: Educations): Observable<Educations[]> {
-    return this.httpClient.post<Educations[]>(environment.urlPostData + 'DataEducation',educations);
+  public addDataEducation(educations: Educations): Observable<Educations> {
+    return this.httpClient.post<Educations>(environment.urlPostData + 'DataEducation',educations);
   }
 
   //Metodos Put
 
-  public modifyDataEducation(id: number, educations: Educations): Observable<Educations[]> {
-    return this.httpClient.put<Educations[]>(environment.urlPutData + 'DataEducation/' + `${id}`, educations);
+  public modifyDataEducation(id: number, educations: Educations): Observable<Educations> {
+    return this.httpClient.put<Educations>(environment.urlPutData + 'DataEducation/' + `${id}`, educations);
   }
 
   //Metodos Delete

@@ -3,10 +3,10 @@ export class Educations {
     education_image: string;
     school: string;
     qualification: string;
-    description_r1: string;
-    description_r2: string;
-    description_r3: string;
-    description_r4: string;
-    start: string;
-    end: string;
+    description_education_r1: string;
+    description_education_r2: string;
+    description_education_r3: string;
+    description_education_r4: string;
+    start_education: string;
+    end_education: string;
   }

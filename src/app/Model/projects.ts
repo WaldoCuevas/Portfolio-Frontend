@@ -6,6 +6,6 @@ export class Projects {
   project_description: string;
   link_project: string;
   link_github: string;
-  start: string;
-  end: string;
+  start_project: string;
+  end_project: string;
 }
