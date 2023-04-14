@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from './Service/Auth/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { UserService } from './Service/Auth/user.service';
 export class AppComponent {
   title = 'PortFolio-Angular';
 
-  constructor(private userService:UserService) {
+  constructor() {
 
   }
 

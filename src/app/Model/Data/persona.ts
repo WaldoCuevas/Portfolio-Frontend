@@ -1,11 +1,11 @@
-import { Technologys } from '../../Model/technologys';
-import { Educations } from '../../Model/educations';
-import { ExpWork } from '../../Model/exp-work';
-import { Skills } from '../../Model/skills';
-import { Projects } from '../../Model/projects';
+import { Technologys } from '../Data/technologys';
+import { Educations } from '../Data/educations';
+import { ExpWork } from '../Data/exp-work';
+import { Skills } from '../Data/skills';
+import { Projects } from '../Data/projects';
 
-export class User {
-  
+export class Persona {
+
   user_id: number;
   name: string;
   last_name: string;

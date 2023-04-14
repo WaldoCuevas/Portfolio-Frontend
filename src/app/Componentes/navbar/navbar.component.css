@@ -38,6 +38,17 @@ section {
   align-items: center;
 }
 
+.btn {
+  width: 100px;
+  background-color: rgb(34, 34, 71);
+  border-width: 0.2em;
+  border-color: rgb(74, 54, 109);
+}
+
+.login {
+  color: rgb(209, 209, 209);
+}
+
 /*  Seccion Oscura  */
 
 .seccion-oscura {

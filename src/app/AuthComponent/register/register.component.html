@@ -1,0 +1,28 @@
+<div class="form-container">
+    <h3>Registro</h3>
+    
+    <form class="form" (ngSubmit)="onSubmit()">
+        <label>Datos Personales</label>
+        <div>
+            <input type="text" id="nombre" [(ngModel)]="usuario.nombre" name="nombre" placeholder="Nombre" maxlength="30">
+        </div>
+        <div>
+            <input type="text" id="apellido" [(ngModel)]="usuario.apellido" name="apellido" placeholder="Apellido" maxlength="30">
+        </div>
+        <div>
+            <input type="email" id="email" [(ngModel)]="usuario.email" name="email" placeholder="Email" maxlength="35">
+        </div>
+
+        <label>Datos de Login</label>
+        <div>
+            <input type="text" id="nombreUsuario" [(ngModel)]="usuario.nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario" maxlength="75">
+        </div>
+
+        <div>
+            <input type="password" id="password" [(ngModel)]="usuario.password" name="password" placeholder="Contraseña" maxlength="75">
+        </div>
+    
+        <button>Guardar</button>
+    </form>
+    
+</div>

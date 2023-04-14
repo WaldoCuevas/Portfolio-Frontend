@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/Model/Auth/user';
-import { UserService } from 'src/app/Service/Auth/user.service';
+import { Router } from '@angular/router';
+import { Persona } from 'src/app/Model/Data/persona';
+import { TokenService } from 'src/app/Service/Auth/token.service';
+import { PersonaService } from 'src/app/Service/Data/persona.service';
 
 @Component({
   selector: 'app-hero',
@@ -9,17 +11,36 @@ import { UserService } from 'src/app/Service/Auth/user.service';
 })
 export class HeroComponent implements OnInit {
 
-  user:User;
+  user:Persona;
 
-  constructor(private userService:UserService) { }
+  roles: string[];
+  isAdmin = false;
+  isLogged = false;
+
+  constructor(private personaService:PersonaService,private router: Router,
+    private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
+      this.roles = this.tokenService.getAuthorities();
+  
+      if (this.tokenService.getToken()) {
+        this.isLogged = true;
+        this.roles.forEach(rol => {
+          if (rol === 'ROLE_ADMIN') {
+            this.isAdmin = true;
+  
+          }
+        })
+  
+      }
+
     this.GetPersonalData();
   }
 
   public GetPersonalData(): void {
-    this.userService.GetPersonalData().subscribe({
-      next: (data: User) => {
+    this.personaService.GetPersonalData().subscribe({
+      next: (data: Persona) => {
         this.user = data;
         console.log(this.user);
       },

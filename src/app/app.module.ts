@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-//Componentes para el PortFolio en orden asc.
+//Componentes PortFolio en orden asc.
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
 import { HeroComponent } from './Componentes/hero/hero.component';
 import { AboutMeComponent } from './Componentes/about-me/about-me.component';
@@ -17,8 +17,10 @@ import { ProjectsComponent } from './Componentes/projects/projects.component';
 import { ContactComponent } from './Componentes/contact/contact.component';
 import { FooterComponent } from './Componentes/footer/footer.component';
 
-//Componentes para el Login
-import { LoginComponent } from './Login/login/login.component';
+//Componentes Auth
+import { IndexComponent } from './AuthComponent/index/index.component';
+import { LoginComponent } from './AuthComponent/login/login.component';
+import { RegisterComponent } from './AuthComponent/register/register.component';
 
 //Componentes Secundarios + Angular Material
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
@@ -26,6 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FormsModule } from '@angular/forms';
+import { interceptorProvider } from './Utils/Interceptor/interceptor.service';
+
+
 
 @NgModule({
   declarations: [
@@ -42,6 +48,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     TechnologysComponent,
     AboutMeComponent,
     ContactComponent,
+    RegisterComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +58,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSlideToggleModule,
+    FormsModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
       radius: 100,
@@ -61,7 +70,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     }),
     
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

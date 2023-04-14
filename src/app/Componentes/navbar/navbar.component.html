@@ -8,7 +8,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarToggler">
-            <a class="navbar-brand" href="#inicio">
+            <a class="navbar-brand" routerLink="">
                 <figure>
                     <img src="../../../assets/recursos/icon/icon Argentina programa.png" alt="Icon Argentina Programa">
                     <figcaption> Argentina Programa </figcaption>
@@ -19,31 +19,31 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" routerLink="hero">Inicio</a>
+                        <a *ngIf="isLogged" class="nav-link" aria-current="page" routerLink="hero">Inicio</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="about-me">Sobre mi</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a *ngIf="isLogged" class="nav-link" routerLink="about-me">Sobre mi</a>
+                    </li> -->
 
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="exp">Experiencia</a>
+                        <a *ngIf="isLogged" class="nav-link" routerLink="exp">Experiencia</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="education">Educacion</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a *ngIf="isLogged" class="nav-link" routerLink="education">Educacion</a>
+                    </li> -->
 
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="exp-work">Experiencia Laboral</a>
+                        <a *ngIf="isLogged" class="nav-link" routerLink="exp-work">Experiencia Laboral</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="skills">Habilidades</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a *ngIf="isLogged" class="nav-link" routerLink="skills">Habilidades</a>
+                    </li> -->
 
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="projects">Proyectos</a>
+                        <a *ngIf="isLogged" class="nav-link" routerLink="projects">Proyectos</a>
                     </li>
 
                     <!-- <li class="nav-item">
@@ -53,15 +53,12 @@
                 </ul>
             </div>
 
+            <a *ngIf="isLogin();else IniciarSesion" class="link" (click)="cerrarSesion()">Cerrar Sesión</a>
 
-            <mat-slide-toggle> Dark Mode </mat-slide-toggle>
+            <ng-template #IniciarSesion>
+                <a class="link" routerLink="login" routerLinkActive="active">Iniciar Sesión</a>
+            </ng-template>
 
-            <!-- 
-            <button class="switch" id="switch">
-                <span> <i class="fa-solid fa-sun"></i> </span>
-                <span> <i class="fa-solid fa-moon"></i> </span>
-            </button>
-                    -->
         </div>
 
     </div>

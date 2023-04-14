@@ -20,7 +20,8 @@ span > a:hover {
 }
 
 .form-container {
-    padding: 40px 20px;
+    padding: 15vh;
+    padding-top: 25vh;
     display: flex;
     flex-direction: column;
     align-items: center;

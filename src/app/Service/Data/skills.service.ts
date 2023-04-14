@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Skills } from 'src/app/Model/skills';
+import { Skills } from 'src/app/Model/Data/skills';
 
 // Variables de entorno
 import { environment } from '../../../environments/environment';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/Model/Auth/user';
-import { UserService } from 'src/app/Service/Auth/user.service';
+import { Persona } from 'src/app/Model/Data/persona';
+import { PersonaService } from 'src/app/Service/Data/persona.service';
 
 @Component({
   selector: 'app-about-me',
@@ -9,19 +9,19 @@ import { UserService } from 'src/app/Service/Auth/user.service';
 })
 export class AboutMeComponent implements OnInit {
   
-  user: User;
+  user: Persona;
 
   darkmode: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private personaService: PersonaService) {}
 
   ngOnInit(): void {
     this.GetPersonalData();
   }
 
   public GetPersonalData(): void {
-    this.userService.GetPersonalData().subscribe({
-      next: (data: User) => {
+    this.personaService.GetPersonalData().subscribe({
+      next: (data: Persona) => {
         this.user = data;
         console.log(this.user);
       },

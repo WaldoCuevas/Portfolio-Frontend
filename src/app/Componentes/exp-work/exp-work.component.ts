@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpWork } from 'src/app/Model/exp-work';
+import { ExpWork } from 'src/app/Model/Data/exp-work';
 import { ExpWorkService } from 'src/app/Service/Data/exp-work.service';
 
 @Component({

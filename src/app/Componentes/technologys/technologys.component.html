@@ -1,7 +1,7 @@
 <!--Experiencia-->
 <section id="experiencia" class="experiencia seccion-clara">
     <div class="container text-center">
-        <h1 class="titulo-clara titulo-seccion">Aprendizaje y Conocimiento</h1>
+        <h1 class="titulo-clara titulo-seccion">Conocimientos</h1>
         <div class="row">
 
             <div *ngFor="let technology of technologys" class="columna col-xs-12 col-md-12 col-xl-3">
@@ -13,6 +13,7 @@
                     {{ this.technology.description_technology_r2 }}
                 </p>
                 <div class="badges-contenedor">
+                    <h3 class="texto-oscura"><span> Habilidades:</span></h3>
                     <span class="badge text-bg-primary">{{ this.technology.badge_technology_1 }}</span>
                     <span class="badge text-bg-primary">{{ this.technology.badge_technology_2 }}</span>
                     <span class="badge text-bg-primary">{{ this.technology.badge_technology_3 }}</span>
@@ -23,3 +24,11 @@
         </div>
     </div>
 </section>
+
+<div>
+    <app-skills></app-skills>
+</div>
+
+<div>
+    <app-educations></app-educations>
+</div>
