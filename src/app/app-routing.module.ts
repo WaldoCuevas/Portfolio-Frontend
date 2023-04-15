@@ -23,11 +23,11 @@ const routes: Routes = [
   
   // secciones
   { path:"hero", component:HeroComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
-  { path:"about-me", component: AboutMeComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"about-me", component: AboutMeComponent,canActivate: [guard], data: { expectedRol: ['admin']} },
   { path:"exp", component: TechnologysComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
-  { path:"education", component: EducationsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"education", component: EducationsComponent,canActivate: [guard], data: { expectedRol: ['admin']} },
   { path:"exp-work", component: ExpWorkComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
-  { path:"skills", component: SkillsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"skills", component: SkillsComponent,canActivate: [guard], data: { expectedRol: ['admin']} },
   { path:"projects", component: ProjectsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
   
   //index

@@ -9,9 +9,7 @@ import { PersonaService } from 'src/app/Service/Data/persona.service';
 })
 export class AboutMeComponent implements OnInit {
   
-  user: Persona;
-
-  darkmode: boolean = false;
+  user: Persona = new Persona();
 
   constructor(private personaService: PersonaService) {}
 
@@ -23,7 +21,7 @@ export class AboutMeComponent implements OnInit {
     this.personaService.GetPersonalData().subscribe({
       next: (data: Persona) => {
         this.user = data;
-        console.log(this.user);
+        //console.log(this.user);
       },
       error(err: any) {
         console.error();
