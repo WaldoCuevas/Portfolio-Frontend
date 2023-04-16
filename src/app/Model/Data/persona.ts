@@ -9,6 +9,7 @@ export class Persona {
   user_id: number;
   name: string;
   last_name: string;
+  user_image:string;
   email: string;
 
   //login data
