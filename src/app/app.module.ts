@@ -25,7 +25,6 @@ import { RegisterComponent } from './AuthComponent/register/register.component';
 //Componentes Secundarios + Angular Material
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
@@ -57,7 +56,6 @@ import { interceptorProvider } from './Utils/Interceptor/interceptor.service';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
