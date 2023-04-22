@@ -1,5 +1,6 @@
 export class Educations {
-    education_id: number;
+    
+  education_id: number;
     education_image: string;
     school: string;
     qualification: string;
@@ -9,4 +10,5 @@ export class Educations {
     description_education_r4: string;
     start_education: string;
     end_education: string;
+    
   }

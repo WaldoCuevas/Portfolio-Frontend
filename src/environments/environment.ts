@@ -7,11 +7,11 @@ export const environment = {
   //Metodos Get
   urlGetData:'http://localhost:8080/api/get',
   //Metodos Post
-  urlPostData:'https://localhost:8080/api/add',
+  urlPostData:'http://localhost:8080/api/add',
   //Metodos Put
-  urlPutData:'https://localhost:8080/api/modify',
+  urlPutData:'http://localhost:8080/api/modify',
   //Metodos Delete
-  urlDeleteData:'https://localhost:8080/api/delete'
+  urlDeleteData:'http://localhost:8080/api/delete'
 };
 
 

@@ -171,6 +171,109 @@ figcaption {
   text-align: center;
 }
 
+/*  Iconos  */
+
+.container_icon {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+i {
+  font-size: 1.15em;
+  margin: 10px 20px;
+  cursor: pointer;
+}
+
+.bi-plus-square,
+.bi-pencil-square,
+.bi-x-square {
+  transition: 0.3s all ease;
+}
+
+.bi-plus-square:hover {
+  color: #059917;
+}
+
+.bi-pencil-square:hover {
+  color: #1e90ff;
+}
+
+.bi-x-square:hover {
+  color: #ff1e1e;
+}
+
+/*  Form  */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
+}
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3, label, input, button {
+  margin: 8px 0;
+}
+
+label {
+  font-size: 1em;
+}
+
+h3 {
+  text-align: center;
+  
+}
+
+input {
+  margin: 25px 0px;
+  padding: 20px 15px;
+  color: var(--text-color);
+  border-radius: 0;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: 1px solid #000;
+  border-image: initial;
+  text-align: left;
+}
+
+input:focus {
+  box-shadow: 0 0 10px #0000002a;
+  background-color: #0000002a;
+}
+
+.close {
+  width: 50px;
+  margin-right: 20px;
+}
+
+button {
+  background-image: linear-gradient(to right, #00bfff , #3b78c2, #4239a1);
+  border-radius: 30px;
+  border: transparent;
+  width: 10em;
+  transition: .2s all ease;
+}
+
+
+button:hover {
+  background-image: linear-gradient(to right, #8ddbf5 , #528bd1, #7671b1);
+}
+
 /*  Switch Modo oscuro */
 
 .switch {

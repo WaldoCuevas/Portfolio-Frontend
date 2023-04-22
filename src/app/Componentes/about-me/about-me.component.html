@@ -2,11 +2,96 @@
 <section id="sobre-mi" class="sobre-mi seccion-oscura">
 
     <div class="contenedor">
+        
+        <div class="container_icon">
+            <i (click)="modalService.open(AddPersonalDataModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+            <i (click)="modalService.open(ModifyPersonalDataModal)" class="bi bi-pencil-square" *ngIf="isAdmin"> Modify</i>
+            <i (click)="DeletePersonalData()" class="bi bi-x-square" *ngIf="isAdmin"> Delete</i>
+        </div>
+
         <h2 class="titulo-oscura titulo-seccion">Sobre mi</h2>
-        <p class="texto-oscura texto"> {{ this.user.about_me_r1 }} <br> {{this.user.about_me_r2}} </p>
-        <button class="btn btn-primary"> <a class="sub-titulo-oscura"
-                href="https://files.deply.dev/files/1cafc124-cd63-410d-a251-9ca5247270f9-fc681843-cf57-45e2-a9b0-263e041f8b97-Waldo's_Resume_(2).pdf"
-                target="_blank" rel="noopener noreferrer">Download CV </a> </button>
+        <p class="texto-oscura texto"> {{ this.persona.about_me_r1 }} <br> {{this.persona.about_me_r2}} </p>
     </div>
 
+    <button class="btn btn-primary"> <a class="sub-titulo-oscura"
+        href="https://files.deply.dev/files/1cafc124-cd63-410d-a251-9ca5247270f9-fc681843-cf57-45e2-a9b0-263e041f8b97-Waldo's_Resume_(2).pdf"
+        target="_blank" rel="noopener noreferrer">Download CV </a> </button>
+
 </section>
+
+<!--Modal-->
+<ng-template #AddPersonalDataModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Añadir Descripcion</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="AddPersonalData()">
+
+                <div>
+                    <label for="about_me_r1">Descripcion 1: </label>
+                    <textarea type="text" id="about_me_r1" [(ngModel)]="persona.about_me_r1" name="about_me_r1"
+                        placeholder="Descripcion" maxlength="254">
+                    </textarea>
+                </div>
+
+                <div>
+                    <label for="about_me_r2">Descripcion 2: </label>
+                    <textarea type="text" id="about_me_r2" [(ngModel)]="persona.about_me_r2" name="about_me_r2"
+                        placeholder="Descripcion" maxlength="254">
+                    </textarea>
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>
+
+<!--Modal-->
+<ng-template #ModifyPersonalDataModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Modificar descripcion</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="ModifyPersonalData()">
+
+                
+                <div>
+                    <label for="id">ID:</label>
+                    <input id="id" [(ngModel)]="this.persona.user_id" name="id" disabled="true"
+                        placeholder="{{this.persona.user_id}}">
+                </div>
+                
+                <div>
+                    <label for="about_me_r1">Descripcion 1: </label>
+                    <textarea type="text" id="about_me_r1" [(ngModel)]="persona.about_me_r1" name="about_me_r1"
+                        placeholder="Descripcion" maxlength="254">
+                    </textarea>
+                </div>
+
+                <div>
+                    <label for="about_me_r2">Descripcion 2: </label>
+                    <textarea type="text" id="about_me_r2" [(ngModel)]="persona.about_me_r2" name="about_me_r2"
+                        placeholder="Descripcion" maxlength="254">
+                    </textarea>
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>

@@ -14,7 +14,7 @@ export class ExpWorkService {
 
   constructor(private httpClient:HttpClient) { }
 
-  //Metodos Get
+  //Metodos Get 
 
   public getDataWork(): Observable<ExpWork[]> {
     return this.httpClient.get<ExpWork[]>(environment.urlGetData + 'DataWork');
@@ -22,14 +22,14 @@ export class ExpWorkService {
 
   //Metodos Post
 
-  public addDataWork(ExpWork: ExpWork): Observable<ExpWork> {
-    return this.httpClient.post<ExpWork>(environment.urlPostData + 'DataWork',ExpWork);
+  public addDataWork(ExpWork: ExpWork): Observable<Object> {
+    return this.httpClient.post(environment.urlPostData + 'DataWork',ExpWork);
   }
 
   //Metodos Put
 
-  public modifyDataWork(id: number, ExpWork: ExpWork): Observable<ExpWork> {
-    return this.httpClient.put<ExpWork>(environment.urlPutData + 'DataWork/' + `${id}`, ExpWork);
+  public modifyDataWork(id: number, ExpWork: ExpWork): Observable<Object> {
+    return this.httpClient.put(environment.urlPutData + 'DataWork/' + `${id}`, ExpWork);
   }
 
   //Metodos Delete

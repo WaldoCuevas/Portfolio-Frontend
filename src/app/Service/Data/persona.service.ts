@@ -21,14 +21,14 @@ export class PersonaService {
 
   //Metodos Post
 
-  public AddPersonalData(persona: Persona): Observable<Persona> {
-    return this.httpClient.post<Persona>(environment.urlPostData + 'PersonalData', persona);
+  public AddPersonalData(persona: Persona): Observable<Object> {
+    return this.httpClient.post(environment.urlPostData + 'PersonalData', persona);
   }
 
   //Metodos Put
 
   public ModifyPersonalData(persona: Persona): Observable<Object> {
-    return this.httpClient.put<Persona>(environment.urlPutData + 'PersonalData',persona);
+    return this.httpClient.put(environment.urlPutData + 'PersonalData',persona);
   }
 
   //Metodos Delete

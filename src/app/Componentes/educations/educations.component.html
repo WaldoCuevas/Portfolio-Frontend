@@ -1,41 +1,210 @@
 <!--Educación-->
 <section id="educacion" class="educacion seccion-clara">
+
     <div class="container text-center">
+
         <h1 class="titulo-clara titulo-seccion">Educación</h1>
+
+        <div class="container_icon">
+            <i (click)="modalService.open(AddDataEducationModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+        </div>
+
         <div class="row">
 
             <div *ngFor="let education of educations" class="columna col-xs-12 col-md-12 col-xl-4">
 
-                <!--inicia el for-->
-
-                <div>
-
-                    <div class="container-icono">
-
-                        <img src="{{ this.education.education_image }}" alt="education_logo" class="educacion-icono-2">
-                    </div>
+                <div class="container_icon">
+                    <i (click)="modalService.open(ModifyDataEducationModal)" class="bi bi-pencil-square"
+                        *ngIf="isAdmin"> Modify</i>
+                    <i (click)="DeleteDataEducation(this.education.education_id)" class="bi bi-x-square"
+                        *ngIf="isAdmin"> Delete</i>
+                </div>
 
 
-                    <h3 class="educacion-texto titulo-clara titulo"> 
-                        {{ this.education.school }} <br> 
+                <div class="container-imagen">
+                    <img src="{{ this.education.education_image }}" alt="education_logo" class="educacion-icono-2">
+                </div>
+
+                <div class="container-info">
+                    <h3 class="educacion-texto titulo-clara titulo">
+                        {{ this.education.school }} <br>
                         {{ this.education.qualification }} <br>
                         {{ this.education.start_education }} - {{ this.education.end_education }}
                     </h3>
+                </div>
 
-
+                <div class="container-description">
                     <p class="sub-titulo-clara texto">
                         {{ this.education.description_education_r1 }} <br>
                         {{ this.education.description_education_r2 }} <br>
                         {{ this.education.description_education_r3 }} <br>
                         {{ this.education.description_education_r4 }} <br>
-                        
                     </p>
                 </div>
 
-                <!--Termina el for-->
 
+                <!--Modal-->
+                <ng-template #ModifyDataEducationModal let-modal>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Titulo modal</h4>
+                        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-container">
+                            <form class="form" (ngSubmit)="ModifyDataEducation(this.education.education_id)">
+
+                                <div>
+                                    <label for="id">ID:</label>
+                                    <input id="id" [(ngModel)]="this.education.education_id" name="id" disabled="true"
+                                        placeholder="{{this.education.education_id}}">
+                                </div>
+
+                                <div>
+                                    <label for="image_URL">Imagen URL </label>
+                                    <input type="text" id="image_URL" [(ngModel)]="education.education_image"
+                                        name="image_URL" placeholder="Imagen URL" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="workplace">Institución: </label>
+                                    <input type="text" id="workplace" [(ngModel)]="education.school" name="workplace"
+                                        placeholder="Lugar de Trabajo" maxlength="30">
+                                </div>
+
+                                <div>
+                                    <label for="workstation">Puesto: </label>
+                                    <input type="text" id="email" [(ngModel)]="education.qualification"
+                                        name="workstation" placeholder="Puesto de trabajo" maxlength="35">
+                                </div>
+
+                                <div>
+                                    <label for="job">Aplicación: </label>
+                                    <input type="text" id="job" [(ngModel)]="education.description_education_r1"
+                                        name="job" placeholder="Nombre de la Aplicacion" min="0">
+                                </div>
+
+                                <div>
+                                    <label for="description_work_exp_r1">Descripcion 1: </label>
+                                    <input type="text" id="description_work_exp_r1"
+                                        [(ngModel)]="education.description_education_r2" name="description_work_exp_r1"
+                                        placeholder="Descripcion" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="description_work_exp_r2">Descripcion 2: </label>
+                                    <input type="text" id="description_work_exp_r2"
+                                        [(ngModel)]="education.description_education_r3" name="description_work_exp_r2"
+                                        placeholder="Descripcion" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="description_work_exp_r3">Descripcion 3: </label>
+                                    <input type="text" id="description_work_exp_r3"
+                                        [(ngModel)]="education.description_education_r4" name="description_work_exp_r3"
+                                        placeholder="Descripcion" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="start_work_exp">Inicio: </label>
+                                    <input type="text" id="nombreUsuario" [(ngModel)]="education.start_education"
+                                        name="start_work_exp" placeholder="Inicio experiencia laboral" maxlength="75">
+                                </div>
+
+                                <div>
+                                    <label for="end_work_exp">Final: </label>
+                                    <input type="text" id="end_work_exp" [(ngModel)]="education.end_education"
+                                        name="end_work_exp" placeholder="Fin experiencia laboral" maxlength="75">
+                                </div>
+
+                                <button>Añadir</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+                    </div>
+                </ng-template>
             </div>
 
         </div>
+
     </div>
+
 </section>
+
+<!--Modal-->
+<ng-template #AddDataEducationModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Registrar Nueva Educacion</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="AddDataEducation()">
+
+                <div>
+                    <label for="education_image">Imagen URL </label>
+                    <input type="text" id="education_image" [(ngModel)]="educationTS.education_image" name="education_image"
+                        placeholder="Imagen URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="school">Institución: </label>
+                    <input type="text" id="workplace" [(ngModel)]="educationTS.school" name="school"
+                        placeholder="Institución" maxlength="30">
+                </div>
+
+                <div>
+                    <label for="qualification">Certificación: </label>
+                    <input type="text" id="email" [(ngModel)]="educationTS.qualification" name="qualification"
+                        placeholder="Titulo/Certificado" maxlength="75">
+                </div>
+
+                <div>
+                    <label for="description_education_r1">Descripcion 1: </label>
+                    <input type="text" id="description_education_r1" [(ngModel)]="educationTS.description_education_r1" name="description_education_r1"
+                        placeholder="Descripcion" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="description_education_r2">Descripcion 2: </label>
+                    <input type="text" id="description_education_r2" [(ngModel)]="educationTS.description_education_r2"
+                        name="description_education_r2" placeholder="Descripcion" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="description_education_r3">Descripcion 3: </label>
+                    <input type="text" id="description_education_r3" [(ngModel)]="educationTS.description_education_r3"
+                        name="description_education_r3" placeholder="Descripcion" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="description_education_r4">Descripcion 4: </label>
+                    <input type="text" id="description_education_r4" [(ngModel)]="educationTS.description_education_r4"
+                        name="description_education_r4" placeholder="Descripcion" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="start_education">Inicio: </label>
+                    <input type="text" id="start_education" [(ngModel)]="educationTS.start_education" name="start_education"
+                        placeholder="Inicio Educacion" maxlength="75">
+                </div>
+
+                <div>
+                    <label for="end_education">Final: </label>
+                    <input type="text" id="end_education" [(ngModel)]="educationTS.end_education" name="end_education"
+                        placeholder="Fin Educacion" maxlength="75">
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>

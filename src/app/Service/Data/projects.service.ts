@@ -21,14 +21,14 @@ export class ProjectsService {
 
   //Metodos Post
 
-  public addDataProject(projects: Projects): Observable<Projects> {
-    return this.httpClient.post<Projects>(environment.urlPostData + 'DataProject',projects);
+  public addDataProject(projects: Projects): Observable<Object> {
+    return this.httpClient.post(environment.urlPostData + 'DataProject',projects);
   }
 
   //Metodos Put
 
-  public modifyDataProject(id: number, projects: Projects): Observable<Projects> {
-    return this.httpClient.put<Projects>(environment.urlPutData + 'DataProject/' + `${id}`, projects);
+  public modifyDataProject(id: number, projects: Projects): Observable<Object> {
+    return this.httpClient.put(environment.urlPutData + 'DataProject/' + `${id}`, projects);
   }
 
   //Metodos Delete

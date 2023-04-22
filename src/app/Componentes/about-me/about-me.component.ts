@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Persona } from 'src/app/Model/Data/persona';
+import { TokenService } from 'src/app/Service/Auth/token.service';
 import { PersonaService } from 'src/app/Service/Data/persona.service';
 
 @Component({
@@ -9,19 +11,35 @@ import { PersonaService } from 'src/app/Service/Data/persona.service';
 })
 export class AboutMeComponent implements OnInit {
   
-  user: Persona = new Persona();
+  persona: Persona = new Persona();
 
-  constructor(private personaService: PersonaService) {}
+  isLogged = true;
+  isAdmin = false;
+  roles: string[];
+
+  constructor(private personaService: PersonaService,private tokenService:TokenService,
+    public modalService:NgbModal) {}
 
   ngOnInit(): void {
+    
     this.GetPersonalData();
+
+    this.roles = this.tokenService.getAuthorities();
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.roles.forEach((rol) => {
+        if (rol === 'ROLE_ADMIN') {
+          this.isAdmin = true;
+        }
+      });
+    }
   }
 
-  public GetPersonalData(): void {
+  public GetPersonalData() {
     this.personaService.GetPersonalData().subscribe({
       next: (data: Persona) => {
-        this.user = data;
-        //console.log(this.user);
+        this.persona = data;
       },
       error(err: any) {
         console.error();
@@ -29,9 +47,40 @@ export class AboutMeComponent implements OnInit {
     });
   }
 
-  public AddPersonalData(): any {}
+  public AddPersonalData() {
+    this.personaService.AddPersonalData(this.persona).subscribe({
+      next: (data) => {
+        alert('data Registrada con exito');
+        this.GetPersonalData();
+      },
+      error(err) {
+        alert('Error al registrar');
+      },
+    });
+  }
 
-  public ModifyPersonalData(): any {}
+  public ModifyPersonalData() {
+    this.personaService.ModifyPersonalData(this.persona).subscribe({
+      next: (data) => {
+        alert('data Modificada con exito');
+        this.GetPersonalData();
+      },
+      error(err) {
+        alert('Error al modificar');
+      },
+    });
+  }
 
-  public DeletePersonalData(): void {}
+  public DeletePersonalData() {
+    this.personaService.DeletePersonalData().subscribe({
+      next: (data) => {
+        alert('data delete');
+        this.GetPersonalData();
+      },
+      error(err) {
+        alert('error data delete');
+      },
+    });
+  }
+
 }

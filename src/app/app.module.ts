@@ -29,6 +29,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './Utils/Interceptor/interceptor.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Ng-Bootstrap
 
 
 
@@ -66,6 +67,7 @@ import { interceptorProvider } from './Utils/Interceptor/interceptor.service';
       innerStrokeColor: "#C7E596",
       animationDuration: 300
     }),
+    NgbModule,
     
   ],
   providers: [interceptorProvider],

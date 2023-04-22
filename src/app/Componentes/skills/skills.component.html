@@ -1,42 +1,121 @@
 <!--Habilidades-->
-<section id="habilidades" class="habilidades seccion-oscura">
-    <h1 class="titulo-oscura titulo-seccion">Habilidades</h1>
+<section id="habilidades" class="habilidades seccion-clara">
+    <h1 class="titulo-clara titulo-seccion">Habilidades</h1>
+
+    <div class="container_icon">
+        <i (click)="modalService.open(AddDataSkillModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+    </div>
 
     <div class="container">
 
         <div class="row">
 
-            <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-12 col-xl-3">
+            <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-12 col-xl-4">
 
-                <div >
-                    <div class="habilidad_titulo">
-                        <h3 class="habilidad_nombre texto">{{this.skill.skills_name}}</h3>
-                        <span class="habilidad_numero">%{{this.skill.skill_porcent}}</span>
-                    </div>
-
-                    <!--[imageSrc]="this.skill.skill_image"
-                        [imageWidth]="100"
-                        [imageHeight]="100"
-                        [showImage]="true"-->
-                    <div class="text-center">
-                        <circle-progress 
-                        [percent]="this.skill.skill_porcent" 
-                        [radius]="100" 
-                        subtitle=""
-                        [outerStrokeWidth]="16"
-                        [innerStrokeWidth]="8" 
-                        [outerStrokeColor]="'#78C000'" 
-                        [innerStrokeColor]="'#C7E596'"
-                        [animation]="true" 
-                        [animationDuration]="300">
-                        </circle-progress>
-                    </div>
-
+                <div class="container_icon">
+                    <i (click)="modalService.open(ModifyDataSkillModal)" class="bi bi-pencil-square" *ngIf="isAdmin">
+                        Modify</i>
+                    <i (click)="DeleteDataSkill(this.skill.skill_id)" class="bi bi-x-square" *ngIf="isAdmin">
+                        Delete</i>
                 </div>
 
+                <div class="Container-info habilidad_titulo">
+                    <h3 class="habilidad_nombre texto">{{this.skill.skills_name}}</h3>
+                    <span class="habilidad_numero">%{{this.skill.skill_porcent}}</span>
+                </div>
+
+                <div class="Container-circle text-center">
+                    <circle-progress [percent]="this.skill.skill_porcent" [radius]="100" subtitle=""
+                        [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'"
+                        [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300">
+                    </circle-progress>
+                </div>
+
+
+                <!--Modal-->
+                <ng-template #ModifyDataSkillModal let-modal>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Titulo modal</h4>
+                        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-container">
+                            <form class="form" (ngSubmit)="ModifyDataSkill(this.skill.skill_id)">
+
+                                <div>
+                                    <label for="id">ID:</label>
+                                    <input id="id" [(ngModel)]="this.skill.skill_id" name="id" disabled="true"
+                                        placeholder="{{this.skill.skill_id}}">
+                                </div>
+                                <div>
+                                    <label for="image_URL">Imagen URL </label>
+                                    <input type="text" id="image_URL" [(ngModel)]="skillTS.skill_image" name="image_URL"
+                                        placeholder="Imagen URL" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="skills_name">Nombre Habilidad: </label>
+                                    <input type="text" id="skills_name" [(ngModel)]="skillTS.skills_name"
+                                        name="skills_name" placeholder="Nombre Habilidad" maxlength="30">
+                                </div>
+
+                                <div>
+                                    <label for="skill_porcent">Nivel: </label>
+                                    <input type="number" id="skill_porcent" [(ngModel)]="skillTS.skill_porcent"
+                                        name="skill_porcent" placeholder="Porcentaje" maxlength="35">
+                                </div>
+
+                                <button>Añadir</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+                    </div>
+                </ng-template>
             </div>
 
         </div>
     </div>
 
 </section>
+
+<!--Modal-->
+<ng-template #AddDataSkillModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Registrar una Experiencia Laboral</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="AddDataSkill()">
+                <div>
+                    <label for="image_URL">Imagen URL </label>
+                    <input type="text" id="image_URL" [(ngModel)]="skillTS.skill_image" name="image_URL"
+                        placeholder="Imagen URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="skills_name">Nombre Habilidad: </label>
+                    <input type="text" id="skills_name" [(ngModel)]="skillTS.skills_name" name="skills_name"
+                        placeholder="Nombre Habilidad" maxlength="30">
+                </div>
+
+                <div>
+                    <label for="skill_porcent">Nivel: </label>
+                    <input type="number" id="skill_porcent" [(ngModel)]="skillTS.skill_porcent" name="skill_porcent"
+                        placeholder="Porcentaje" maxlength="35">
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>

@@ -1,70 +1,134 @@
 <!--Proyectos-->
 <section id="proyectos" class="proyectos seccion-clara d-flex flex-column">
+
     <h2 class="titulo-clara texto-negro titulo-seccion">Proyectos</h2>
 
+    <div class="container_icon">
+        <i (click)="modalService.open(AddDataProjectModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+    </div>
+
     <div class="container text-center proyectos-contenedor">
+
         <!--Carrousel-->
-        <div id="proyectos-carrusel" class="carousel carousel-dark slide">
+        <ngb-carousel>
 
-            <div class="row">
+            <ng-template ngbSlide *ngFor="let projects of Projects">
 
-                <div class="columna col-xs-2 col-md-2 col-xl-2">
-                    <button class="carousel-control-prev" type="button" data-bs-target="#proyectos-carrusel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                </div>
+                <div class="proyecto">
+                    <img [src]="projects.project_image" alt="Random first slide" />
 
-                <div class="columna col-xs-8 col-md-8 col-xl-8" >
-                    <!--inner-->
-                    <div class="carousel-inner" >
+                    <div class="overlay">
 
-                        <div *ngFor="let projects of Projects" class="carousel-item active" >
-                            
-                            <div class="columna col-xs-12 col-md-12 col-xl-12" >
-                                <div class="proyecto">
-                                    <img src="{{ this.projects.project_image }}" alt="StockTracking project"> 
-                                    
-                                    <div class="overlay">
+                        <div class="container_icon">
+                            <i (click)="modalService.open(ModifyDataProjectModal)" class="bi bi-pencil-square" *ngIf="isAdmin">Modify</i>
+                            <i (click)="this.DeleteDataProject(this.projects.project_id)" class="bi bi-x-square"*ngIf="isAdmin"> Delete</i>
+                        </div>
 
-                                        <div class="titulo-contenedor">
-                                            <h3 class="presentacion">{{ this.projects.project_title }}</h3>
-                                            <p class="titulo"><span class="project_name">{{ this.projects.project_name }}</span></p>
-                                            <div class="descripcion-contenedor">
-                                                <p>
-                                                    {{ this.projects.project_description }} </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="iconos-contenedor">
-                                            <a routerLink="{{this.projects.link_project}}" target="_blank" rel="noopener noreferrer"> <i
-                                                    class="bi bi-laptop"></i>
-                                            </a>
-                                            <a routerLink="{{this.projects.link_github}}" target="_blank"
-                                                rel="noopener noreferrer"> <i class="fa-brands fa-github"></i> </a>
-                                        </div>
-                                        <span> {{ this.projects.start_project }} - {{ this.projects.end_project }} </span>
-                                    </div>
-                                </div>
+                        <div class="titulo-contenedor">
+                            <h3 class="presentacion">{{ this.projects.project_title }}</h3>
+                            <p class="titulo"><span class="project_name">{{
+                                    this.projects.project_name }}</span></p>
+                            <div class="descripcion-contenedor">
+                                <p>
+                                    {{ this.projects.project_description }} </p>
                             </div>
                         </div>
 
+                        <div class="iconos-contenedor">
+                            <a href="{{this.projects.link_project}}" target="_blank" rel="noopener noreferrer">Ver Proyecto <i
+                                    class="bi bi-laptop"></i>
+                            </a>
+                            <a href="{{this.projects.link_github}}" target="_blank" rel="noopener noreferrer">Ver Codigo <i
+                                    class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                        <span> {{ this.projects.start_project }} - {{ this.projects.end_project}} </span>
                     </div>
-                    <!--inner-->
                 </div>
 
-                <div class="columna col-xs-2 col-md-2 col-xl-2">
-                    <button class="carousel-control-next" type="button" data-bs-target="#proyectos-carrusel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
 
-            </div>
 
-        </div>
+
+                <ng-template #ModifyDataProjectModal let-modal>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Titulo modal</h4>
+                        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-container">
+                            <form class="form" (ngSubmit)="ModifyDataProject(this.projects.project_id)">
+
+                                <div>
+                                    <label for="id">ID:</label>
+                                    <input id="id" [(ngModel)]="this.projects.project_id" name="id" disabled="true"
+                                        placeholder="{{this.projects.project_id}}">
+                                </div>
+
+                                <div>
+                                    <label for="image_URL">Imagen URL </label>
+                                    <input type="text" id="image_URL" [(ngModel)]="projectTS.project_image"
+                                        name="image_URL" placeholder="Imagen URL" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="project_title">Titulo: </label>
+                                    <input type="text" id="project_title" [(ngModel)]="projectTS.project_title"
+                                        name="project_title" placeholder="Nombre del Proyecto" maxlength="35">
+                                </div>
+
+                                <div>
+                                    <label for="project_name">Nombre del proyecto: </label>
+                                    <input type="text" id="project_name" [(ngModel)]="projectTS.project_name"
+                                        name="project_name" placeholder="Titulo de la Aplicacion" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="project_description">Descripcion : </label>
+                                    <input type="text" id="project_description"
+                                        [(ngModel)]="projectTS.project_description" name="project_description"
+                                        placeholder="Descripcion" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="link_project">Link Project: </label>
+                                    <input type="text" id="link_project" [(ngModel)]="projectTS.link_project"
+                                        name="link_project" placeholder="Project URL" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="link_github">Link Github: </label>
+                                    <input type="text" id="link_github" [(ngModel)]="projectTS.link_github"
+                                        name="link_github" placeholder="Github URL" maxlength="254">
+                                </div>
+
+                                <div>
+                                    <label for="start_project">Inicio: </label>
+                                    <input type="text" id="start_project" [(ngModel)]="projectTS.start_project"
+                                        name="start_project" placeholder="Inicio del proyecto" maxlength="75">
+                                </div>
+
+                                <div>
+                                    <label for="end_project">Final: </label>
+                                    <input type="text" id="end_project" [(ngModel)]="projectTS.end_project"
+                                        name="end_project" placeholder="Fin del proyecto" maxlength="75">
+                                </div>
+
+                                <button>Añadir</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+                    </div>
+                </ng-template>
+
+            </ng-template>
+
+        </ngb-carousel>
+
+
 
     </div>
 
@@ -73,4 +137,72 @@
             Ver más proyectos <i class="bi bi-arrow-right-circle"></i>
         </button>
     </a>
+
 </section>
+
+<ng-template #AddDataProjectModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Registrar una Experiencia Laboral</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="AddDataProject()">
+                <div>
+                    <label for="image_URL">Imagen URL </label>
+                    <input type="text" id="image_URL" [(ngModel)]="projectTS.project_image" name="image_URL"
+                        placeholder="Imagen URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="project_title">Titulo: </label>
+                    <input type="text" id="project_title" [(ngModel)]="projectTS.project_title" name="project_title"
+                        placeholder="Nombre del Proyecto" maxlength="35">
+                </div>
+
+                <div>
+                    <label for="project_name">Nombre del proyecto: </label>
+                    <input type="text" id="project_name" [(ngModel)]="projectTS.project_name" name="project_name"
+                        placeholder="Titulo de la Aplicacion" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="project_description">Descripcion : </label>
+                    <input type="text" id="project_description" [(ngModel)]="projectTS.project_description"
+                        name="project_description" placeholder="Descripcion" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="link_project">Link Project: </label>
+                    <input type="text" id="link_project" [(ngModel)]="projectTS.link_project" name="link_project"
+                        placeholder="Project URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="link_github">Link Github: </label>
+                    <input type="text" id="link_github" [(ngModel)]="projectTS.link_github" name="link_github"
+                        placeholder="Github URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="start_project">Inicio: </label>
+                    <input type="text" id="start_project" [(ngModel)]="projectTS.start_project" name="start_project"
+                        placeholder="Inicio del proyecto" maxlength="75">
+                </div>
+
+                <div>
+                    <label for="end_project">Final: </label>
+                    <input type="text" id="end_project" [(ngModel)]="projectTS.end_project" name="end_project"
+                        placeholder="Fin del proyecto" maxlength="75">
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>

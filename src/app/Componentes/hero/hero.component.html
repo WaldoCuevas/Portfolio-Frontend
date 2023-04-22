@@ -1,11 +1,19 @@
 <!--Hero-->
 <section id="inicio" class="hero align-items-stretch">
 
+
     <div>
         <div class="hero-principal d-flex flex-column justify-content-center align-items-center">
-            <img id="avatar-img" src="{{this.user.user_image}}" alt="Avatar">
-            <h1 class="titulo-clara presentacion">¡Hola! <br>Soy {{ this.user.name }} </h1>
-            <h1 class="titulo-clara presentacion"> {{ this.user.last_name }} </h1>
+
+            <div class="container_icon">
+                <i (click)="modalService.open(AddPersonalDataModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+                <i (click)="modalService.open(ModifyPersonalDataModal)" class="bi bi-pencil-square" *ngIf="isAdmin"> Modify</i>
+                <i (click)="DeletePersonalData()" class="bi bi-x-square" *ngIf="isAdmin"> Delete</i>
+            </div>
+
+            <img id="avatar-img" src="{{this.persona.user_image}}" alt="Avatar">
+            <h1 class="titulo-clara presentacion">¡Hola! <br>Soy {{ this.persona.name }} {{ this.persona.last_name }}
+            </h1>
             <h2 class="sub-titulo-clara presentacion">Programador Full Stack</h2>
         </div>
 
@@ -15,3 +23,88 @@
 <div>
     <app-about-me></app-about-me>
 </div>
+
+<!--Modal-->
+<ng-template #AddPersonalDataModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Titulo modal</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="AddPersonalData()">
+
+                <div>
+                    <label for="image_URL">Imagen URL </label>
+                    <input type="text" id="image_URL" [(ngModel)]="persona.user_image" name="image_URL"
+                        placeholder="Imagen URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="workplace">Nombre: </label>
+                    <input type="text" id="workplace" [(ngModel)]="persona.name" name="workplace"
+                        placeholder="Lugar de Trabajo" maxlength="30">
+                </div>
+
+                <div>
+                    <label for="workstation">Apellido: </label>
+                    <input type="text" id="email" [(ngModel)]="persona.last_name" name="workstation"
+                        placeholder="Puesto de trabajo" maxlength="35">
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>
+
+<!--Modal-->
+<ng-template #ModifyPersonalDataModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar</h4>
+        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-container">
+            <form class="form" (ngSubmit)="ModifyPersonalData()">
+
+                <div>
+                    <label for="id">ID:</label>
+                    <input id="id" [(ngModel)]="this.persona.user_id" name="id" disabled="true"
+                        placeholder="{{this.persona.user_id}}">
+                </div>
+
+                <div>
+                    <label for="image_URL">Imagen URL </label>
+                    <input type="text" id="image_URL" [(ngModel)]="persona.user_image" name="image_URL"
+                        placeholder="Imagen URL" maxlength="254">
+                </div>
+
+                <div>
+                    <label for="workplace">Nombre: </label>
+                    <input type="text" id="workplace" [(ngModel)]="persona.name" name="workplace"
+                        placeholder="Lugar de Trabajo" maxlength="30">
+                </div>
+
+                <div>
+                    <label for="workstation">Apellido: </label>
+                    <input type="text" id="email" [(ngModel)]="persona.last_name" name="workstation"
+                        placeholder="Puesto de trabajo" maxlength="35">
+                </div>
+
+                <button>Añadir</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>
+

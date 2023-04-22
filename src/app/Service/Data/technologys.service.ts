@@ -21,14 +21,14 @@ export class TechnologysService {
 
   //Metodos Post
 
-  public addDataTechnology(technologys: Technologys): Observable<Technologys> {
-    return this.httpClient.post<Technologys>(environment.urlPostData + 'DataTechnology',technologys);
+  public addDataTechnology(technologys: Technologys): Observable<Object> {
+    return this.httpClient.post(environment.urlPostData + 'DataTechnology',technologys);
   }
 
   //Metodos Put
 
-  public modifyDataTechnology(id: number, technologys: Technologys): Observable<Technologys> {
-    return this.httpClient.put<Technologys>(environment.urlPutData + 'DataTechnology/' + `${id}`, technologys);
+  public modifyDataTechnology(id: number, technologys: Technologys): Observable<Object> {
+    return this.httpClient.put(environment.urlPutData + 'DataTechnology/' + `${id}`, technologys);
   }
 
   //Metodos Delete

@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+//Componentes
 import { HeroComponent } from './Componentes/hero/hero.component';
-import { AboutMeComponent } from './Componentes/about-me/about-me.component';
 import { TechnologysComponent } from './Componentes/technologys/technologys.component';
-import { EducationsComponent } from './Componentes/educations/educations.component';
 import { ExpWorkComponent } from './Componentes/exp-work/exp-work.component';
-import { SkillsComponent } from './Componentes/skills/skills.component';
 import { ProjectsComponent } from './Componentes/projects/projects.component';
 import { LoginComponent } from './AuthComponent/login/login.component';
 import { RegisterComponent } from './AuthComponent/register/register.component';
 import { IndexComponent } from './AuthComponent/index/index.component';
+
+//Utils
 import { GuardGuard as guard} from './Utils/Guard/guard.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -23,20 +24,15 @@ const routes: Routes = [
   
   // secciones
   { path:"hero", component:HeroComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
-  { path:"about-me", component: AboutMeComponent,canActivate: [guard], data: { expectedRol: ['admin']} },
   { path:"exp", component: TechnologysComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
-  { path:"education", component: EducationsComponent,canActivate: [guard], data: { expectedRol: ['admin']} },
   { path:"exp-work", component: ExpWorkComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
-  { path:"skills", component: SkillsComponent,canActivate: [guard], data: { expectedRol: ['admin']} },
-  { path:"projects", component: ProjectsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"project", component: ProjectsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
   
   //index
-  { path: 'index', pathMatch: "full", component: IndexComponent },
   { path: '', pathMatch: 'full', component: IndexComponent },
 
   //not-found
   { path: '**',component: NotFoundComponent }
-
 
 ];
 
