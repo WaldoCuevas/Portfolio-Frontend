@@ -1,17 +1,95 @@
-/*    ESTILOS GENERALES    */
+/*  EXPERIENCE    */
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 500px;
+  border: 2px solid #808080d4;
+  transition: all 0.2s ease-in;
+}
+
+ .columna:hover {
+  color: white;
+  background-color: black;
+}
+
+.container-icon button {
+  transition: all 0.2s ease-in;
+}
+
+.columna:hover .container-icon button {
+  background-color: black;
+  color: white;
+}
+
+.columna:hover .container-icon .icon-2:hover {
+  color: #06b6d4;
+}
+
+.columna:hover .container-icon .icon-3:hover {
+  color: #ef4444;
+}
+
+/*  ICON  */
+
+.container-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 50px;
+  margin: 15px;
+  gap: 10px;
+}
+
+.icon {
+  border: none;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  padding: 10px;
+  transition: color .2s ease-in;
+}
+
+.icon-1:hover {
+  color: #22c55e;
+}
+
+.icon-2:hover {
+  color: #06b6d4;
+}
+
+.icon-3:hover {
+  color: #ef4444;
+}
+
+/*  INFO  */
+
+.container-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 200px;
 }
 
 .titulo-seccion {
+  padding-top:20vh;
   font-family: "Rubik Dirt", cursive;
 }
 
 .titulo {
   font-family: "Playfair Display SC", serif;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .texto {
@@ -19,158 +97,12 @@
   font-weight: bold;
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/*  Iconos  */
-
-.container_icon {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-i {
-  font-size: 1.15em;
-  margin: 10px 20px;
-  cursor: pointer;
-}
-
-.bi-plus-square,
-.bi-pencil-square,
-.bi-x-square {
-  transition: 0.3s all ease;
-}
-
-.bi-plus-square:hover {
-  color: #059917;
-}
-
-.bi-pencil-square:hover {
-  color: #1e90ff;
-}
-
-.bi-x-square:hover {
-  color: #ff1e1e;
-}
-
-/*  Form  */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.form > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container {
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h3,
-label,
-input,
-button {
-  margin: 8px 0;
-}
-
-label {
-  font-size: 1em;
-}
-
-h3 {
-  text-align: center;
-}
-
-input {
-  margin: 25px 0px;
-  padding: 20px 15px;
-  color: var(--text-color);
-  border-radius: 0;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-  border-bottom: 1px solid #000;
-  border-image: initial;
-  text-align: left;
-}
-
-input:focus {
-  box-shadow: 0 0 10px #0000002a;
-  background-color: #0000002a;
-}
-
-.btn-primary {
-  border-radius: 15vh;
-  font-size: 1rem;
-  padding: 1vw;
-  margin: 20px;
-}
-
-button {
-  background-image: linear-gradient(to right, #00bfff, #2480f0, #26206e);
-  border-radius: 30px;
-  border: transparent;
-  width: 200px;
-  transition: 0.2s all ease;
-}
-
-.close {
-  width: 50px;
-  margin-right: 20px;
-}
-
-button:hover {
-  background-image: linear-gradient(to right, #37cdff, #52a0ff, #4940b0);
-}
-
-/*  EXPERIENCE    */
-
-.experiencia {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-top: 10vh;
-}
-
-.experiencia .columna {
-  padding: 20px;
-  border: 2px solid #808080d4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  transition: all 0.2s ease-in;
-}
-
-.experiencia .columna:hover {
-  color: white;
-  background-color: black;
-}
-
-.experiencia-titulo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 10px 10px;
-}
+/*  BADGE   */
 
 .container-badges {
+  height: 130px;
   font-size: 20px;
   font-weight: bold;
-  margin: 10px 0;
 }
 
 .badge {
@@ -178,89 +110,9 @@ button:hover {
   margin: 5px;
 }
 
-/*
-    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
-  */
-
-/*  media query for Full Screen -> 1200PIXELES o MENOS */
-@media only screen and (max-width: 1200px) {
-  /* Generales  */
-
-  nav button {
-    top: 5vh;
-  }
-
-  .switch {
-    position: absolute;
-    top: 3vh;
-    right: 5vw;
-  }
-
-  /*  Navbar  */
-
-  figure {
-    display: none;
-  }
-
-  .navbar-toggler {
-    background-color: green;
-  }
-
-  /*  Experiencia */
-
-  .experiencia {
-    height: 200vh;
-    padding-top: 5vh;
-    margin: 0;
-  }
-
-  .experiencia h1 {
-    font-size: 2rem;
-  }
-
-}
-
-/*  media query for Media Screen  -> 768Pixeles o MENOS*/
-@media only screen and (max-width: 768px) {
-  /* Generales */
-
-  /*  NavBar*/
-
-  .navbar-toggler {
-    background-color: blue;
-  }
-
-  /*  Experiencia */
-
-  .experiencia {
-    height: 210vh;
-    padding-top: 10vh;
-  }
 
 
-}
 
-/*  media query for Small Screen -> 576Pixeles o MENOS*/
-@media only screen and (max-width: 576px) {
-  /*  navbar  */
 
-  .navbar-toggler {
-    background-color: orange;
-  }
 
-  /*  Experiencia */
 
-  .experiencia {
-    height: 210vh;
-    padding-top: 10vh;
-  }
-
-}
-
-@media only screen and (max-width: 400px) {
-
-  .experiencia {
-    height: 240vh;
-  }
-
-}

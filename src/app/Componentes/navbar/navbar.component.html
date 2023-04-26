@@ -1,5 +1,5 @@
 <!--Barra De Navegacion-->
-<nav ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'" class="navbar navbar-expand-xl seccion-oscura">
+<nav ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'" class="navbar navbar-expand-xl">
 
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
@@ -23,11 +23,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a *ngIf="isLogged" class="nav-link" routerLink="exp">Experiencia</a>
+                        <a *ngIf="isLogged" class="nav-link" routerLink="technology">Conocimiento</a>
                     </li>
 
                     <li class="nav-item">
-                        <a *ngIf="isLogged" class="nav-link" routerLink="exp-work">Experiencia Laboral</a>
+                        <a *ngIf="isLogged" class="nav-link" routerLink="exp">Experiencia</a>
                     </li>
 
                     <li class="nav-item">
@@ -37,12 +37,11 @@
                 </ul>
             </div>
 
-            <button> <a *ngIf="isLogin();else IniciarSesion" class="link" (click)="cerrarSesion()">Cerrar Sesión</a>
-            </button>
+            <a *ngIf="isLogin();else IniciarSesion" class="link" (click)="cerrarSesion()">Cerrar Sesión</a>
+
 
             <ng-template #IniciarSesion>
-                <button> <a class="link" routerLink="login" routerLinkActive="active">Iniciar Sesión</a>
-                </button>
+                <a *ngIf="!isLogged"class="link" routerLink="login" routerLinkActive="active">Iniciar Sesión</a>
             </ng-template>
 
         </div>

@@ -1,28 +1,49 @@
 <!--Hero-->
-<section id="inicio" class="hero align-items-stretch">
+<section id="inicio">
 
 
-    <div>
-        <div class="hero-principal d-flex flex-column justify-content-center align-items-center">
-
-            <div class="container_icon">
-                <i (click)="modalService.open(AddPersonalDataModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
-                <i (click)="modalService.open(ModifyPersonalDataModal)" class="bi bi-pencil-square" *ngIf="isAdmin"> Modify</i>
-                <i (click)="DeletePersonalData()" class="bi bi-x-square" *ngIf="isAdmin"> Delete</i>
-            </div>
-
-            <img id="avatar-img" src="{{this.persona.user_image}}" alt="Avatar">
-            <h1 class="titulo-clara presentacion">¡Hola! <br>Soy {{ this.persona.name }} {{ this.persona.last_name }}
-            </h1>
-            <h2 class="sub-titulo-clara presentacion">Programador Full Stack</h2>
-        </div>
-
+    <div class="container-icon">
+        <button (click)="modalService.open(AddPersonalDataModal)" class="icon icon-1" *ngIf="isAdmin">
+            <i class="fa-solid fa-square-plus"></i>
+            <p>Añadir</p>
+        </button>
+        <button (click)="modalService.open(ModifyPersonalDataModal)" class="icon icon-2" *ngIf="isAdmin">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <p>Modificar</p>
+        </button>
+        <button (click)="DeletePersonalData()" class="icon icon-3" *ngIf="isAdmin">
+            <i class="fa-solid fa-trash"></i>
+            <p>Borrar</p>
+        </button>
     </div>
+
+    <div class="container-info">
+        <h2>¡Hola! Soy </h2>
+        <span style="color:#6366f1;">{{ this.persona.name }} {{ this.persona.last_name }} </span>
+        <p>Programador Full Stack</p>
+        <div class="container-link">
+            <a class="link-info link-info-1" href="https://github.com/waldocuevas">Github</a>
+            <a class="link-info link-info-2" href="#">Descargar CV</a>
+        </div>
+    </div>
+    
+    <div class="container-image">
+        <span class="fondo-imagen"></span>
+        <img src="{{this.persona.user_image}}" alt="Avatar">
+    </div>
+
+    
+
 </section>
 
 <div>
+
     <app-about-me></app-about-me>
+
+
 </div>
+
+    
 
 <!--Modal-->
 <ng-template #AddPersonalDataModal let-modal>
@@ -107,4 +128,3 @@
         <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
     </div>
 </ng-template>
-

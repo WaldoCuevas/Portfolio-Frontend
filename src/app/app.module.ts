@@ -18,9 +18,10 @@ import { ContactComponent } from './Componentes/contact/contact.component';
 import { FooterComponent } from './Componentes/footer/footer.component';
 
 //Componentes Auth
-import { IndexComponent } from './AuthComponent/index/index.component';
 import { LoginComponent } from './AuthComponent/login/login.component';
 import { RegisterComponent } from './AuthComponent/register/register.component';
+import { IndexComponent } from './AuthComponent/index/index.component'; 
+
 
 //Componentes Secundarios + Angular Material
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';

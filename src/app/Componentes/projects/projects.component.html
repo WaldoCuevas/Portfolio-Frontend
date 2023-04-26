@@ -1,13 +1,16 @@
 <!--Proyectos-->
-<section id="proyectos" class="proyectos seccion-clara d-flex flex-column">
+<section id="proyectos" >
 
-    <h2 class="titulo-clara texto-negro titulo-seccion">Proyectos</h2>
+    <h2 class="titulo-seccion">Proyectos</h2>
 
-    <div class="container_icon">
-        <i (click)="modalService.open(AddDataProjectModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+    <div class="container-icon">
+        <button (click)="modalService.open(AddDataProjectModal)" class="icon icon-1" *ngIf="isAdmin">
+            <i class="fa-solid fa-square-plus"></i>
+            <p>Añadir</p>
+        </button>
     </div>
 
-    <div class="container text-center proyectos-contenedor">
+    <div class="container">
 
         <!--Carrousel-->
         <ngb-carousel>
@@ -19,19 +22,24 @@
 
                     <div class="overlay">
 
-                        <div class="container_icon">
-                            <i (click)="modalService.open(ModifyDataProjectModal)" class="bi bi-pencil-square" *ngIf="isAdmin">Modify</i>
-                            <i (click)="this.DeleteDataProject(this.projects.project_id)" class="bi bi-x-square"*ngIf="isAdmin"> Delete</i>
+                        <div class="container-icon">
+                            <button (click)="modalService.open(ModifyDataProjectModal)" class="icon icon-2" *ngIf="isAdmin">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                <p>Modificar</p>
+                            </button>
+                            <button (click)="DeleteDataProject(this.projects.project_id)" class="icon icon-3" *ngIf="isAdmin">
+                                <i class="fa-solid fa-trash"></i>
+                                <p>Borrar</p>
+                            </button>
                         </div>
 
-                        <div class="titulo-contenedor">
+                        <div class="container-info">
                             <h3 class="presentacion">{{ this.projects.project_title }}</h3>
-                            <p class="titulo"><span class="project_name">{{
-                                    this.projects.project_name }}</span></p>
-                            <div class="descripcion-contenedor">
-                                <p>
-                                    {{ this.projects.project_description }} </p>
-                            </div>
+                            <p class="titulo"> <span class="project_name">{{ this.projects.project_name }} </span> </p>
+                        </div>
+
+                        <div class="descripcion-contenedor">
+                            <p> {{ this.projects.project_description }} </p>
                         </div>
 
                         <div class="iconos-contenedor">
@@ -41,12 +49,12 @@
                             <a href="{{this.projects.link_github}}" target="_blank" rel="noopener noreferrer">Ver Codigo <i
                                     class="fa-brands fa-github"></i>
                             </a>
+                            <span> {{ this.projects.start_project }} - {{ this.projects.end_project}} </span>
                         </div>
-                        <span> {{ this.projects.start_project }} - {{ this.projects.end_project}} </span>
+                    
                     </div>
+
                 </div>
-
-
 
 
                 <ng-template #ModifyDataProjectModal let-modal>
@@ -128,11 +136,9 @@
 
         </ngb-carousel>
 
-
-
     </div>
 
-    <a href="https://github.com/WaldoCuevas" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/WaldoCuevas?tab=repositories" target="_blank" rel="noopener noreferrer">
         <button type="button" class="btn btn-primary">
             Ver más proyectos <i class="bi bi-arrow-right-circle"></i>
         </button>

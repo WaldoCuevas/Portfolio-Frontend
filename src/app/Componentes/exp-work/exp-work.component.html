@@ -1,141 +1,194 @@
-<!--Experiencia Laboral-->
-<section id="experiencia_laboral" class="experiencia_laboral seccion-clara">
+<div class="container">
 
-    <h2 class="titulo-clara texto-negro titulo-seccion">Experiencia Laboral</h2>
-
-    <div class="container_icon">
-        <i (click)="modalService.open(AddDataWorkModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
-    </div>
-
-    <!--Experiencia laboral -->
-    <div *ngFor="let ExpWorks of ExpWorks" class="columna col-xs-12 col-md-10 col-xl-10">
-
-        <div class="container_icon">
-            <i (click)="modalService.open(ModifyDataWorkModal)" class="bi bi-pencil-square" *ngIf="isAdmin">Modify</i>
-            <i (click)="DeleteDataWork(this.ExpWorks.work_exp_id)" class="bi bi-x-square" *ngIf="isAdmin"> Delete</i>
+    <div class="row">
+        <!--Content Education-->
+        <div class="col-xs-12 col-md-6 col-xl-6">
+            <app-educations></app-educations>
         </div>
 
-        <div class="row">
+        <!--Content Exp work-->
+        <div class="col-xs-12 col-md-6 col-xl-6">
+            <section>
+                <h2 class="titulo-seccion">Experiencia Laboral</h2>
 
-            <div class="columna col-12 col-xl-6">
-                <div class="container-imagen">
-
-                    <img src="{{ this.ExpWorks.work_image}}" alt="Imagen_work_exp" class="educacion-icono-2">
-
+                <div class="container-icon">
+                    <button (click)="modalService.open(AddDataWorkModal)" class="icon icon-1" *ngIf="isAdmin">
+                        <i class="fa-solid fa-square-plus"></i>
+                        <p>Añadir</p>
+                    </button>
                 </div>
-            </div>
 
-            <div class="columna col-12 col-xl-6 container-data">
-                <h4 class="experiencia-texto titulo-clara ">Institución:
-                    {{ this.ExpWorks.workplace }}
-                </h4>
+                <div class="timeline">
 
-                <h4 class="educacion-texto texto-clara texto"><span>Puesto</span>:
-                    {{ this.ExpWorks.workstation }}</h4>
+                    <div *ngFor="let ExpWorks of ExpWorks" class="timeline-box">
 
-                <h4 class="educacion-texto texto-clara texto"><span>Aplicación</span>:
-                    {{ this.ExpWorks.job }} </h4>
+                        <div class="timeline-icon">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
 
-                <span> {{ this.ExpWorks.start_work_exp }} - {{ this.ExpWorks.end_work_exp }}
-                </span>
+                        <div class="timeline-content">
+                            <div class="container">
 
-                <p class="aprendizaje sub-titulo-clara texto">
-                    <span class="span">Logros/Funciones: </span> <br>
-                    &lowast; <span>{{ this.ExpWorks.description_work_exp_r1 }} </span> <br>
-                    &lowast; <span>{{ this.ExpWorks.description_work_exp_r2 }} </span> <br>
-                    &lowast; <span>{{ this.ExpWorks.description_work_exp_r3 }} </span>
-                </p>
-            </div>
+                                <div class="row">
+
+                                    <!--Experiencia laboral -->
+                                    <div class="columna col-xs-12 col-md-12 col-xl-12">
+
+                                        <div class="header-icon">
+                                            <div class="container-icon">
+                                                <button (click)="modalService.open(ModifyDataWorkModal)"
+                                                    class="icon icon-2" *ngIf="isAdmin">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                    <p>Modificar</p>
+                                                </button>
+                                                <button (click)="DeleteDataWork(this.ExpWorks.work_exp_id)"
+                                                    class="icon icon-3" *ngIf="isAdmin">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                    <p>Borrar</p>
+                                                </button>
+                                            </div>
+
+                                            <div class="container-imagen">
+                                                <img src="{{ this.ExpWorks.work_image}}" alt="Imagen_work_exp"
+                                                    class="educacion-icono-2">
+                                            </div>
+                                        </div>
+
+                                        <div class="container-info">
+                                            <h3 class="titulo">{{ this.ExpWorks.workplace }} </h3>
+                                            <hr>
+                                            <h5 class="texto"><span class="underline">Puesto</span>: {{ this.ExpWorks.workstation }} </h5>
+                                            <h5 class="texto"><span class="underline">Aplicación</span>: {{ this.ExpWorks.job }} </h5>
+                                        </div>
+
+                                        <div class="container-description">
+                                            <span class="underline">Logros/Funciones: </span> <br>
+                                            <p *ngIf="textoVacio(this.ExpWorks.description_work_exp_r1)" class="texto"> &lowast; {{ this.ExpWorks.description_work_exp_r1 }}</p>
+                                            <p *ngIf="textoVacio(this.ExpWorks.description_work_exp_r2)" class="texto"> &lowast; {{ this.ExpWorks.description_work_exp_r2 }}</p>
+                                            <p *ngIf="textoVacio(this.ExpWorks.description_work_exp_r3)" class="texto"> &lowast; {{ this.ExpWorks.description_work_exp_r3 }}</p>
+                                            <span> {{ this.ExpWorks.start_work_exp }} - {{ this.ExpWorks.end_work_exp }}</span>
+                                        </div>
+
+                                        <!--Modal-->
+                                        <ng-template #ModifyDataWorkModal let-modal>
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Titulo modal</h4>
+                                                <button type="button" class="close" aria-label="close"
+                                                    (click)="modal.dismiss()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-container">
+                                                    <form class="form"
+                                                        (ngSubmit)="ModifyDataWork(this.ExpWorks.work_exp_id)">
+
+                                                        <div>
+                                                            <label for="id">ID:</label>
+                                                            <input id="id" [(ngModel)]="this.ExpWorks.work_exp_id"
+                                                                name="id" disabled="true"
+                                                                placeholder="{{this.ExpWorks.work_exp_id}}">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="image_URL">Imagen URL </label>
+                                                            <input type="text" id="image_URL"
+                                                                [(ngModel)]="expWorkTS.work_image" name="image_URL"
+                                                                placeholder="Imagen URL" maxlength="254">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="workplace">Institución: </label>
+                                                            <input type="text" id="workplace"
+                                                                [(ngModel)]="expWorkTS.workplace" name="workplace"
+                                                                placeholder="Lugar de Trabajo" maxlength="30">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="workstation">Puesto: </label>
+                                                            <input type="text" id="workstation"
+                                                                [(ngModel)]="expWorkTS.workstation" name="workstation"
+                                                                placeholder="Puesto de trabajo" maxlength="35">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="job">Aplicación: </label>
+                                                            <input type="text" id="job" [(ngModel)]="expWorkTS.job"
+                                                                name="job" placeholder="Nombre de la Aplicacion"
+                                                                min="0">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="description_work_exp_r1">Descripcion 1: </label>
+                                                            <input type="text" id="description_work_exp_r1"
+                                                                [(ngModel)]="expWorkTS.description_work_exp_r1"
+                                                                name="description_work_exp_r1" placeholder="Descripcion"
+                                                                maxlength="254">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="description_work_exp_r2">Descripcion 2: </label>
+                                                            <input type="text" id="description_work_exp_r2"
+                                                                [(ngModel)]="expWorkTS.description_work_exp_r2"
+                                                                name="description_work_exp_r2" placeholder="Descripcion"
+                                                                maxlength="254">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="description_work_exp_r3">Descripcion 3: </label>
+                                                            <input type="text" id="description_work_exp_r3"
+                                                                [(ngModel)]="expWorkTS.description_work_exp_r3"
+                                                                name="description_work_exp_r3" placeholder="Descripcion"
+                                                                maxlength="254">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="start_work_exp">Inicio: </label>
+                                                            <input type="text" id="nombreUsuario"
+                                                                [(ngModel)]="expWorkTS.start_work_exp"
+                                                                name="start_work_exp"
+                                                                placeholder="Inicio experiencia laboral" maxlength="75">
+                                                        </div>
+
+                                                        <div>
+                                                            <label for="end_work_exp">Final: </label>
+                                                            <input type="text" id="end_work_exp"
+                                                                [(ngModel)]="expWorkTS.end_work_exp" name="end_work_exp"
+                                                                placeholder="Fin experiencia laboral" maxlength="75">
+                                                        </div>
+
+                                                        <button>Añadir</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    (click)="modal.close()">Cerrar</button>
+                                            </div>
+                                        </ng-template>
+
+                                    </div>
+
+
+                                </div>
+                                <!-- fin experiencia-->
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
         </div>
 
-
-
-
-        <!--Modal-->
-        <ng-template #ModifyDataWorkModal let-modal>
-            <div class="modal-header">
-                <h4 class="modal-title">Titulo modal</h4>
-                <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-container">
-                    <form class="form" (ngSubmit)="ModifyDataWork(this.ExpWorks.work_exp_id)">
-
-                        <div>
-                            <label for="id">ID:</label>
-                            <input id="id" [(ngModel)]="this.ExpWorks.work_exp_id" name="id" disabled="true"
-                                placeholder="{{this.ExpWorks.work_exp_id}}">
-                        </div>
-
-                        <div>
-                            <label for="image_URL">Imagen URL </label>
-                            <input type="text" id="image_URL" [(ngModel)]="expWorkTS.work_image" name="image_URL"
-                                placeholder="Imagen URL" maxlength="254">
-                        </div>
-        
-                        <div>
-                            <label for="workplace">Institución: </label>
-                            <input type="text" id="workplace" [(ngModel)]="expWorkTS.workplace" name="workplace"
-                                placeholder="Lugar de Trabajo" maxlength="30">
-                        </div>
-        
-                        <div>
-                            <label for="workstation">Puesto: </label>
-                            <input type="text" id="workstation" [(ngModel)]="expWorkTS.workstation" name="workstation"
-                                placeholder="Puesto de trabajo" maxlength="35">
-                        </div>
-        
-                        <div>
-                            <label for="job">Aplicación: </label>
-                            <input type="text" id="job" [(ngModel)]="expWorkTS.job" name="job"
-                                placeholder="Nombre de la Aplicacion" min="0">
-                        </div>
-        
-                        <div>
-                            <label for="description_work_exp_r1">Descripcion 1: </label>
-                            <input type="text" id="description_work_exp_r1" [(ngModel)]="expWorkTS.description_work_exp_r1"
-                                name="description_work_exp_r1" placeholder="Descripcion" maxlength="254">
-                        </div>
-        
-                        <div>
-                            <label for="description_work_exp_r2">Descripcion 2: </label>
-                            <input type="text" id="description_work_exp_r2" [(ngModel)]="expWorkTS.description_work_exp_r2"
-                                name="description_work_exp_r2" placeholder="Descripcion" maxlength="254">
-                        </div>
-        
-                        <div>
-                            <label for="description_work_exp_r3">Descripcion 3: </label>
-                            <input type="text" id="description_work_exp_r3" [(ngModel)]="expWorkTS.description_work_exp_r3"
-                                name="description_work_exp_r3" placeholder="Descripcion" maxlength="254">
-                        </div>
-        
-                        <div>
-                            <label for="start_work_exp">Inicio: </label>
-                            <input type="text" id="nombreUsuario" [(ngModel)]="expWorkTS.start_work_exp" name="start_work_exp"
-                                placeholder="Inicio experiencia laboral" maxlength="75">
-                        </div>
-        
-                        <div>
-                            <label for="end_work_exp">Final: </label>
-                            <input type="text" id="end_work_exp" [(ngModel)]="expWorkTS.end_work_exp" name="end_work_exp"
-                                placeholder="Fin experiencia laboral" maxlength="75">
-                        </div>
-
-                        <button>Añadir</button>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
-            </div>
-        </ng-template>
-
     </div>
-    <!-- fin experiencia-->
 
-</section>
+</div>
+
+
+
 
 <!--Modal-->
 <ng-template #AddDataWorkModal let-modal>

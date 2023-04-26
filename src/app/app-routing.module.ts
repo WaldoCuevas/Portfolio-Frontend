@@ -24,8 +24,8 @@ const routes: Routes = [
   
   // secciones
   { path:"hero", component:HeroComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
-  { path:"exp", component: TechnologysComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
-  { path:"exp-work", component: ExpWorkComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"technology", component: TechnologysComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"exp", component: ExpWorkComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
   { path:"project", component: ProjectsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
   
   //index

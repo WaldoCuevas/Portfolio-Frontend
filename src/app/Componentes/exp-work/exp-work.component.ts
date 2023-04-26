@@ -20,7 +20,13 @@ export class ExpWorkComponent implements OnInit {
   isAdmin = false;
   roles: string[];
 
+  textVacio:string = "";
+
   constructor(private expWorkService: ExpWorkService,private tokenService: TokenService,public modalService: NgbModal) {}
+
+  textoVacio(description:any):Boolean {
+    return this.textVacio !== description ? true : false;
+  }
 
   ngOnInit(): void {
     this.GetDataWork();

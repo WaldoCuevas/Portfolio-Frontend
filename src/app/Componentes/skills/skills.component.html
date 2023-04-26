@@ -1,9 +1,13 @@
 <!--Habilidades-->
-<section id="habilidades" class="habilidades seccion-clara">
-    <h1 class="titulo-clara titulo-seccion">Habilidades</h1>
+<section id="habilidades">
 
-    <div class="container_icon">
-        <i (click)="modalService.open(AddDataSkillModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
+    <h1 class="titulo-seccion">Habilidades</h1>
+
+    <div class="container-icon">
+        <button (click)="modalService.open(AddDataSkillModal)" class="icon icon-1" *ngIf="isAdmin">
+            <i class="fa-solid fa-square-plus"></i>
+            <p>Añadir</p>
+        </button>
     </div>
 
     <div class="container">
@@ -12,25 +16,29 @@
 
             <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-12 col-xl-4">
 
-                <div class="container_icon">
-                    <i (click)="modalService.open(ModifyDataSkillModal)" class="bi bi-pencil-square" *ngIf="isAdmin">
-                        Modify</i>
-                    <i (click)="DeleteDataSkill(this.skill.skill_id)" class="bi bi-x-square" *ngIf="isAdmin">
-                        Delete</i>
+                <div class="container-icon">
+                    <button (click)="modalService.open(ModifyDataSkillModal)" class="icon icon-2" *ngIf="isAdmin">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <p>Modificar</p>
+                    </button>
+                    <button (click)="DeleteDataSkill(this.skill.skill_id)" class="icon icon-3" *ngIf="isAdmin">
+                        <i class="fa-solid fa-trash"></i>
+                        <p>Borrar</p>
+                    </button>
                 </div>
 
-                <div class="Container-info habilidad_titulo">
-                    <h3 class="habilidad_nombre texto">{{this.skill.skills_name}}</h3>
-                    <span class="habilidad_numero">%{{this.skill.skill_porcent}}</span>
-                </div>
-
-                <div class="Container-circle text-center">
-                    <circle-progress [percent]="this.skill.skill_porcent" [radius]="100" subtitle=""
-                        [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#78C000'"
-                        [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300">
+                <div class="container-circle">
+                    <circle-progress [percent]="this.skill.skill_porcent" [imageSrc]="this.skill.skill_image"
+                        [showImage]="true" [imageHeight]="100" [imageWidth]="100" [radius]="100" subtitle=""
+                        [outerStrokeWidth]="10" [innerStrokeWidth]="5" [outerStrokeColor]="'#6366f1'"
+                        [innerStrokeColor]="'#32349e'" [animation]="true" [animationDuration]="300">
                     </circle-progress>
                 </div>
 
+                <div class="container-info">
+                    <h3 class="texto">{{this.skill.skills_name}} </h3>
+                    <span class="number">%{{this.skill.skill_porcent}} </span>
+                </div>
 
                 <!--Modal-->
                 <ng-template #ModifyDataSkillModal let-modal>
@@ -75,9 +83,11 @@
                         <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
                     </div>
                 </ng-template>
+
             </div>
 
         </div>
+
     </div>
 
 </section>

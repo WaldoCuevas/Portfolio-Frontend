@@ -1,23 +1,38 @@
 <!--Sobre mi-->
-<section id="sobre-mi" class="sobre-mi seccion-oscura">
+<section id="sobre-mi">
 
-    <div class="contenedor">
-        
-        <div class="container_icon">
-            <i (click)="modalService.open(AddPersonalDataModal)" class="bi bi-plus-square" *ngIf="isAdmin"> Add</i>
-            <i (click)="modalService.open(ModifyPersonalDataModal)" class="bi bi-pencil-square" *ngIf="isAdmin"> Modify</i>
-            <i (click)="DeletePersonalData()" class="bi bi-x-square" *ngIf="isAdmin"> Delete</i>
+    <h2 class="titulo">Sobre mi</h2>
+
+    <div class="container">
+
+
+
+        <div class="container-info">
+            <p class="texto"> {{ this.persona.about_me_r1 }} </p>
+            <p class="texto"> {{this.persona.about_me_r2 }} </p>
         </div>
 
-        <h2 class="titulo-oscura titulo-seccion">Sobre mi</h2>
-        <p class="texto-oscura texto"> {{ this.persona.about_me_r1 }} <br> {{this.persona.about_me_r2}} </p>
+        <div class="container-icon">
+            <button (click)="modalService.open(AddPersonalDataModal)" class="icon icon-1" *ngIf="isAdmin">
+                <i class="fa-solid fa-square-plus"></i>
+                <p>Añadir</p>
+            </button>
+            <button (click)="modalService.open(ModifyPersonalDataModal)" class="icon icon-2" *ngIf="isAdmin">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Modificar</p>
+            </button>
+            <button (click)="DeletePersonalData()" class="icon icon-3" *ngIf="isAdmin">
+                <i class="fa-solid fa-trash"></i>
+                <p>Borrar</p>
+            </button>
+        </div>
+
     </div>
 
-    <button class="btn btn-primary"> <a class="sub-titulo-oscura"
-        href="https://files.deply.dev/files/1cafc124-cd63-410d-a251-9ca5247270f9-fc681843-cf57-45e2-a9b0-263e041f8b97-Waldo's_Resume_(2).pdf"
-        target="_blank" rel="noopener noreferrer">Download CV </a> </button>
 
 </section>
+
+
 
 <!--Modal-->
 <ng-template #AddPersonalDataModal let-modal>
@@ -66,13 +81,13 @@
         <div class="form-container">
             <form class="form" (ngSubmit)="ModifyPersonalData()">
 
-                
+
                 <div>
                     <label for="id">ID:</label>
                     <input id="id" [(ngModel)]="this.persona.user_id" name="id" disabled="true"
                         placeholder="{{this.persona.user_id}}">
                 </div>
-                
+
                 <div>
                     <label for="about_me_r1">Descripcion 1: </label>
                     <textarea type="text" id="about_me_r1" [(ngModel)]="persona.about_me_r1" name="about_me_r1"

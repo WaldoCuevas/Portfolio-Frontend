@@ -19,8 +19,14 @@ export class EducationsComponent implements OnInit {
   isAdmin = false;
   roles: string[];
 
+  textVacio:string = "";
+
   constructor(private educationService:EducationsService,private tokenService:TokenService,
     public modalService:NgbModal) { }
+
+  textoVacio(description:any):Boolean {
+    return this.textVacio !== description ? true : false;
+  }
 
   ngOnInit(): void {
     this.getDataEducation();
