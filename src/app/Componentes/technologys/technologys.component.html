@@ -16,7 +16,7 @@
 
             <div *ngFor="let technology of technologys" class="columna col-xs-12 col-md-12 col-xl-3">
 
-                <div class="container-icon">
+                <div *ngIf="isAdmin" class="container-icon">
                     <button (click)="modalService.open(ModifyDataTechnologysModal)" class="icon icon-2" *ngIf="isAdmin">
                         <i class="fa-solid fa-pen-to-square"></i>
                         <p>Modificar</p>
@@ -52,55 +52,56 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-container">
-                            <form class="form" (ngSubmit)="ModifyDataTechnologys(this.technology.tecnology_id)">
+                            <form [formGroup]="formModify" class="form"
+                                (ngSubmit)="ModifyDataTechnologys(this.technology.tecnology_id)">
 
                                 <div>
                                     <label for="id">ID:</label>
-                                    <input id="id" [(ngModel)]="this.technology.tecnology_id" name="id" disabled="true"
+                                    <input id="id" formControlName="tecnology_id" name="id"
                                         placeholder="{{this.technology.tecnology_id}}">
                                 </div>
 
                                 <div>
                                     <label for="name_technology">Nombre Tecnologia </label>
-                                    <input type="text" id="name_technology" [(ngModel)]="technologyTS.name_technology"
+                                    <input type="text" id="name_technology" formControlName="name_technology"
                                         name="name_technology" placeholder="Nombre de la tecnologia" maxlength="50">
                                 </div>
 
                                 <div>
                                     <label for="description_technology_r1">Descripcion 1: </label>
                                     <input type="text" id="description_technology_r1"
-                                        [(ngModel)]="technologyTS.description_technology_r1"
-                                        name="description_technology_r1" placeholder="Descripcion" maxlength="254">
+                                        formControlName="description_technology_r1" name="description_technology_r1"
+                                        placeholder="Descripcion" maxlength="254">
                                 </div>
 
                                 <div>
                                     <label for="description_technology_r2">Descripcion 2: </label>
                                     <input type="text" id="description_technology_r2"
-                                        [(ngModel)]="technologyTS.description_technology_r2"
-                                        name="description_technology_r2" placeholder="Descripcion" maxlength="254">
+                                        formControlName="description_technology_r2" name="description_technology_r2"
+                                        placeholder="Descripcion" maxlength="254">
                                 </div>
 
                                 <div>
                                     <label for="Badge 1">Badge 1: </label>
-                                    <input type="text" id="Badge 1" [(ngModel)]="technologyTS.badge_technology_1"
-                                        name="Badge 1" placeholder="badge" maxlength="10">
+                                    <input type="text" id="Badge 1" formControlName="badge_technology_1" name="Badge 1"
+                                        placeholder="badge">
                                 </div>
 
                                 <div>
                                     <label for="Badge 2">Badge 2: </label>
-                                    <input type="text" id="Badge 2" [(ngModel)]="technologyTS.badge_technology_2"
-                                        name="Badge 2" placeholder="badge" maxlength="10">
+                                    <input type="text" id="Badge 2" formControlName="badge_technology_2" name="Badge 2"
+                                        placeholder="badge">
                                 </div>
 
                                 <div>
-                                    <label for="Badge 3">: </label>
-                                    <input type="text" id="Badge 3" [(ngModel)]="technologyTS.badge_technology_3"
-                                        name="Badge 3" placeholder="badge" maxlength="10">
+                                    <label for="Badge 3">Badge: </label>
+                                    <input type="text" id="Badge 3" formControlName="badge_technology_3" name="Badge 3"
+                                        placeholder="badge">
                                 </div>
                                 <div>
                                     <label for="Badge 4">Badge 4: </label>
-                                    <input type="text" id="Badge 4" [(ngModel)]="technologyTS.badge_technology_4"
-                                        name="Badge 4" placeholder="badge" maxlength="10">
+                                    <input type="text" id="Badge 4" formControlName="badge_technology_4" name="Badge 4"
+                                        placeholder="badge">
                                 </div>
 
                                 <button>Modificar</button>
@@ -117,7 +118,7 @@
             </div>
 
         </div>
-        
+
     </div>
 
 </section>
@@ -132,51 +133,50 @@
     </div>
     <div class="modal-body">
         <div class="form-container">
-            <form class="form" (ngSubmit)="AddDataTechnologys()">
+            <form [formGroup]="formAdd" class="form" (ngSubmit)="AddDataTechnologys()">
+
                 <div>
                     <label for="name_technology">Nombre Tecnologia </label>
-                    <input type="text" id="name_technology" [(ngModel)]="technologyTS.name_technology"
-                        name="name_technology" placeholder="Nombre Tecnologia" maxlength="50">
+                    <input type="text" id="name_technology" formControlName="name_technology" name="name_technology"
+                        placeholder="Nombre de la tecnologia">
                 </div>
 
                 <div>
                     <label for="description_technology_r1">Descripcion 1: </label>
-                    <input type="text" id="description_technology_r1"
-                        [(ngModel)]="technologyTS.description_technology_r1" name="description_technology_r1"
-                        placeholder="Descripcion reglon 1" maxlength="254">
+                    <input type="text" id="description_technology_r1" formControlName="description_technology_r1"
+                        name="description_technology_r1" placeholder="Descripcion">
                 </div>
 
                 <div>
                     <label for="description_technology_r2">Descripcion 2: </label>
-                    <input type="text" id="description_technology_r2"
-                        [(ngModel)]="technologyTS.description_technology_r2" name="description_technology_r2"
-                        placeholder="Descripcion reglon 2" maxlength="254">
+                    <input type="text" id="description_technology_r2" formControlName="description_technology_r2"
+                        name="description_technology_r2" placeholder="Descripcion">
                 </div>
 
                 <div>
                     <label for="Badge 1">Badge 1: </label>
-                    <input type="text" id="Badge 1" [(ngModel)]="technologyTS.badge_technology_1" name="Badge 1"
-                        placeholder="Badge" maxlength="10">
+                    <input type="text" id="Badge 1" formControlName="badge_technology_1" name="Badge 1"
+                        placeholder="badge">
                 </div>
 
                 <div>
                     <label for="Badge 2">Badge 2: </label>
-                    <input type="text" id="Badge 2" [(ngModel)]="technologyTS.badge_technology_2" name="Badge 2"
-                        placeholder="Badge" maxlength="10">
+                    <input type="text" id="Badge 2" formControlName="badge_technology_2" name="Badge 2"
+                        placeholder="badge">
                 </div>
 
                 <div>
-                    <label for="Badge 3">Badge 3: </label>
-                    <input type="text" id="Badge 3" [(ngModel)]="technologyTS.badge_technology_3" name="Badge 3"
-                        placeholder="Badge" maxlength="10">
+                    <label for="Badge 3">Badge: </label>
+                    <input type="text" id="Badge 3" formControlName="badge_technology_3" name="Badge 3"
+                        placeholder="badge">
                 </div>
                 <div>
                     <label for="Badge 4">Badge 4: </label>
-                    <input type="text" id="Badge 4" [(ngModel)]="technologyTS.badge_technology_4" name="Badge 4"
-                        placeholder="Badge" maxlength="10">
+                    <input type="text" id="Badge 4" formControlName="badge_technology_4" name="Badge 4"
+                        placeholder="badge">
                 </div>
 
-                <button>Añadir</button>
+                <button type="submit">Añadir</button>
             </form>
         </div>
     </div>
@@ -184,7 +184,3 @@
         <button type="button" class="btn btn-danger" (click)="modal.close()">Cerrar</button>
     </div>
 </ng-template>
-
-<div>
-    <app-skills></app-skills>
-</div>

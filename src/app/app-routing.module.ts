@@ -13,6 +13,9 @@ import { IndexComponent } from './AuthComponent/index/index.component';
 //Utils
 import { GuardGuard as guard} from './Utils/Guard/guard.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './ViewComponent/home/home.component';
+import { KnowSkillComponent } from './ViewComponent/know-skill/know-skill.component';
+import { EducationWorkExpComponent } from './ViewComponent/education-work-exp/education-work-exp.component';
 
 
 // Rutas aqui ->>
@@ -23,9 +26,9 @@ const routes: Routes = [
   { path:"register", component: RegisterComponent },
   
   // secciones
-  { path:"hero", component:HeroComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
-  { path:"technology", component: TechnologysComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
-  { path:"exp", component: ExpWorkComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"home", component:HomeComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']}},
+  { path:"know-skill", component: KnowSkillComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
+  { path:"education-expwork", component: EducationWorkExpComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
   { path:"project", component: ProjectsComponent,canActivate: [guard], data: { expectedRol: ['admin', 'user']} },
   
   //index

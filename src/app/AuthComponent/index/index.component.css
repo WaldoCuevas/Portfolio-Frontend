@@ -44,15 +44,3 @@ button a {
 button:hover {
   background-image: linear-gradient(to right, #8ddbf5, #528bd1, #7671b1);
 }
-
-/* Image styles */
-
-.container-image {
-  position: absolute;
-  width: 1000px;
-}
-
-
-img {
-  width: 1000px;
-}

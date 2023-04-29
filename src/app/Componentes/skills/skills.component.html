@@ -50,28 +50,30 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-container">
-                            <form class="form" (ngSubmit)="ModifyDataSkill(this.skill.skill_id)">
+                            <form [formGroup]="formModify" class="form"
+                                (ngSubmit)="ModifyDataSkill(this.skill.skill_id)">
 
                                 <div>
                                     <label for="id">ID:</label>
-                                    <input id="id" [(ngModel)]="this.skill.skill_id" name="id" disabled="true"
+                                    <input id="id" formControlName="skill_id" name="id"
                                         placeholder="{{this.skill.skill_id}}">
                                 </div>
+
                                 <div>
                                     <label for="image_URL">Imagen URL </label>
-                                    <input type="text" id="image_URL" [(ngModel)]="skillTS.skill_image" name="image_URL"
+                                    <input type="text" id="image_URL" formControlName="skill_image" name="image_URL"
                                         placeholder="Imagen URL" maxlength="254">
                                 </div>
 
                                 <div>
                                     <label for="skills_name">Nombre Habilidad: </label>
-                                    <input type="text" id="skills_name" [(ngModel)]="skillTS.skills_name"
-                                        name="skills_name" placeholder="Nombre Habilidad" maxlength="30">
+                                    <input type="text" id="skills_name" formControlName="skills_name" name="skills_name"
+                                        placeholder="Nombre Habilidad" maxlength="30">
                                 </div>
 
                                 <div>
                                     <label for="skill_porcent">Nivel: </label>
-                                    <input type="number" id="skill_porcent" [(ngModel)]="skillTS.skill_porcent"
+                                    <input type="number" id="skill_porcent" formControlName="skill_porcent"
                                         name="skill_porcent" placeholder="Porcentaje" maxlength="35">
                                 </div>
 
@@ -102,22 +104,23 @@
     </div>
     <div class="modal-body">
         <div class="form-container">
-            <form class="form" (ngSubmit)="AddDataSkill()">
+            <form [formGroup]="formAdd" class="form" (ngSubmit)="AddDataSkill()">
+
                 <div>
                     <label for="image_URL">Imagen URL </label>
-                    <input type="text" id="image_URL" [(ngModel)]="skillTS.skill_image" name="image_URL"
+                    <input type="text" id="image_URL" formControlName="skill_image" name="image_URL"
                         placeholder="Imagen URL" maxlength="254">
                 </div>
 
                 <div>
                     <label for="skills_name">Nombre Habilidad: </label>
-                    <input type="text" id="skills_name" [(ngModel)]="skillTS.skills_name" name="skills_name"
+                    <input type="text" id="skills_name" formControlName="skills_name" name="skills_name"
                         placeholder="Nombre Habilidad" maxlength="30">
                 </div>
 
                 <div>
                     <label for="skill_porcent">Nivel: </label>
-                    <input type="number" id="skill_porcent" [(ngModel)]="skillTS.skill_porcent" name="skill_porcent"
+                    <input type="number" id="skill_porcent" formControlName="skill_porcent" name="skill_porcent"
                         placeholder="Porcentaje" maxlength="35">
                 </div>
 

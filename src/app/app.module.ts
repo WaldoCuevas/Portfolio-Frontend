@@ -21,17 +21,19 @@ import { FooterComponent } from './Componentes/footer/footer.component';
 import { LoginComponent } from './AuthComponent/login/login.component';
 import { RegisterComponent } from './AuthComponent/register/register.component';
 import { IndexComponent } from './AuthComponent/index/index.component'; 
+import { NotFoundComponent } from './not-found/not-found.component';
 
-
-//Componentes Secundarios + Angular Material
+//Librerias
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './Utils/Interceptor/interceptor.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Ng-Bootstrap
-
+// Ng-Bootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './ViewComponent/home/home.component';
+import { KnowSkillComponent } from './ViewComponent/know-skill/know-skill.component';
+import { EducationWorkExpComponent } from './ViewComponent/education-work-exp/education-work-exp.component'; 
 
 
 @NgModule({
@@ -51,6 +53,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Ng-Bootstrap
     ContactComponent,
     RegisterComponent,
     IndexComponent,
+    HomeComponent,
+    KnowSkillComponent,
+    EducationWorkExpComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Ng-Bootstrap
       animationDuration: 300
     }),
     NgbModule,
-    
+    ReactiveFormsModule,
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

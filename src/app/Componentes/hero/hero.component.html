@@ -22,28 +22,17 @@
         <span style="color:#6366f1;">{{ this.persona.name }} {{ this.persona.last_name }} </span>
         <p>Programador Full Stack</p>
         <div class="container-link">
-            <a class="link-info link-info-1" href="https://github.com/waldocuevas">Github</a>
-            <a class="link-info link-info-2" href="#">Descargar CV</a>
+            <a class="link-info link-info-1" href="https://github.com/waldocuevas" target="_blank">Github</a>
+            <a class="link-info link-info-2" href="#" target="_blank">Descargar CV</a>
         </div>
     </div>
     
     <div class="container-image">
         <span class="fondo-imagen"></span>
         <img src="{{this.persona.user_image}}" alt="Avatar">
-    </div>
-
-    
+    </div>    
 
 </section>
-
-<div>
-
-    <app-about-me></app-about-me>
-
-
-</div>
-
-    
 
 <!--Modal-->
 <ng-template #AddPersonalDataModal let-modal>
@@ -55,24 +44,24 @@
     </div>
     <div class="modal-body">
         <div class="form-container">
-            <form class="form" (ngSubmit)="AddPersonalData()">
+            <form [formGroup]="formAdd" class="form" (ngSubmit)="AddPersonalData()">
 
                 <div>
                     <label for="image_URL">Imagen URL </label>
-                    <input type="text" id="image_URL" [(ngModel)]="persona.user_image" name="image_URL"
-                        placeholder="Imagen URL" maxlength="254">
+                    <input type="text" id="image_URL" formControlName="user_image"  name="image_URL"
+                        placeholder="Imagen URL" >
                 </div>
 
                 <div>
-                    <label for="workplace">Nombre: </label>
-                    <input type="text" id="workplace" [(ngModel)]="persona.name" name="workplace"
-                        placeholder="Lugar de Trabajo" maxlength="30">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" formControlName="name" name="nombre"
+                        placeholder="Nombre">
                 </div>
 
                 <div>
-                    <label for="workstation">Apellido: </label>
-                    <input type="text" id="email" [(ngModel)]="persona.last_name" name="workstation"
-                        placeholder="Puesto de trabajo" maxlength="35">
+                    <label for="apellido">Apellido: </label>
+                    <input type="text" id="apellido" formControlName="last_name" name="apellido"
+                        placeholder="Apellido">
                 </div>
 
                 <button>Añadir</button>
@@ -94,33 +83,33 @@
     </div>
     <div class="modal-body">
         <div class="form-container">
-            <form class="form" (ngSubmit)="ModifyPersonalData()">
+            <form [formGroup]="formModify" class="form" (ngSubmit)="ModifyPersonalData()">
 
                 <div>
                     <label for="id">ID:</label>
-                    <input id="id" [(ngModel)]="this.persona.user_id" name="id" disabled="true"
+                    <input id="id" formControlName="user_id" name="id"
                         placeholder="{{this.persona.user_id}}">
                 </div>
 
                 <div>
                     <label for="image_URL">Imagen URL </label>
-                    <input type="text" id="image_URL" [(ngModel)]="persona.user_image" name="image_URL"
-                        placeholder="Imagen URL" maxlength="254">
+                    <input type="text" id="image_URL" formControlName="user_image"  name="image_URL"
+                        placeholder="Imagen URL" >
                 </div>
 
                 <div>
-                    <label for="workplace">Nombre: </label>
-                    <input type="text" id="workplace" [(ngModel)]="persona.name" name="workplace"
-                        placeholder="Lugar de Trabajo" maxlength="30">
+                    <label for="nombre">Nombre: </label>
+                    <input type="text" id="nombre" formControlName="name" name="nombre"
+                        placeholder="Nombre">
                 </div>
 
                 <div>
-                    <label for="workstation">Apellido: </label>
-                    <input type="text" id="email" [(ngModel)]="persona.last_name" name="workstation"
-                        placeholder="Puesto de trabajo" maxlength="35">
+                    <label for="apellido">Apellido: </label>
+                    <input type="text" id="apellido" formControlName="last_name" name="apellido"
+                        placeholder="Apellido">
                 </div>
 
-                <button>Añadir</button>
+                <button>Modificar</button>
             </form>
         </div>
     </div>

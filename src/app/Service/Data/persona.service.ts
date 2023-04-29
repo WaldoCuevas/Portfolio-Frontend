@@ -27,8 +27,8 @@ export class PersonaService {
 
   //Metodos Put
 
-  public ModifyPersonalData(persona: Persona): Observable<Object> {
-    return this.httpClient.put(environment.urlPutData + 'PersonalData',persona);
+  public ModifyPersonalData(persona: Persona, id:number): Observable<Object> {
+    return this.httpClient.put(environment.urlPutData + 'PersonalData/' + `${id}`, persona);
   }
 
   //Metodos Delete

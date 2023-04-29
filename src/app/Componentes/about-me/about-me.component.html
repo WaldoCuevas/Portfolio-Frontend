@@ -44,19 +44,19 @@
     </div>
     <div class="modal-body">
         <div class="form-container">
-            <form class="form" (ngSubmit)="AddPersonalData()">
+            <form [formGroup]="formAdd" class="form" (ngSubmit)="AddPersonalData()">
 
                 <div>
                     <label for="about_me_r1">Descripcion 1: </label>
-                    <textarea type="text" id="about_me_r1" [(ngModel)]="persona.about_me_r1" name="about_me_r1"
-                        placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="about_me_r1" formControlName="about_me_r1" name="about_me_r1"
+                        placeholder="Descripcion">
                     </textarea>
                 </div>
 
                 <div>
                     <label for="about_me_r2">Descripcion 2: </label>
-                    <textarea type="text" id="about_me_r2" [(ngModel)]="persona.about_me_r2" name="about_me_r2"
-                        placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="about_me_r2" formControlName="about_me_r2" name="about_me_r2"
+                        placeholder="Descripcion">
                     </textarea>
                 </div>
 
@@ -79,30 +79,29 @@
     </div>
     <div class="modal-body">
         <div class="form-container">
-            <form class="form" (ngSubmit)="ModifyPersonalData()">
-
+            <form [formGroup]="formModify" class="form" (ngSubmit)="ModifyPersonalData()">
 
                 <div>
                     <label for="id">ID:</label>
-                    <input id="id" [(ngModel)]="this.persona.user_id" name="id" disabled="true"
+                    <input id="id" formControlName="user_id" name="id"
                         placeholder="{{this.persona.user_id}}">
                 </div>
 
                 <div>
                     <label for="about_me_r1">Descripcion 1: </label>
-                    <textarea type="text" id="about_me_r1" [(ngModel)]="persona.about_me_r1" name="about_me_r1"
-                        placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="about_me_r1" formControlName="about_me_r1" name="about_me_r1"
+                        placeholder="Descripcion">
                     </textarea>
                 </div>
 
                 <div>
                     <label for="about_me_r2">Descripcion 2: </label>
-                    <textarea type="text" id="about_me_r2" [(ngModel)]="persona.about_me_r2" name="about_me_r2"
-                        placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="about_me_r2" formControlName="about_me_r2" name="about_me_r2"
+                        placeholder="Descripcion">
                     </textarea>
                 </div>
 
-                <button>Añadir</button>
+                <button>Modificar</button>
             </form>
         </div>
     </div>
