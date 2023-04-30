@@ -25,22 +25,22 @@
                         <div class="columna col-xs-12 col-md-12 col-xl-12">
 
                             <div class="header-icon">
-                                <div class="container-icon">
-                                    <button (click)="modalService.open(ModifyDataWorkModal)" class="icon icon-2"
+                                <div class="container-imagen">
+                                    <img src="{{ this.ExpWorks.work_image}}" alt="Imagen_work_exp"
+                                        class="educacion-icono-2">
+                                </div>
+
+                                <div class="container-action">
+                                    <button (click)="modalService.open(ModifyDataWorkModal)" class="action action-2"
                                         *ngIf="isAdmin">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                         <p>Modificar</p>
                                     </button>
-                                    <button (click)="DeleteDataWork(this.ExpWorks.work_exp_id)" class="icon icon-3"
+                                    <button (click)="DeleteDataWork(this.ExpWorks.work_exp_id)" class="action action-3"
                                         *ngIf="isAdmin">
                                         <i class="fa-solid fa-trash"></i>
                                         <p>Borrar</p>
                                     </button>
-                                </div>
-
-                                <div class="container-imagen">
-                                    <img src="{{ this.ExpWorks.work_image}}" alt="Imagen_work_exp"
-                                        class="educacion-icono-2">
                                 </div>
                             </div>
 
@@ -78,64 +78,64 @@
                                         <form [formGroup]="formModify" class="form"
                                             (ngSubmit)="ModifyDataWork(this.ExpWorks.work_exp_id)">
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="id">ID:</label>
                                                 <input id="id" formControlName="work_exp_id" name="id"
                                                     placeholder="{{this.ExpWorks.work_exp_id}}">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="image_URL">Imagen URL </label>
                                                 <input type="text" id="image_URL" formControlName="work_image"
                                                     name="image_URL" placeholder="Imagen URL">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="workplace">Institución: </label>
                                                 <input type="text" id="workplace" formControlName="workplace"
                                                     name="workplace" placeholder="Lugar de Trabajo">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="workstation">Puesto: </label>
                                                 <input type="text" id="workstation" formControlName="workstation"
                                                     name="workstation" placeholder="Puesto de trabajo">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="job">Aplicación: </label>
                                                 <input type="text" id="job" formControlName="job" name="job"
                                                     placeholder="Nombre de la Aplicacion">
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_work_exp_r1">Descripcion 1: </label>
-                                                <input type="text" id="description_work_exp_r1"
+                                                <textarea type="text" id="description_work_exp_r1"
                                                     formControlName="description_work_exp_r1"
-                                                    name="description_work_exp_r1" placeholder="Descripcion">
+                                                    name="description_work_exp_r1" placeholder="Descripcion"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_work_exp_r2">Descripcion 2: </label>
-                                                <input type="text" id="description_work_exp_r2"
+                                                <textarea type="text" id="description_work_exp_r2"
                                                     formControlName="description_work_exp_r2"
-                                                    name="description_work_exp_r2" placeholder="Descripcion">
+                                                    name="description_work_exp_r2" placeholder="Descripcion"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_work_exp_r3">Descripcion 3: </label>
-                                                <input type="text" id="description_work_exp_r3"
+                                                <textarea type="text" id="description_work_exp_r3"
                                                     formControlName="description_work_exp_r3"
-                                                    name="description_work_exp_r3" placeholder="Descripcion">
+                                                    name="description_work_exp_r3" placeholder="Descripcion"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="start_work_exp">Inicio: </label>
                                                 <input type="text" id="nombreUsuario" formControlName="start_work_exp"
                                                     name="start_work_exp" placeholder="Inicio experiencia laboral">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="end_work_exp">Final: </label>
                                                 <input type="text" id="end_work_exp" formControlName="end_work_exp"
                                                     name="end_work_exp" placeholder="Fin experiencia laboral">
@@ -180,54 +180,55 @@
     <div class="modal-body">
         <div class="form-container">
             <form [formGroup]="formAdd" class="form" (ngSubmit)="AddDataWork()">
-                <div>
+
+                <div class="input-container">
                     <label for="image_URL">Imagen URL </label>
                     <input type="text" id="image_URL" formControlName="work_image" name="image_URL"
                         placeholder="Imagen URL">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="workplace">Institución: </label>
                     <input type="text" id="workplace" formControlName="workplace" name="workplace"
                         placeholder="Lugar de Trabajo">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="workstation">Puesto: </label>
                     <input type="text" id="workstation" formControlName="workstation" name="workstation"
                         placeholder="Puesto de trabajo">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="job">Aplicación: </label>
                     <input type="text" id="job" formControlName="job" name="job" placeholder="Nombre de la Aplicacion">
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_work_exp_r1">Descripcion 1: </label>
-                    <input type="text" id="description_work_exp_r1" formControlName="description_work_exp_r1"
-                        name="description_work_exp_r1" placeholder="Descripcion">
+                    <textarea type="text" id="description_work_exp_r1" formControlName="description_work_exp_r1"
+                        name="description_work_exp_r1" placeholder="Descripcion"></textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_work_exp_r2">Descripcion 2: </label>
-                    <input type="text" id="description_work_exp_r2" formControlName="description_work_exp_r2"
-                        name="description_work_exp_r2" placeholder="Descripcion">
+                    <textarea type="text" id="description_work_exp_r2" formControlName="description_work_exp_r2"
+                        name="description_work_exp_r2" placeholder="Descripcion"></textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_work_exp_r3">Descripcion 3: </label>
-                    <input type="text" id="description_work_exp_r3" formControlName="description_work_exp_r3"
-                        name="description_work_exp_r3" placeholder="Descripcion">
+                    <textarea type="text" id="description_work_exp_r3" formControlName="description_work_exp_r3"
+                        name="description_work_exp_r3" placeholder="Descripcion"></textarea>
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="start_work_exp">Inicio: </label>
                     <input type="text" id="nombreUsuario" formControlName="start_work_exp" name="start_work_exp"
                         placeholder="Inicio experiencia laboral">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="end_work_exp">Final: </label>
                     <input type="text" id="end_work_exp" formControlName="end_work_exp" name="end_work_exp"
                         placeholder="Fin experiencia laboral">

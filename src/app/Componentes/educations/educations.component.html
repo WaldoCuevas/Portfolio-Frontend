@@ -3,8 +3,8 @@
 
     <h1 class="titulo-seccion">Educación</h1>
 
-    <div class="container-icon">
-        <button (click)="modalService.open(AddDataEducationModal)" class="icon icon-1" *ngIf="isAdmin">
+    <div class="container-action">
+        <button (click)="modalService.open(AddDataEducationModal)" class="action action-1" *ngIf="isAdmin">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -30,14 +30,14 @@
                                     <img src="{{ this.education.education_image }}" alt="education_logo">
                                 </div>
 
-                                <div class="container-icon">
-                                    <button (click)="modalService.open(ModifyDataEducationModal)" class="icon icon-2"
+                                <div class="container-action">
+                                    <button (click)="modalService.open(ModifyDataEducationModal)" class="action action-2"
                                         *ngIf="isAdmin">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                         <p>Modificar</p>
                                     </button>
                                     <button (click)="DeleteDataEducation(this.education.education_id)"
-                                        class="icon icon-3" *ngIf="isAdmin">
+                                        class="action action-3" *ngIf="isAdmin">
                                         <i class="fa-solid fa-trash"></i>
                                         <p>Borrar</p>
                                     </button>
@@ -77,72 +77,72 @@
                                         <form [formGroup]="formModify" class="form"
                                             (ngSubmit)="ModifyDataEducation(this.education.education_id)">
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="id">ID:</label>
                                                 <input id="id" formControlName="education_id" name="id"
                                                     placeholder="{{this.education.education_id}}">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="education_image">Imagen URL </label>
                                                 <input type="text" id="education_image"
                                                     formControlName="education_image" name="education_image"
                                                     placeholder="Imagen URL" maxlength="254">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="school">Institución: </label>
                                                 <input type="text" id="workplace" formControlName="school" name="school"
                                                     placeholder="Institución" maxlength="30">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="qualification">Certificación: </label>
                                                 <input type="text" id="email" formControlName="qualification"
                                                     name="qualification" placeholder="Titulo/Certificado"
                                                     maxlength="75">
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_education_r1">Descripcion 1: </label>
-                                                <input type="text" id="description_education_r1"
+                                                <textarea type="text" id="description_education_r1"
                                                     formControlName="description_education_r1"
                                                     name="description_education_r1" placeholder="Descripcion"
-                                                    maxlength="254">
+                                                    maxlength="254"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_education_r2">Descripcion 2: </label>
-                                                <input type="text" id="description_education_r2"
+                                                <textarea type="text" id="description_education_r2"
                                                     formControlName="description_education_r2"
                                                     name="description_education_r2" placeholder="Descripcion"
-                                                    maxlength="254">
+                                                    maxlength="254"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_education_r3">Descripcion 3: </label>
-                                                <input type="text" id="description_education_r3"
+                                                <textarea type="text" id="description_education_r3"
                                                     formControlName="description_education_r3"
                                                     name="description_education_r3" placeholder="Descripcion"
-                                                    maxlength="254">
+                                                    maxlength="254"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="textarea-container">
                                                 <label for="description_education_r4">Descripcion 4: </label>
-                                                <input type="text" id="description_education_r4"
+                                                <textarea type="text" id="description_education_r4"
                                                     formControlName="description_education_r4"
                                                     name="description_education_r4" placeholder="Descripcion"
-                                                    maxlength="254">
+                                                    maxlength="254"></textarea>
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="start_education">Inicio: </label>
                                                 <input type="text" id="start_education"
                                                     formControlName="start_education" name="start_education"
                                                     placeholder="Inicio Educacion" maxlength="75">
                                             </div>
 
-                                            <div>
+                                            <div class="input-container">
                                                 <label for="end_education">Final: </label>
                                                 <input type="text" id="end_education" formControlName="end_education"
                                                     name="end_education" placeholder="Fin Educacion" maxlength="75">
@@ -182,58 +182,69 @@
         <div class="form-container">
             <form [formGroup]="formAdd" class="form" (ngSubmit)="AddDataEducation()">
 
-                <div>
+                <div class="input-container">
                     <label for="education_image">Imagen URL </label>
-                    <input type="text" id="education_image" formControlName="education_image" name="education_image"
+                    <input type="text" id="education_image"
+                        formControlName="education_image" name="education_image"
                         placeholder="Imagen URL" maxlength="254">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="school">Institución: </label>
-                    <input type="text" id="workplace" formControlName="school" name="school" placeholder="Institución"
-                        maxlength="30">
+                    <input type="text" id="workplace" formControlName="school" name="school"
+                        placeholder="Institución" maxlength="30">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="qualification">Certificación: </label>
-                    <input type="text" id="email" formControlName="qualification" name="qualification"
-                        placeholder="Titulo/Certificado" maxlength="75">
+                    <input type="text" id="email" formControlName="qualification"
+                        name="qualification" placeholder="Titulo/Certificado"
+                        maxlength="75">
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_education_r1">Descripcion 1: </label>
-                    <input type="text" id="description_education_r1" formControlName="description_education_r1"
-                        name="description_education_r1" placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="description_education_r1"
+                        formControlName="description_education_r1"
+                        name="description_education_r1" placeholder="Descripcion"
+                        maxlength="254"></textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_education_r2">Descripcion 2: </label>
-                    <input type="text" id="description_education_r2" formControlName="description_education_r2"
-                        name="description_education_r2" placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="description_education_r2"
+                        formControlName="description_education_r2"
+                        name="description_education_r2" placeholder="Descripcion"
+                        maxlength="254"></textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_education_r3">Descripcion 3: </label>
-                    <input type="text" id="description_education_r3" formControlName="description_education_r3"
-                        name="description_education_r3" placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="description_education_r3"
+                        formControlName="description_education_r3"
+                        name="description_education_r3" placeholder="Descripcion"
+                        maxlength="254"></textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_education_r4">Descripcion 4: </label>
-                    <input type="text" id="description_education_r4" formControlName="description_education_r4"
-                        name="description_education_r4" placeholder="Descripcion" maxlength="254">
+                    <textarea type="text" id="description_education_r4"
+                        formControlName="description_education_r4"
+                        name="description_education_r4" placeholder="Descripcion"
+                        maxlength="254"></textarea>
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="start_education">Inicio: </label>
-                    <input type="text" id="start_education" formControlName="start_education" name="start_education"
+                    <input type="text" id="start_education"
+                        formControlName="start_education" name="start_education"
                         placeholder="Inicio Educacion" maxlength="75">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="end_education">Final: </label>
-                    <input type="text" id="end_education" formControlName="end_education" name="end_education"
-                        placeholder="Fin Educacion" maxlength="75">
+                    <input type="text" id="end_education" formControlName="end_education"
+                        name="end_education" placeholder="Fin Educacion" maxlength="75">
                 </div>
 
                 <button>Añadir</button>

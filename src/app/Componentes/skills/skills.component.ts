@@ -13,7 +13,9 @@ import { SkillsService } from 'src/app/Service/Data/skills.service';
 export class SkillsComponent implements OnInit {
   
   //Object Instance
-  skills: Skills[];
+  skills: Skills[] = [];
+  skillsBack: Skills[] = [];
+  skillsFront: Skills[] = [];
   skillTS: Skills = new Skills();
 
   //var

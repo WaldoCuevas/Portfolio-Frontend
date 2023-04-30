@@ -2,16 +2,16 @@
 <section id="inicio">
 
 
-    <div class="container-icon">
-        <button (click)="modalService.open(AddPersonalDataModal)" class="icon icon-1" *ngIf="isAdmin">
+    <div class="container-action">
+        <button (click)="modalService.open(AddPersonalDataModal)" class="action action-1" *ngIf="isAdmin">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
-        <button (click)="modalService.open(ModifyPersonalDataModal)" class="icon icon-2" *ngIf="isAdmin">
+        <button (click)="modalService.open(ModifyPersonalDataModal)" class="action action-2" *ngIf="isAdmin">
             <i class="fa-solid fa-pen-to-square"></i>
             <p>Modificar</p>
         </button>
-        <button (click)="DeletePersonalData()" class="icon icon-3" *ngIf="isAdmin">
+        <button (click)="DeletePersonalData()" class="action action-3" *ngIf="isAdmin">
             <i class="fa-solid fa-trash"></i>
             <p>Borrar</p>
         </button>
@@ -37,7 +37,7 @@
 <!--Modal-->
 <ng-template #AddPersonalDataModal let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Titulo modal</h4>
+        <h4 class="modal-title">Añadir</h4>
         <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -46,19 +46,19 @@
         <div class="form-container">
             <form [formGroup]="formAdd" class="form" (ngSubmit)="AddPersonalData()">
 
-                <div>
+                <div class="input-container">
                     <label for="image_URL">Imagen URL </label>
                     <input type="text" id="image_URL" formControlName="user_image"  name="image_URL"
                         placeholder="Imagen URL" >
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="nombre">Nombre: </label>
                     <input type="text" id="nombre" formControlName="name" name="nombre"
                         placeholder="Nombre">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="apellido">Apellido: </label>
                     <input type="text" id="apellido" formControlName="last_name" name="apellido"
                         placeholder="Apellido">
@@ -76,7 +76,7 @@
 <!--Modal-->
 <ng-template #ModifyPersonalDataModal let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">Editar</h4>
+        <h4 class="titulo">Editar</h4>
         <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -85,25 +85,25 @@
         <div class="form-container">
             <form [formGroup]="formModify" class="form" (ngSubmit)="ModifyPersonalData()">
 
-                <div>
+                <div class="input-container">
                     <label for="id">ID:</label>
                     <input id="id" formControlName="user_id" name="id"
                         placeholder="{{this.persona.user_id}}">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="image_URL">Imagen URL </label>
                     <input type="text" id="image_URL" formControlName="user_image"  name="image_URL"
                         placeholder="Imagen URL" >
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="nombre">Nombre: </label>
                     <input type="text" id="nombre" formControlName="name" name="nombre"
                         placeholder="Nombre">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="apellido">Apellido: </label>
                     <input type="text" id="apellido" formControlName="last_name" name="apellido"
                         placeholder="Apellido">

@@ -1,10 +1,4 @@
-/*    EDUCACION    */
-
-.header-icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+/*    SECTIONS    */
 
 .container {
   display: flex;
@@ -81,9 +75,15 @@ span {
   text-decoration: underline;
 }
 
-/*  ICON  */
+/*  ACTIONS --> solo admin  */
 
-.container-icon {
+.header-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.container-action {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -92,7 +92,7 @@ span {
   gap: 10px;
 }
 
-.icon {
+.action {
   border: none;
   align-items: center;
   gap: 10px;
@@ -101,15 +101,15 @@ span {
   transition: color 0.2s ease-in;
 }
 
-.icon-1:hover {
+.action-1:hover {
   color: #22c55e;
 }
 
-.icon-2:hover {
+.action-2:hover {
   color: #06b6d4;
 }
 
-.icon-3:hover {
+.action-3:hover {
   color: #ef4444;
 }
 
@@ -120,8 +120,7 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 100px;
+  width: 50%;
 }
 
 img {
@@ -160,7 +159,72 @@ img {
   color: rgb(224, 222, 222);
 }
 
+/*	MODAL		*/
+
+.modal-header {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+}
+
+.modal-footer {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #eee;
+}
+
+/*  Form  */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.form-container, .input-container, .textarea-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2, button, p {
+  margin: 8px 0;
+}
+
+input, textarea {
+  margin: 25px 0px;
+  padding: 20px 15px;
+  color: #000000;
+  border-radius: 0;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  text-align: left;
+}
+
+input:focus, textarea {
+  box-shadow: 0 0 10px #0000002a;
+  background-color: #0000002a;
+}
+
+.modal-body button {
+  background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+  border-radius: 30px;
+  border: transparent;
+  width: 200px;
+  transition: .2s all ease;
+}
+
+.modal-body button:hover {
+  background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
+}
+
+
 
 /*
-    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
-  */
+  Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+*/

@@ -73,6 +73,8 @@ export class HeroComponent implements OnInit {
     });
   }
 
+  //Modals
+
   //Method for admin rol
   public Admin(): void {
     this.roles = this.tokenService.getAuthorities();

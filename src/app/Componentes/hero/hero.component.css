@@ -1,4 +1,4 @@
-/* Section styles */
+/* SECTIONS */
 
 section {
     background: #eee;
@@ -7,11 +7,11 @@ section {
     justify-content: space-around;
     align-items: center;
     padding: 0 44px;
-    margin: 0;
+    margin-top: 0px;
     position: relative;
 }
 
-/* Container info styles */
+/*  INFO  */
 
 .container-info {
     width: 45%;
@@ -34,7 +34,7 @@ section {
     color: #1f1f1f;
 }
 
-/* Image styles */
+/* IMAGE  */
 
 .container-image {
     position: relative;
@@ -57,7 +57,7 @@ img {
     width: 300px;
 }
 
-/* Link styles */
+/* LINK  */
 
 .link-info {
     width: 450px;
@@ -100,9 +100,9 @@ img {
     gap: 20px;
 }
 
-/* Action icons styles */
+/* ACTIONS --> solo admin */
 
-.icon {
+.action {
     border: none;
     display: flex;
     align-items: center;
@@ -111,13 +111,82 @@ img {
     transition: color .1s ease-in-out;
 }
 
-.icon-1:hover {
+.action-1:hover {
     color: #22c55e;
 }
-.icon-2:hover {
+.action-2:hover {
     color: #06b6d4;
 }
-.icon-3:hover {
+.action-3:hover {
     color: #ef4444;
 }
 
+/*	MODAL		*/
+
+.modal-header {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eee;
+  }
+  
+  .modal-footer {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #eee;
+  }
+  
+  /*  Form  */
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .form-container, .input-container, .textarea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2, button, p {
+    margin: 8px 0;
+  }
+  
+  input, textarea {
+    margin: 25px 0px;
+    padding: 20px 15px;
+    color: #000000;
+    border-radius: 0;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    text-align: left;
+  }
+  
+  input:focus, textarea {
+    box-shadow: 0 0 10px #0000002a;
+    background-color: #0000002a;
+  }
+  
+  .modal-body button {
+    background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+    border-radius: 30px;
+    border: transparent;
+    width: 200px;
+    transition: .2s all ease;
+  }
+  
+  .modal-body button:hover {
+    background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
+  }
+  
+  
+  
+  /*
+    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  */

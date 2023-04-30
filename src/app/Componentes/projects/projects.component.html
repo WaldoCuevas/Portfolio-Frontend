@@ -1,10 +1,10 @@
 <!--Proyectos-->
-<section id="proyectos" >
+<section id="proyectos">
 
     <h2 class="titulo-seccion">Proyectos</h2>
 
-    <div class="container-icon">
-        <button (click)="modalService.open(AddDataProjectModal)" class="icon icon-1" *ngIf="isAdmin">
+    <div class="container-action">
+        <button (click)="modalService.open(AddDataProjectModal)" class="action action-1" *ngIf="isAdmin">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -22,19 +22,21 @@
 
                     <div class="overlay">
 
-                        <div class="container-icon">
-                            <button (click)="modalService.open(ModifyDataProjectModal)" class="icon icon-2" *ngIf="isAdmin">
+                        <div class="container-action">
+                            <button (click)="modalService.open(ModifyDataProjectModal)" class="action action-2"
+                                *ngIf="isAdmin">
                                 <i class="fa-solid fa-pen-to-square"></i>
                                 <p>Modificar</p>
                             </button>
-                            <button (click)="DeleteDataProject(this.projects.project_id)" class="icon icon-3" *ngIf="isAdmin">
+                            <button (click)="DeleteDataProject(this.projects.project_id)" class="action action-3"
+                                *ngIf="isAdmin">
                                 <i class="fa-solid fa-trash"></i>
                                 <p>Borrar</p>
                             </button>
                         </div>
 
                         <div class="container-info">
-                            <h3 class="presentacion">{{ this.projects.project_title }}</h3>
+                            <h2 class="presentacion">{{ this.projects.project_title }}</h2>
                             <p class="titulo"> <span class="project_name">{{ this.projects.project_name }} </span> </p>
                         </div>
 
@@ -43,15 +45,15 @@
                         </div>
 
                         <div class="iconos-contenedor">
-                            <a href="{{this.projects.link_project}}" target="_blank" rel="noopener noreferrer">Ver Proyecto <i
-                                    class="bi bi-laptop"></i>
+                            <a href="{{this.projects.link_project}}" target="_blank" rel="noopener noreferrer">Ver
+                                Proyecto <i class="bi bi-laptop"></i>
                             </a>
-                            <a href="{{this.projects.link_github}}" target="_blank" rel="noopener noreferrer">Ver Codigo <i
-                                    class="fa-brands fa-github"></i>
+                            <a href="{{this.projects.link_github}}" target="_blank" rel="noopener noreferrer">Ver Codigo
+                                <i class="fa-brands fa-github"></i>
                             </a>
                             <span> {{ this.projects.start_project }} - {{ this.projects.end_project}} </span>
                         </div>
-                    
+
                     </div>
 
                 </div>
@@ -66,61 +68,61 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-container">
-                            <form [formGroup]="formModify" class="form" (ngSubmit)="ModifyDataProject(this.projects.project_id)">
+                            <form [formGroup]="formModify" class="form"
+                                (ngSubmit)="ModifyDataProject(this.projects.project_id)">
 
-                                <div>
+                                <div class="input-container">
                                     <label for="id">ID:</label>
                                     <input id="id" formControlName="project_id" name="id"
                                         placeholder="{{this.projects.project_id}}">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="image_URL">Imagen URL </label>
-                                    <input type="text" id="image_URL" formControlName="project_image"
-                                        name="image_URL" placeholder="Imagen URL" >
+                                    <input type="text" id="image_URL" formControlName="project_image" name="image_URL"
+                                        placeholder="Imagen URL">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="project_title">Titulo: </label>
                                     <input type="text" id="project_title" formControlName="project_title"
-                                        name="project_title" placeholder="Nombre del Proyecto" >
+                                        name="project_title" placeholder="Nombre del Proyecto">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="project_name">Nombre del proyecto: </label>
                                     <input type="text" id="project_name" formControlName="project_name"
                                         name="project_name" placeholder="Titulo de la Aplicacion">
                                 </div>
 
-                                <div>
+                                <div class="textarea-container">
                                     <label for="project_description">Descripcion : </label>
-                                    <input type="text" id="project_description"
-                                        formControlName="project_description" name="project_description"
-                                        placeholder="Descripcion">
+                                    <textarea type="text" id="project_description" formControlName="project_description"
+                                        name="project_description" placeholder="Descripcion"></textarea>
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="link_project">Link Project: </label>
                                     <input type="text" id="link_project" formControlName="link_project"
-                                        name="link_project" placeholder="Project URL" >
+                                        name="link_project" placeholder="Project URL">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="link_github">Link Github: </label>
-                                    <input type="text" id="link_github" formControlName="link_github"
-                                        name="link_github" placeholder="Github URL" >
+                                    <input type="text" id="link_github" formControlName="link_github" name="link_github"
+                                        placeholder="Github URL">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="start_project">Inicio: </label>
                                     <input type="text" id="start_project" formControlName="start_project"
-                                        name="start_project" placeholder="Inicio del proyecto" >
+                                        name="start_project" placeholder="Inicio del proyecto">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="end_project">Final: </label>
-                                    <input type="text" id="end_project" formControlName="end_project"
-                                        name="end_project" placeholder="Fin del proyecto">
+                                    <input type="text" id="end_project" formControlName="end_project" name="end_project"
+                                        placeholder="Fin del proyecto">
                                 </div>
 
                                 <button>Modificar</button>
@@ -156,53 +158,53 @@
     <div class="modal-body">
         <div class="form-container">
             <form [formGroup]="formAdd" class="form" (ngSubmit)="AddDataProject()">
-                <div>
+
+                <div class="input-container">
                     <label for="image_URL">Imagen URL </label>
-                    <input type="text" id="image_URL" formControlName="project_image"
-                        name="image_URL" placeholder="Imagen URL" >
+                    <input type="text" id="image_URL" formControlName="project_image" name="image_URL"
+                        placeholder="Imagen URL">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="project_title">Titulo: </label>
-                    <input type="text" id="project_title" formControlName="project_title"
-                        name="project_title" placeholder="Nombre del Proyecto" >
+                    <input type="text" id="project_title" formControlName="project_title" name="project_title"
+                        placeholder="Nombre del Proyecto">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="project_name">Nombre del proyecto: </label>
-                    <input type="text" id="project_name" formControlName="project_name"
-                        name="project_name" placeholder="Titulo de la Aplicacion">
+                    <input type="text" id="project_name" formControlName="project_name" name="project_name"
+                        placeholder="Titulo de la Aplicacion">
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="project_description">Descripcion : </label>
-                    <input type="text" id="project_description"
-                        formControlName="project_description" name="project_description"
-                        placeholder="Descripcion">
+                    <textarea type="text" id="project_description" formControlName="project_description"
+                        name="project_description" placeholder="Descripcion"></textarea>
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="link_project">Link Project: </label>
-                    <input type="text" id="link_project" formControlName="link_project"
-                        name="link_project" placeholder="Project URL" >
+                    <input type="text" id="link_project" formControlName="link_project" name="link_project"
+                        placeholder="Project URL">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="link_github">Link Github: </label>
-                    <input type="text" id="link_github" formControlName="link_github"
-                        name="link_github" placeholder="Github URL" >
+                    <input type="text" id="link_github" formControlName="link_github" name="link_github"
+                        placeholder="Github URL">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="start_project">Inicio: </label>
-                    <input type="text" id="start_project" formControlName="start_project"
-                        name="start_project" placeholder="Inicio del proyecto" >
+                    <input type="text" id="start_project" formControlName="start_project" name="start_project"
+                        placeholder="Inicio del proyecto">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="end_project">Final: </label>
-                    <input type="text" id="end_project" formControlName="end_project"
-                        name="end_project" placeholder="Fin del proyecto">
+                    <input type="text" id="end_project" formControlName="end_project" name="end_project"
+                        placeholder="Fin del proyecto">
                 </div>
 
                 <button>Añadir</button>

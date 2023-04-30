@@ -5,23 +5,21 @@
 
     <div class="container">
 
-
-
         <div class="container-info">
             <p class="texto"> {{ this.persona.about_me_r1 }} </p>
             <p class="texto"> {{this.persona.about_me_r2 }} </p>
         </div>
 
-        <div class="container-icon">
-            <button (click)="modalService.open(AddPersonalDataModal)" class="icon icon-1" *ngIf="isAdmin">
+        <div class="container-action">
+            <button (click)="modalService.open(AddPersonalDataModal)" class="action action-1" *ngIf="isAdmin">
                 <i class="fa-solid fa-square-plus"></i>
                 <p>Añadir</p>
             </button>
-            <button (click)="modalService.open(ModifyPersonalDataModal)" class="icon icon-2" *ngIf="isAdmin">
+            <button (click)="modalService.open(ModifyPersonalDataModal)" class="action action-2" *ngIf="isAdmin">
                 <i class="fa-solid fa-pen-to-square"></i>
                 <p>Modificar</p>
             </button>
-            <button (click)="DeletePersonalData()" class="icon icon-3" *ngIf="isAdmin">
+            <button (click)="DeletePersonalData()" class="action action-3" *ngIf="isAdmin">
                 <i class="fa-solid fa-trash"></i>
                 <p>Borrar</p>
             </button>
@@ -46,14 +44,14 @@
         <div class="form-container">
             <form [formGroup]="formAdd" class="form" (ngSubmit)="AddPersonalData()">
 
-                <div>
+                <div class="textarea-container">
                     <label for="about_me_r1">Descripcion 1: </label>
                     <textarea type="text" id="about_me_r1" formControlName="about_me_r1" name="about_me_r1"
                         placeholder="Descripcion">
                     </textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="about_me_r2">Descripcion 2: </label>
                     <textarea type="text" id="about_me_r2" formControlName="about_me_r2" name="about_me_r2"
                         placeholder="Descripcion">
@@ -81,20 +79,20 @@
         <div class="form-container">
             <form [formGroup]="formModify" class="form" (ngSubmit)="ModifyPersonalData()">
 
-                <div>
+                <div class="input-container">
                     <label for="id">ID:</label>
                     <input id="id" formControlName="user_id" name="id"
                         placeholder="{{this.persona.user_id}}">
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="about_me_r1">Descripcion 1: </label>
                     <textarea type="text" id="about_me_r1" formControlName="about_me_r1" name="about_me_r1"
                         placeholder="Descripcion">
                     </textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="about_me_r2">Descripcion 2: </label>
                     <textarea type="text" id="about_me_r2" formControlName="about_me_r2" name="about_me_r2"
                         placeholder="Descripcion">

@@ -1,4 +1,4 @@
-/*  EXPERIENCE    */
+/*  SECTION    */
 
 section {
   display: flex;
@@ -22,52 +22,20 @@ section {
   background-color: black;
 }
 
-.container-icon button {
+.container-action button {
   transition: all 0.2s ease-in;
 }
 
-.columna:hover .container-icon button {
+.columna:hover .container-action button {
   background-color: black;
   color: white;
 }
 
-.columna:hover .container-icon .icon-2:hover {
+.columna:hover .container-action .action-2:hover {
   color: #06b6d4;
 }
 
-.columna:hover .container-icon .icon-3:hover {
-  color: #ef4444;
-}
-
-/*  ICON  */
-
-.container-icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  height: 50px;
-  margin: 15px;
-  gap: 10px;
-}
-
-.icon {
-  border: none;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  padding: 10px;
-  transition: color .2s ease-in;
-}
-
-.icon-1:hover {
-  color: #22c55e;
-}
-
-.icon-2:hover {
-  color: #06b6d4;
-}
-
-.icon-3:hover {
+.columna:hover .container-action .action-3:hover {
   color: #ef4444;
 }
 
@@ -97,6 +65,36 @@ section {
   font-weight: bold;
 }
 
+/*  ACTIONS --> solo admin  */
+
+.container-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.action {
+  border: none;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  padding: 10px;
+  transition: color .2s ease-in;
+}
+
+.action-1:hover {
+  color: #22c55e;
+}
+
+.action-2:hover {
+  color: #06b6d4;
+}
+
+.action-3:hover {
+  color: #ef4444;
+}
+
 /*  BADGE   */
 
 .container-badges {
@@ -110,9 +108,72 @@ section {
   margin: 5px;
 }
 
+/*	MODAL		*/
+
+.modal-header {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+}
+
+.modal-footer {
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #eee;
+}
+
+/*  Form  */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.form-container, .input-container, .textarea-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2, button, p {
+  margin: 8px 0;
+}
+
+input, textarea {
+  margin: 25px 0px;
+  padding: 20px 15px;
+  color: #000000;
+  border-radius: 0;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  text-align: left;
+}
+
+input:focus, textarea {
+  box-shadow: 0 0 10px #0000002a;
+  background-color: #0000002a;
+}
+
+.modal-body button {
+  background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+  border-radius: 30px;
+  border: transparent;
+  width: 200px;
+  transition: .2s all ease;
+}
+
+.modal-body button:hover {
+  background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
+}
 
 
 
-
-
-
+/*
+  Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+*/

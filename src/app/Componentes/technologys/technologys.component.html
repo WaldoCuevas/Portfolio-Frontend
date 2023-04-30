@@ -3,8 +3,8 @@
 
     <h1 class="titulo-seccion">Conocimientos</h1>
 
-    <div class="container-icon">
-        <button (click)="modalService.open(AddDataTechnologysModal)" class="icon icon-1" *ngIf="isAdmin">
+    <div class="container-action">
+        <button (click)="modalService.open(AddDataTechnologysModal)" class="action action-1" *ngIf="isAdmin">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -16,12 +16,13 @@
 
             <div *ngFor="let technology of technologys" class="columna col-xs-12 col-md-12 col-xl-3">
 
-                <div *ngIf="isAdmin" class="container-icon">
-                    <button (click)="modalService.open(ModifyDataTechnologysModal)" class="icon icon-2" *ngIf="isAdmin">
+                <div *ngIf="isAdmin" class="container-action">
+                    <button (click)="modalService.open(ModifyDataTechnologysModal)" class="action action-2"
+                        *ngIf="isAdmin">
                         <i class="fa-solid fa-pen-to-square"></i>
                         <p>Modificar</p>
                     </button>
-                    <button (click)="DeleteDataTechnologys(this.technology.tecnology_id)" class="icon icon-3"
+                    <button (click)="DeleteDataTechnologys(this.technology.tecnology_id)" class="action action-3"
                         *ngIf="isAdmin">
                         <i class="fa-solid fa-trash"></i>
                         <p>Borrar</p>
@@ -55,50 +56,51 @@
                             <form [formGroup]="formModify" class="form"
                                 (ngSubmit)="ModifyDataTechnologys(this.technology.tecnology_id)">
 
-                                <div>
+                                <div class="input-container">
                                     <label for="id">ID:</label>
                                     <input id="id" formControlName="tecnology_id" name="id"
                                         placeholder="{{this.technology.tecnology_id}}">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="name_technology">Nombre Tecnologia </label>
                                     <input type="text" id="name_technology" formControlName="name_technology"
                                         name="name_technology" placeholder="Nombre de la tecnologia" maxlength="50">
                                 </div>
 
-                                <div>
+                                <div class="textarea-container">
                                     <label for="description_technology_r1">Descripcion 1: </label>
-                                    <input type="text" id="description_technology_r1"
+                                    <textarea type="text" id="description_technology_r1"
                                         formControlName="description_technology_r1" name="description_technology_r1"
-                                        placeholder="Descripcion" maxlength="254">
+                                        placeholder="Descripcion" maxlength="254"></textarea>
                                 </div>
 
-                                <div>
+                                <div class="textarea-container">
                                     <label for="description_technology_r2">Descripcion 2: </label>
-                                    <input type="text" id="description_technology_r2"
+                                    <textarea type="text" id="description_technology_r2"
                                         formControlName="description_technology_r2" name="description_technology_r2"
-                                        placeholder="Descripcion" maxlength="254">
+                                        placeholder="Descripcion" maxlength="254"></textarea>
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="Badge 1">Badge 1: </label>
                                     <input type="text" id="Badge 1" formControlName="badge_technology_1" name="Badge 1"
                                         placeholder="badge">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="Badge 2">Badge 2: </label>
                                     <input type="text" id="Badge 2" formControlName="badge_technology_2" name="Badge 2"
                                         placeholder="badge">
                                 </div>
 
-                                <div>
+                                <div class="input-container">
                                     <label for="Badge 3">Badge: </label>
                                     <input type="text" id="Badge 3" formControlName="badge_technology_3" name="Badge 3"
                                         placeholder="badge">
                                 </div>
-                                <div>
+
+                                <div class="input-container">
                                     <label for="Badge 4">Badge 4: </label>
                                     <input type="text" id="Badge 4" formControlName="badge_technology_4" name="Badge 4"
                                         placeholder="badge">
@@ -135,42 +137,43 @@
         <div class="form-container">
             <form [formGroup]="formAdd" class="form" (ngSubmit)="AddDataTechnologys()">
 
-                <div>
+                <div class="input-container">
                     <label for="name_technology">Nombre Tecnologia </label>
                     <input type="text" id="name_technology" formControlName="name_technology" name="name_technology"
-                        placeholder="Nombre de la tecnologia">
+                        placeholder="Nombre de la tecnologia" maxlength="50">
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_technology_r1">Descripcion 1: </label>
-                    <input type="text" id="description_technology_r1" formControlName="description_technology_r1"
-                        name="description_technology_r1" placeholder="Descripcion">
+                    <textarea type="text" id="description_technology_r1" formControlName="description_technology_r1"
+                        name="description_technology_r1" placeholder="Descripcion" maxlength="254"></textarea>
                 </div>
 
-                <div>
+                <div class="textarea-container">
                     <label for="description_technology_r2">Descripcion 2: </label>
-                    <input type="text" id="description_technology_r2" formControlName="description_technology_r2"
-                        name="description_technology_r2" placeholder="Descripcion">
+                    <textarea type="text" id="description_technology_r2" formControlName="description_technology_r2"
+                        name="description_technology_r2" placeholder="Descripcion" maxlength="254"></textarea>
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="Badge 1">Badge 1: </label>
                     <input type="text" id="Badge 1" formControlName="badge_technology_1" name="Badge 1"
                         placeholder="badge">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="Badge 2">Badge 2: </label>
                     <input type="text" id="Badge 2" formControlName="badge_technology_2" name="Badge 2"
                         placeholder="badge">
                 </div>
 
-                <div>
+                <div class="input-container">
                     <label for="Badge 3">Badge: </label>
                     <input type="text" id="Badge 3" formControlName="badge_technology_3" name="Badge 3"
                         placeholder="badge">
                 </div>
-                <div>
+
+                <div class="input-container">
                     <label for="Badge 4">Badge 4: </label>
                     <input type="text" id="Badge 4" formControlName="badge_technology_4" name="Badge 4"
                         placeholder="badge">
