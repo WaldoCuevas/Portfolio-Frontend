@@ -3,26 +3,26 @@
 
     <h2 class="titulo">Sobre mi</h2>
 
-    <div class="container">
+    <div class="container-fluid">
+
+        <div class="container-action" *ngIf="isAdmin">
+            <button (click)="modalService.open(AddPersonalDataModal)" class="action action-1">
+                <i class="fa-solid fa-square-plus"></i>
+                <p>Añadir</p>
+            </button>
+            <button (click)="modalService.open(ModifyPersonalDataModal)" class="action action-2">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <p>Modificar</p>
+            </button>
+            <button (click)="DeletePersonalData()" class="action action-3">
+                <i class="fa-solid fa-trash"></i>
+                <p>Borrar</p>
+            </button>
+        </div>
 
         <div class="container-info">
             <p class="texto"> {{ this.persona.about_me_r1 }} </p>
             <p class="texto"> {{this.persona.about_me_r2 }} </p>
-        </div>
-
-        <div class="container-action">
-            <button (click)="modalService.open(AddPersonalDataModal)" class="action action-1" *ngIf="isAdmin">
-                <i class="fa-solid fa-square-plus"></i>
-                <p>Añadir</p>
-            </button>
-            <button (click)="modalService.open(ModifyPersonalDataModal)" class="action action-2" *ngIf="isAdmin">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <p>Modificar</p>
-            </button>
-            <button (click)="DeletePersonalData()" class="action action-3" *ngIf="isAdmin">
-                <i class="fa-solid fa-trash"></i>
-                <p>Borrar</p>
-            </button>
         </div>
 
     </div>
@@ -81,8 +81,7 @@
 
                 <div class="input-container">
                     <label for="id">ID:</label>
-                    <input id="id" formControlName="user_id" name="id"
-                        placeholder="{{this.persona.user_id}}">
+                    <input id="id" formControlName="user_id" name="id" placeholder="{{this.persona.user_id}}">
                 </div>
 
                 <div class="textarea-container">

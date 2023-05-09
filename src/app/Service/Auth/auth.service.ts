@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class AuthService {
 
-  auth:string = "auth";
+  auth:string = "auth/";
 
   constructor(private httpClient: HttpClient) { }
 

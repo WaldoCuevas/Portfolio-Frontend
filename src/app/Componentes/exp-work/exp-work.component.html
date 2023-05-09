@@ -1,8 +1,8 @@
 <section>
     <h2 class="titulo-seccion">Experiencia Laboral</h2>
 
-    <div class="container-icon">
-        <button (click)="modalService.open(AddDataWorkModal)" class="icon icon-1" *ngIf="isAdmin">
+    <div class="container-icon" *ngIf="isAdmin">
+        <button (click)="modalService.open(AddDataWorkModal)" class="icon icon-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -30,14 +30,14 @@
                                         class="educacion-icono-2">
                                 </div>
 
-                                <div class="container-action">
+                                <div class="container-action" *ngIf="isAdmin">
                                     <button (click)="modalService.open(ModifyDataWorkModal)" class="action action-2"
-                                        *ngIf="isAdmin">
+                                        >
                                         <i class="fa-solid fa-pen-to-square"></i>
                                         <p>Modificar</p>
                                     </button>
                                     <button (click)="DeleteDataWork(this.ExpWorks.work_exp_id)" class="action action-3"
-                                        *ngIf="isAdmin">
+                                        >
                                         <i class="fa-solid fa-trash"></i>
                                         <p>Borrar</p>
                                     </button>

@@ -1,20 +1,27 @@
 /*  SECTION*/
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 section {
   background: #eee;
   height: 80vh;
 }
 
-.container {
+.container-fluid {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 40px;
-  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 /*  INFO*/
-
 
 .container-info {
   width: 80%;
@@ -22,6 +29,8 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .titulo {
@@ -38,30 +47,31 @@ section {
   font-size: 20px;
 }
 
-/*  ACTIONS -> Solo admin  */ 
+/*  ACTIONS --> Solo admin  */
 
 .container-action {
   display: flex;
   flex-direction: column;
-  width: 10%;
-  gap: 20px;
+  justify-content: space-evenly;
+  gap: 10px;
+  height: 80px;
 }
 
 .action {
   border: none;
-  display: flex;
   align-items: center;
-  gap: 10px;
   font-size: 20px;
-  transition: color 0.1s ease-in-out;
+  transition: color 0.2s ease-in;
 }
 
 .action-1:hover {
   color: #22c55e;
 }
+
 .action-2:hover {
   color: #06b6d4;
 }
+
 .action-3:hover {
   color: #ef4444;
 }
@@ -69,7 +79,7 @@ section {
 /*	MODAL		*/
 
 .modal-header {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -77,7 +87,7 @@ section {
 }
 
 .modal-footer {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
   background-color: #eee;
@@ -92,17 +102,22 @@ section {
   text-align: center;
 }
 
-.form-container, .input-container, .textarea-container {
+.form-container,
+.input-container,
+.textarea-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h2, button, p {
+h2,
+button,
+p {
   margin: 8px 0;
 }
 
-input, textarea {
+input,
+textarea {
   margin: 25px 0px;
   padding: 20px 15px;
   color: #000000;
@@ -113,25 +128,88 @@ input, textarea {
   text-align: left;
 }
 
-input:focus, textarea {
+input:focus,
+textarea {
   box-shadow: 0 0 10px #0000002a;
   background-color: #0000002a;
 }
 
 .modal-body button {
-  background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+  background-image: linear-gradient(to right, #00bfff, #2480f0, #26206e);
   border-radius: 30px;
   border: transparent;
   width: 200px;
-  transition: .2s all ease;
+  transition: 0.2s all ease;
 }
 
 .modal-body button:hover {
-  background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
+  background-image: linear-gradient(to right, #37cdff, #52a0ff, #4940b0);
 }
-
-
 
 /*
   Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
 */
+
+@media (max-width: 1200px) {
+
+  section {
+    height: 70vh;
+  }
+
+  .container-fluid {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .container-action {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    gap: 40px;
+  }
+
+  .container-link a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+  section {
+    height: 70vh;
+  }
+
+}
+
+@media (max-width: 768px) {
+  section {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 640px) {
+
+  section {
+    height: 80vh;
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  section {
+    height: 90vh;
+  }
+
+}
+
+@media (max-width: 360px) {
+  section {
+    height: 180vh;
+  }
+  
+}

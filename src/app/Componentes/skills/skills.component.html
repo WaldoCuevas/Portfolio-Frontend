@@ -3,8 +3,8 @@
 
     <h1 class="titulo-seccion">Habilidades</h1>
 
-    <div class="container-action">
-        <button (click)="modalService.open(AddDataSkillModal)" class="action action-1" *ngIf="isAdmin">
+    <div class="container-action" *ngIf="isAdmin">
+        <button (click)="modalService.open(AddDataSkillModal)" class="action action-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -16,12 +16,12 @@
 
             <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-12 col-xl-4">
 
-                <div class="container-action">
-                    <button (click)="modalService.open(ModifyDataSkillModal)" class="action action-2" *ngIf="isAdmin">
+                <div class="container-action" *ngIf="isAdmin">
+                    <button (click)="modalService.open(ModifyDataSkillModal)" class="action action-2" >
                         <i class="fa-solid fa-pen-to-square"></i>
                         <p>Modificar</p>
                     </button>
-                    <button (click)="DeleteDataSkill(this.skill.skill_id)" class="action action-3" *ngIf="isAdmin">
+                    <button (click)="DeleteDataSkill(this.skill.skill_id)" class="action action-3">
                         <i class="fa-solid fa-trash"></i>
                         <p>Borrar</p>
                     </button>

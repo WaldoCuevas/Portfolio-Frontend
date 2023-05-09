@@ -3,8 +3,8 @@
 
     <h1 class="titulo-seccion">Educación</h1>
 
-    <div class="container-action">
-        <button (click)="modalService.open(AddDataEducationModal)" class="action action-1" *ngIf="isAdmin">
+    <div class="container-action" *ngIf="isAdmin">
+        <button (click)="modalService.open(AddDataEducationModal)" class="action action-1" >
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -30,14 +30,14 @@
                                     <img src="{{ this.education.education_image }}" alt="education_logo">
                                 </div>
 
-                                <div class="container-action">
+                                <div class="container-action" *ngIf="isAdmin">
                                     <button (click)="modalService.open(ModifyDataEducationModal)" class="action action-2"
-                                        *ngIf="isAdmin">
+                                        >
                                         <i class="fa-solid fa-pen-to-square"></i>
                                         <p>Modificar</p>
                                     </button>
                                     <button (click)="DeleteDataEducation(this.education.education_id)"
-                                        class="action action-3" *ngIf="isAdmin">
+                                        class="action action-3" >
                                         <i class="fa-solid fa-trash"></i>
                                         <p>Borrar</p>
                                     </button>

@@ -12,12 +12,10 @@ section {
   justify-content: center;
   align-items: center;
   background-color: #eee;
-  padding-top: 20vh;
 }
 
-.container .columna {
-  padding: 20px;
-}
+
+
 
 span {
   font-size: 1.2rem;
@@ -52,6 +50,7 @@ span {
 
 .titulo-seccion {
   font-family: "Rubik Dirt", cursive;
+  padding: 100px 0 20px 0;
 }
 
 .titulo {
@@ -85,10 +84,11 @@ span {
 
 .container-action {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  height: 50px;
   margin: 15px;
+  width: 20%;
+  height: 90px;
   gap: 10px;
 }
 
@@ -120,7 +120,8 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 40%;
+  height: 20%;
 }
 
 img {
@@ -140,7 +141,7 @@ img {
 
 .timeline .timeline-box {
   padding-left: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   position: relative;
 }
 
@@ -223,8 +224,63 @@ input:focus, textarea {
   background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
 }
 
-
-
 /*
   Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
 */
+
+@media (max-width: 1024px) {
+  
+    
+  
+}
+
+@media (max-width: 768px) {
+
+  .titulo-seccion {
+    padding: 0;
+    margin: 0;
+  } 
+
+  .container-action {
+    height: 60px;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .titulo-seccion {
+    padding: 40px;
+  }
+
+  .header-icon {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
+  
+  .container-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    width: 20%;
+    height: 90px;
+  }
+
+  img {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .titulo-seccion {
+    padding: 40px 0;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+ 
+
+}

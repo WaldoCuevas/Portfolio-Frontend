@@ -1,192 +1,334 @@
 /* SECTIONS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 section {
-    background: #eee;
-    height: calc(90vh + 20vh);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 44px;
-    margin-top: 0px;
-    position: relative;
+  background: #eee;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 44px;
+  margin-top: 0px;
+  position: relative;
+  height: calc(80vh + 20vh);
+  z-index: 0;
 }
 
 /*  INFO  */
 
 .container-info {
-    width: 45%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.container-info h2, .container-info span {
-    margin: 0;
-    font-size: 58px;
-    font-weight: bold;
+.container-info h2,
+.container-info span {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 600;
 }
 
 .container-info p {
-    margin: 20px 0;
-    font-size: 24px;
-    font-weight: 500;
-    color: #1f1f1f;
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #1f1f1f;
 }
 
 /* IMAGE  */
 
 .container-image {
-    position: relative;
-    width: 300px;
-    display: grid;
-    place-content: center;
-    clip-path: circle(87.6% at 50% 11%);
+  position: relative;
+  width: 300px;
+  display: grid;
+  place-content: center;
+  clip-path: circle(87.6% at 50% 11%);
 }
 
 .fondo-imagen {
-    background-color: #6366f1;
-    width: 300px;
-    height: 300px;
-    clip-path: circle(57.9% at 51% 92%);
+  background-color: #6366f1;
+  width: 300px;
+  height: 300px;
+  clip-path: circle(57.9% at 51% 92%);
 }
 
 img {
-    position: absolute;
-    z-index: 2;
-    width: 300px;
+  position: absolute;
+  z-index: 0;
+  width: 300px;
 }
 
 /* LINK  */
 
 .link-info {
-    width: 450px;
-    height: 50px;
-    padding: 10px 40px;
-    box-shadow: 0 0 5px rgba(0 0 0 /.1);
-    border: 3px solid #6366f1;
-    border-radius: 8px;
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 20px;
-    transition: all .2s ease-in-out;
-    text-decoration: none;
+  width: 450px;
+  height: 50px;
+  padding: 10px 40px;
+  box-shadow: 0 0 5px rgba(0 0 0 /0.1);
+  border: 3px solid #6366f1;
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 /* Lo de los links si queres que ambos tengan el mismo hover ya se los modificas vos después. */
 .link-info-1 {
-    background-color: #6366f1;
-    color: #eee;
+  background-color: #6366f1;
+  color: #eee;
 }
 
 .link-info-1:hover {
-    background-color: transparent;
-    color: #6366f1;
+  background-color: transparent;
+  color: #6366f1;
 }
 
 .link-info-2 {
-    background-color: transparent;
-    color: #6366f1;
+  background-color: transparent;
+  color: #6366f1;
 }
 
 .link-info-2:hover {
-    background-color: #6366f1;
-    color: #eee;
+  background-color: #6366f1;
+  color: #eee;
 }
 
 .container-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* ACTIONS --> solo admin */
+/*  ACTIONS --> Solo admin  */
+
+.container-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  height: 80px;
+}
 
 .action {
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 20px;
-    transition: color .1s ease-in-out;
+  border: none;
+  align-items: center;
+  font-size: 20px;
+  transition: color 0.2s ease-in;
 }
 
 .action-1:hover {
-    color: #22c55e;
+  color: #22c55e;
 }
+
 .action-2:hover {
-    color: #06b6d4;
+  color: #06b6d4;
 }
+
 .action-3:hover {
-    color: #ef4444;
+  color: #ef4444;
 }
 
 /*	MODAL		*/
 
 .modal-header {
-    display:flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #eee;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: #eee;
+}
+
+/*  Form  */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.form-container,
+.input-container,
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2,
+button,
+p {
+  margin: 8px 0;
+}
+
+input,
+textarea {
+  margin: 25px 0px;
+  padding: 20px 15px;
+  color: #000000;
+  border-radius: 0;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  text-align: left;
+}
+
+input:focus,
+textarea {
+  box-shadow: 0 0 10px #0000002a;
+  background-color: #0000002a;
+}
+
+.modal-body button {
+  background-image: linear-gradient(to right, #00bfff, #2480f0, #26206e);
+  border-radius: 30px;
+  border: transparent;
+  width: 200px;
+  transition: 0.2s all ease;
+}
+
+.modal-body button:hover {
+  background-image: linear-gradient(to right, #37cdff, #52a0ff, #4940b0);
+}
+
+/*
+Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+*/
+
+@media (max-width: 1024px) {
+  section {
+    padding-top: 90px;
+    height: 130vh;
+    position: relative;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
+
+  .container-info {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 40%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-action {
+    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #eee;
+    padding-top: 10px;
+    gap: 40px;
   }
-  
-  .modal-footer {
-    display:flex;
-    flex-direction: column;
-    align-items: flex-end;
-    background-color: #eee;
-  }
-  
-  /*  Form  */
-  
-  .form {
+
+  .container-link a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+  }
+
+  .link-info {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 50px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    height: 140vh;
+    padding-top: 90px;
+  }
+
+  .container-info {
+    width: 50%;
+    height: 40%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-info span,
+  .container-info h2 {
     text-align: center;
+    font-size: 3rem;
   }
-  
-  .form-container, .input-container, .textarea-container {
+
+  .container-info p {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .container-action {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 320px) {
+  section {
+    height: 180vh;
+  }
+
+  .container-image {
+    width: 250px;
+  }
+
+  .fondo-imagen {
+    background-color: #6366f1;
+    width: 250px;
+    height: 250px;
+  }
+
+  img {
+    width: 250px;
+  }
+
+  .container-info {
+    width: 100%;
+    height: 40%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-info span,
+  .container-info h2 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  .container-info p {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  .link-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 240px;
+    height: 50px;
+    margin: 10px;
   }
-  
-  h2, button, p {
-    margin: 8px 0;
+
+  .container-action {
+    display: flex;
+    flex-direction: row;
   }
-  
-  input, textarea {
-    margin: 25px 0px;
-    padding: 20px 15px;
-    color: #000000;
-    border-radius: 0;
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-    text-align: left;
-  }
-  
-  input:focus, textarea {
-    box-shadow: 0 0 10px #0000002a;
-    background-color: #0000002a;
-  }
-  
-  .modal-body button {
-    background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
-    border-radius: 30px;
-    border: transparent;
-    width: 200px;
-    transition: .2s all ease;
-  }
-  
-  .modal-body button:hover {
-    background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
-  }
-  
-  
-  
-  /*
-    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
-  */
+
+}

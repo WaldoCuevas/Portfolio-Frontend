@@ -1,11 +1,93 @@
-/*  NAV */
+/*  OCULTAR NAVBAR  */
 
 nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 0;
   width: 100%;
+  color: white;
+  background-color: #2980b9;
+  padding: 0 2rem;
+  transition: all 0.9s ease-in;
+  z-index: 3;
+}
+
+nav.nav--hidden {
+  transform: translateY(-100%);
+}
+
+/*  NAV */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+br {
+  display: none;
+}
+
+.header {
+  background-color: #32349e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  padding: 10px 10px;
+}
+
+nav ul{
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 18px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  transition: all 0.5s ease-in-out;
+
+}
+
+nav ul li a:hover {
+  transform: scale(1.2);
+  color: #6663f1;
+}
+
+
+/* Imagen */
+
+figure {
+  width: 10vw;
+  text-align: center;
+}
+
+figure img {
+  width: 25px;
+}
+
+figcaption {
+  color: white;
+}
+
+#img {
+  text-align: center;
+}
+
+.logo {
+  transition: all 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.2);
 }
 
 /*  INFO  */
@@ -27,67 +109,102 @@ nav {
   font-weight: bold;
 }
 
-/* navbar oculta */
 
-nav {
-  position: fixed;
-  top: 0;
-  color: white;
-  background-color: #32349e;
-  padding: 0 2rem;
-  transition: all 0.3s ease-in;
+
+/*  checkbox  */
+
+.checkbtn {
+  font-size: 30px;
+  color: #000;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
 }
 
-nav.nav--hidden {
-  transform: translateY(-100%);
-}
-/* navbar oculta */
-
-figure {
-  width: 15vw;
-  text-align: center;
+#check {
+  display: none;
 }
 
-figure img {
-  width: 20%;
+/*  LINK  */
+
+/*
+    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  */
+
+@media (max-width: 1200px) {
+
+  br {
+    display: block;
+  }
+
+  .checkbtn {
+    display: block;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+    z-index: 5;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  li a:hover, li a.active {
+    background: none;
+    color: red;
+  }
+
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+
+  figcaption {
+    font-size: 16px;
+  }
+
+  figure img {
+    width: 20px;
+  }
+
+}  
+
+@media (max-width: 1024px) {
+
 }
 
-figcaption {
-  color: white;
+@media (max-width: 768px) {
+
+  .logo {
+    min-width: 70px;
+  }
+
 }
 
-.navbar {
-  padding: 1rem;
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 10;
+@media (max-width: 640px) {
+
+
 }
 
-/*  LINK  */  
+@media (max-width: 320px) {
+  .header {
+    min-width: 300px;
+  }
 
-.link-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-link {
-  font-size: 1.2rem;
-  margin: 1rem;
-  color: white;
-  transition: all 0.1s ease-in;
-}
-
-.nav-link:hover {
-  transform: scale(1.2);
-  color: rgb(177, 172, 172);
-}
-
-.navbar-collapse {
-  align-items: center;
-  justify-content: space-between;
-}
-
-#img {
-  text-align: center;
 }

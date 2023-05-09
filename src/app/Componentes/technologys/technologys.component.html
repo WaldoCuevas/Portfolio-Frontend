@@ -3,8 +3,8 @@
 
     <h1 class="titulo-seccion">Conocimientos</h1>
 
-    <div class="container-action">
-        <button (click)="modalService.open(AddDataTechnologysModal)" class="action action-1" *ngIf="isAdmin">
+    <div class="container-action" *ngIf="isAdmin">
+        <button (click)="modalService.open(AddDataTechnologysModal)" class="action action-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -17,13 +17,11 @@
             <div *ngFor="let technology of technologys" class="columna col-xs-12 col-md-12 col-xl-3">
 
                 <div *ngIf="isAdmin" class="container-action">
-                    <button (click)="modalService.open(ModifyDataTechnologysModal)" class="action action-2"
-                        *ngIf="isAdmin">
+                    <button (click)="modalService.open(ModifyDataTechnologysModal)" class="action action-2">
                         <i class="fa-solid fa-pen-to-square"></i>
                         <p>Modificar</p>
                     </button>
-                    <button (click)="DeleteDataTechnologys(this.technology.tecnology_id)" class="action action-3"
-                        *ngIf="isAdmin">
+                    <button (click)="DeleteDataTechnologys(this.technology.tecnology_id)" class="action action-3">
                         <i class="fa-solid fa-trash"></i>
                         <p>Borrar</p>
                     </button>

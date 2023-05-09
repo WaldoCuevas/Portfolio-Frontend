@@ -14,12 +14,12 @@ export class ExpWorkService {
 
   constructor(private httpClient:HttpClient) { }
 
-  api:string = "api";
+  api:string = "api/";
 
   //Metodos Get 
 
   public getDataWork(): Observable<ExpWork[]> {
-    return this.httpClient.get<ExpWork[]>(environment.apiUrl + this.api + 'DatgetDataWorkaWork');
+    return this.httpClient.get<ExpWork[]>(environment.apiUrl + this.api + 'getDataWork');
   }
 
   //Metodos Post

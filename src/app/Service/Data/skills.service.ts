@@ -13,7 +13,7 @@ export class SkillsService {
 
   constructor(private httpClient:HttpClient) { }
 
-  api:string = "api";
+  api:string = "api/";
 
   //Metodos Get
 

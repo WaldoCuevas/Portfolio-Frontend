@@ -6,8 +6,7 @@ section {
   justify-content: center;
   align-items: center;
   padding: 40px 40px 80px 40px;
-  height: 150vh;
-  padding-top: 10vh;
+  height: 140vh;
   background-color: #eee;
 }
 .container {
@@ -21,7 +20,7 @@ section {
 
 .project_name {
   font-size: 1.5rem;
-  color: #363338;
+  color: #a48bb4;
   font-family: "Lobster", cursive;
 }
 
@@ -32,7 +31,14 @@ section {
   transition: all 0.5s ease-in;
 }
 
+.proyecto {
+  position: relative;
+}
+
 .overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   transition: all 0.5s ease;
   opacity: 0;
   position: absolute;
@@ -40,24 +46,14 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 80%;
+  height: 80%;
 }
 
 .overlay p {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 0;
-}
-
-.proyecto {
-  position: relative;
-}
-
-.proyecto:hover img {
-  opacity: 0.2;
-}
-
-.proyecto:hover .overlay {
-  opacity: 1;
 }
 
 .overlay .descripcion-contenedor {
@@ -68,22 +64,46 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .overlay .action {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.overlay .action p {
+  font-size: 15px;
+}
+
+.overlay a {
+  margin: 5px;
+  text-decoration: none;
+}
+
+.proyecto:hover img {
+  opacity: 0.2;
+}
+
+.proyecto:hover .overlay {
+  opacity: 1;
 }
 
 /*  INFO  */
 
 .presentacion {
+  font-weight: 400;
+  text-decoration: underline;
   font-family: "Abril Fatface", cursive;
+  margin: 10px;
 }
 
 .titulo-seccion {
   font-family: "Rubik Dirt", cursive;
+  padding: 100px 0 20px 0;
 }
 
 .titulo {
@@ -102,16 +122,15 @@ section {
   flex-direction: row;
   justify-content: space-evenly;
   gap: 10px;
-  margin: 15px;
 }
 
 .action {
   border: none;
   align-items: center;
   gap: 10px;
-  font-size: 20px;
+  font-size: 15px;
   padding: 10px;
-  transition: color .2s ease-in;
+  transition: color 0.2s ease-in;
 }
 
 .action-1:hover {
@@ -129,7 +148,7 @@ section {
 /*	MODAL		*/
 
 .modal-header {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -137,7 +156,7 @@ section {
 }
 
 .modal-footer {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
   background-color: #eee;
@@ -152,17 +171,22 @@ section {
   text-align: center;
 }
 
-.form-container, .input-container, .textarea-container {
+.form-container,
+.input-container,
+.textarea-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-h2, button, p {
+h2,
+button,
+p {
   margin: 8px 0;
 }
 
-input, textarea {
+input,
+textarea {
   margin: 25px 0px;
   padding: 20px 15px;
   color: #000000;
@@ -173,25 +197,138 @@ input, textarea {
   text-align: left;
 }
 
-input:focus, textarea {
+input:focus,
+textarea {
   box-shadow: 0 0 10px #0000002a;
   background-color: #0000002a;
 }
 
 .modal-body button {
-  background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+  background-image: linear-gradient(to right, #00bfff, #2480f0, #26206e);
   border-radius: 30px;
   border: transparent;
   width: 200px;
-  transition: .2s all ease;
+  transition: 0.2s all ease;
 }
 
 .modal-body button:hover {
-  background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
+  background-image: linear-gradient(to right, #37cdff, #52a0ff, #4940b0);
 }
-
-
 
 /*
   Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
 */
+
+@media (max-width: 1200px) {
+
+  section {
+    height: 120vh;
+  }
+
+  .titulo-seccion {
+    padding: 0;
+  }
+
+  .proyecto img {
+    width: 80vw;
+  }
+
+}
+
+@media (max-width: 1024px) {
+
+
+}
+
+@media (max-width: 768px) {
+
+  section {
+    height: 115vh;
+    padding: 100px 0 20px 0;
+  }
+
+  .overlay p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .overlay .descripcion-contenedor {
+    margin: 1rem;
+  }
+
+  .overlay .iconos-contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .overlay .action {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 15px;
+  }
+
+  .overlay .action p {
+    font-size: 15px;
+  }
+
+  .overlay a {
+    margin: 5px;
+  }
+
+  .proyecto img {
+    width: 100vw;
+    border-radius: 10%;
+  }
+}
+
+@media (max-width: 640px) {
+
+  section {
+    padding: 0;
+    margin: 0;
+    height: 110vh;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+  section {
+    height: 110vh;
+
+  }
+
+  .overlay p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .overlay .action {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 15px;
+  }
+
+  .overlay .action p {
+    font-size: 15px;
+  }
+
+  .overlay a {
+    margin: 5px;
+  }
+
+  .proyecto img {
+    width: 100vw;
+    border-radius: 10%;
+  }
+
+}

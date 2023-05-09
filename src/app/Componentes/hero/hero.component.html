@@ -1,17 +1,16 @@
 <!--Hero-->
 <section id="inicio">
 
-
-    <div class="container-action">
-        <button (click)="modalService.open(AddPersonalDataModal)" class="action action-1" *ngIf="isAdmin">
+    <div class="container-action" *ngIf="isAdmin">
+        <button (click)="modalService.open(AddPersonalDataModal)" class="action action-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
-        <button (click)="modalService.open(ModifyPersonalDataModal)" class="action action-2" *ngIf="isAdmin">
+        <button (click)="modalService.open(ModifyPersonalDataModal)" class="action action-2">
             <i class="fa-solid fa-pen-to-square"></i>
             <p>Modificar</p>
         </button>
-        <button (click)="DeletePersonalData()" class="action action-3" *ngIf="isAdmin">
+        <button (click)="DeletePersonalData()" class="action action-3">
             <i class="fa-solid fa-trash"></i>
             <p>Borrar</p>
         </button>
@@ -21,18 +20,24 @@
         <h2>¡Hola! Soy </h2>
         <span style="color:#6366f1;">{{ this.persona.name }} {{ this.persona.last_name }} </span>
         <p>Programador Full Stack</p>
+
         <div class="container-link">
             <a class="link-info link-info-1" href="https://github.com/waldocuevas" target="_blank">Github</a>
             <a class="link-info link-info-2" href="#" target="_blank">Descargar CV</a>
         </div>
     </div>
-    
+
     <div class="container-image">
         <span class="fondo-imagen"></span>
         <img src="{{this.persona.user_image}}" alt="Avatar">
-    </div>    
+    </div>
+
+
 
 </section>
+
+
+
 
 <!--Modal-->
 <ng-template #AddPersonalDataModal let-modal>
@@ -48,20 +53,18 @@
 
                 <div class="input-container">
                     <label for="image_URL">Imagen URL </label>
-                    <input type="text" id="image_URL" formControlName="user_image"  name="image_URL"
-                        placeholder="Imagen URL" >
+                    <input type="text" id="image_URL" formControlName="user_image" name="image_URL"
+                        placeholder="Imagen URL">
                 </div>
 
                 <div class="input-container">
                     <label for="nombre">Nombre: </label>
-                    <input type="text" id="nombre" formControlName="name" name="nombre"
-                        placeholder="Nombre">
+                    <input type="text" id="nombre" formControlName="name" name="nombre" placeholder="Nombre">
                 </div>
 
                 <div class="input-container">
                     <label for="apellido">Apellido: </label>
-                    <input type="text" id="apellido" formControlName="last_name" name="apellido"
-                        placeholder="Apellido">
+                    <input type="text" id="apellido" formControlName="last_name" name="apellido" placeholder="Apellido">
                 </div>
 
                 <button>Añadir</button>
@@ -87,26 +90,23 @@
 
                 <div class="input-container">
                     <label for="id">ID:</label>
-                    <input id="id" formControlName="user_id" name="id"
-                        placeholder="{{this.persona.user_id}}">
+                    <input id="id" formControlName="user_id" name="id" placeholder="{{this.persona.user_id}}">
                 </div>
 
                 <div class="input-container">
                     <label for="image_URL">Imagen URL </label>
-                    <input type="text" id="image_URL" formControlName="user_image"  name="image_URL"
-                        placeholder="Imagen URL" >
+                    <input type="text" id="image_URL" formControlName="user_image" name="image_URL"
+                        placeholder="Imagen URL">
                 </div>
 
                 <div class="input-container">
                     <label for="nombre">Nombre: </label>
-                    <input type="text" id="nombre" formControlName="name" name="nombre"
-                        placeholder="Nombre">
+                    <input type="text" id="nombre" formControlName="name" name="nombre" placeholder="Nombre">
                 </div>
 
                 <div class="input-container">
                     <label for="apellido">Apellido: </label>
-                    <input type="text" id="apellido" formControlName="last_name" name="apellido"
-                        placeholder="Apellido">
+                    <input type="text" id="apellido" formControlName="last_name" name="apellido" placeholder="Apellido">
                 </div>
 
                 <button>Modificar</button>

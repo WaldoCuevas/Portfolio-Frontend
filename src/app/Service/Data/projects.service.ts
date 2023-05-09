@@ -13,7 +13,7 @@ export class ProjectsService {
 
   constructor(private httpClient:HttpClient) { }
 
-  api:string = "api";
+  api:string = "api/";
 
   //Metodos Get
 

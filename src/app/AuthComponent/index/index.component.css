@@ -4,24 +4,33 @@
   box-sizing: border-box;
 }
 
-.titulo {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: center;
-  font-weight: 500;
-  font-size: 50px;
-  padding-top: 20px;
+section {
+  background-image: url("../../../assets/recursos/fondo.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  
 }
 
-section {
+.index {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100%;
+  
 }
 
-.index {
-  height: 100vh;
-  background-color: #eee; 
+.titulo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  font-weight: 500;
+  font-size: 50px;
+  padding-top: 20px;
+  color: rgb(119, 118, 118);
 }
 
 button {
@@ -43,4 +52,53 @@ button a {
 
 button:hover {
   background-image: linear-gradient(to right, #8ddbf5, #528bd1, #7671b1);
+}
+
+/*
+    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  */
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 35px;
+  }
+
+  button {
+    width: 120px;
+    height: 50px;
+  }
+
+  button a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .titulo {
+    font-size: 25px;
+  }
+
+  button {
+    width: 100px;
+    height: 40px;
+  }
+
+  button a {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .titulo {
+    font-size: 15px;
+  }
+
+  button {
+    width: 150px;
+    height: 40px;
+  }
+
+  button > a {
+    font-size: 10px;
+  }
 }

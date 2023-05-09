@@ -86,7 +86,7 @@ export class AboutMeComponent implements OnInit {
 
   //Get Data from api
   getDataFromApi(): any {
-    this.personaService.GetPersonalData().subscribe({
+    this.personaService.getPersonalData().subscribe({
       next: (data: any) => {
         this.formModify.patchValue(data);
       },
@@ -100,7 +100,7 @@ export class AboutMeComponent implements OnInit {
   //Method CRUD
 
   public GetPersonalData() {
-    this.personaService.GetPersonalData().subscribe({
+    this.personaService.getPersonalData().subscribe({
       next: (data: Persona) => {
         this.persona = data;
       },
@@ -112,7 +112,7 @@ export class AboutMeComponent implements OnInit {
 
   public AddPersonalData() {
     this.persona = this.formAdd.value;
-    this.personaService.AddPersonalData(this.persona).subscribe({
+    this.personaService.addPersonalData(this.persona).subscribe({
       next: (data) => {
         alert('data Registrada con exito');
         this.GetPersonalData();
@@ -128,7 +128,7 @@ export class AboutMeComponent implements OnInit {
     this.id = this.formModify.controls['user_id'].value;
     console.log(this.id);
 
-    this.personaService.ModifyPersonalData(this.persona, this.id).subscribe({
+    this.personaService.modifyPersonalData(this.persona, this.id).subscribe({
       next: (data) => {
         alert('data Modificada con exito');
         this.GetPersonalData();
@@ -140,7 +140,7 @@ export class AboutMeComponent implements OnInit {
   }
 
   public DeletePersonalData() {
-    this.personaService.DeletePersonalData().subscribe({
+    this.personaService.deletePersonalData().subscribe({
       next: (data) => {
         alert('data delete');
         this.GetPersonalData();

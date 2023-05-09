@@ -1,14 +1,16 @@
 /*    ESTILOS GENERALES    */
 
 .titulo {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 10px;
+  text-align: center;
 }
 
 .texto {
   font-family: "Playfair Display", serif;
   font-weight: bold;
   padding-left: 10px;
+  text-align: left;
 }
 
 * {
@@ -26,6 +28,7 @@ section {
   align-items: center;
   background-color: #32349e;
   color: white;
+  width: 100%;
 }
 
 .rectangulo {
@@ -33,12 +36,19 @@ section {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 80%;
   height: 150px;
   margin-top: -3rem;
   background-color: #6366f1;
   border-radius: 10px;
   box-shadow: 0px 1px 4px 1px white;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -66,3 +76,114 @@ button i {
 button:hover i {
   color: black;
 }
+
+
+/*
+    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  */
+
+  @media (max-width: 1200px) {
+  
+    .rectangulo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      width: 70%;
+      height: 400px;
+      margin-top: -5rem;
+    }
+
+    .titulo {
+      font-size: 2.5rem;
+    }
+
+    .texto {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+  }
+
+
+
+  @media (max-width: 1024px) {
+  
+    .rectangulo {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      width: 70%;
+      height: 400px;
+      margin-top: -5rem;
+    }
+
+    .titulo {
+      font-size: 2.5rem;
+    }
+
+    .texto {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  
+  }
+  
+  @media (max-width: 768px) {
+  
+    .rectangulo {
+      padding: 20px;
+      width: 60%;
+      height: 400px;
+    }
+
+    .titulo {
+      font-size: 2.3rem;
+    }
+
+    .texto {
+      font-size: 1.rem;
+      text-align: center;
+    }
+  
+  }
+  
+  @media (max-width: 640px) {
+  
+    .rectangulo {
+      padding: 20px;
+      width: 100%;
+      height: 400px;
+    }
+
+    .titulo {
+      font-size: 2rem;
+    }
+
+    .texto {
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    
+  
+  }
+  
+  @media (max-width: 320px) {
+  
+    .rectangulo {
+      padding: 20px;
+      width: 100%;
+      height: 500px;
+    }
+
+    .titulo {
+      font-size: 2rem;
+    }
+
+    .texto {
+      font-size: 1rem;
+      text-align: center;
+    }
+  
+  }

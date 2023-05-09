@@ -29,8 +29,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './Utils/Interceptor/interceptor.service';
+
 // Ng-Bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+//View Component
 import { HomeComponent } from './ViewComponent/home/home.component';
 import { KnowSkillComponent } from './ViewComponent/know-skill/know-skill.component';
 import { EducationWorkExpComponent } from './ViewComponent/education-work-exp/education-work-exp.component'; 

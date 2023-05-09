@@ -1,51 +1,42 @@
 <!--Barra De Navegacion-->
-<nav ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'" class="navbar navbar-expand-xl">
 
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
-            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="header" ngxHideOnScroll [classNameWhenHidden]="'nav--hidden'">
 
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <a class="navbar-brand" routerLink="">
-                <figure>
-                    <img src="../../../assets/recursos/icon/icon Argentina programa.png" alt="Icon Argentina Programa">
-                    <figcaption> Argentina Programa </figcaption>
-                </figure>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+
+    <figure class="logo">
+        <img src="../../../assets/recursos/icon/icon Argentina programa.png" alt="Icon Argentina Programa">
+        <figcaption> <a routerLink="" style="color:white"> Argentina Programa</a> </figcaption>
+    </figure>
+
+    <ul>
+        <li>
+            <a *ngIf="isLogged" class="nav-link" routerLink="home">Home</a>
+        </li>
+
+        <li>
+            <a *ngIf="isLogged" class="nav-link" routerLink="know-skill">knowledge and skills
             </a>
+        </li>
 
-            <div class="link-container">
-                <ul class="navbar-nav">
+        <li>
+            <a *ngIf="isLogged" class="nav-link" routerLink="education-expwork">Educations and Work Exp</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a *ngIf="isLogged" class="nav-link" aria-current="page" routerLink="home">Home</a>
-                    </li>
+        <li>
+            <a *ngIf="isLogged" class="nav-link" routerLink="project">Projects</a>
+        </li>
 
-                    <li class="nav-item">
-                        <a *ngIf="isLogged" class="nav-link" routerLink="know-skill">knowledge and skills 
-                        </a>
-                    </li>
+    </ul>
 
-                    <li class="nav-item">
-                        <a *ngIf="isLogged" class="nav-link" routerLink="education-expwork">Educations and Work Exp</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a *ngIf="isLogged" class="nav-link" routerLink="project">Projects</a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <a *ngIf="isLogin();else IniciarSesion" class="link" (click)="cerrarSesion()">Cerrar Sesión</a>
+    <a *ngIf="isLogin();else IniciarSesion" class="link" (click)="cerrarSesion()">Cerrar<br> Sesión</a>
 
 
-            <ng-template #IniciarSesion>
-                <a *ngIf="!isLogged"class="link" routerLink="login" routerLinkActive="active">Iniciar Sesión</a>
-            </ng-template>
+    <ng-template #IniciarSesion>
+        <a *ngIf="!isLogged" class="link" routerLink="login" routerLinkActive="active">Iniciar<br> Sesión</a>
+    </ng-template>
 
-        </div>
-
-    </div>
 </nav>
