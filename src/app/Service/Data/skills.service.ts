@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Skills } from 'src/app/Model/Data/skills';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,12 @@ export class SkillsService {
 
   //Metodos Get
 
-  public getDataSkill(): Observable<Skills[]> {
-    return this.httpClient.get<Skills[]>(environment.apiUrl + this.api + 'getDataSkill');
+  public getDataSkill(id:number): Observable<Skills> {
+    return this.httpClient.get<Skills>(environment.apiUrl + this.api + 'getDataSkill/' + `${id}`);
+  }
+
+  public getAllDataSkill(): Observable<Skills[]> {
+    return this.httpClient.get<Skills[]>(environment.apiUrl + this.api + 'getAllDataSkill');
   }
   //Metodos Post
 

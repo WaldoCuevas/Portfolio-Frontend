@@ -1,23 +1,20 @@
 /*  SECTION*/
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.container-action {
+  flex-direction: column;
 }
 
 section {
   background: #eee;
-  height: 80vh;
 }
 
 .container-fluid {
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  padding: 0;
+  padding: 20px;
   margin: 0;
 }
 
@@ -29,8 +26,10 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0;
-  margin: 0;
+  padding: 20px;
+  margin: 10px;
+  border-width: 8px;
+  border-style: dashed double;
 }
 
 .titulo {
@@ -44,172 +43,41 @@ section {
 .texto {
   font-family: "Playfair Display", serif;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
 }
-
-/*  ACTIONS --> Solo admin  */
 
 .container-action {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 10px;
-  height: 80px;
-}
-
-.action {
-  border: none;
-  align-items: center;
-  font-size: 20px;
-  transition: color 0.2s ease-in;
-}
-
-.action-1:hover {
-  color: #22c55e;
-}
-
-.action-2:hover {
-  color: #06b6d4;
-}
-
-.action-3:hover {
-  color: #ef4444;
-}
-
-/*	MODAL		*/
-
-.modal-header {
-  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #eee;
-}
-
-.modal-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background-color: #eee;
-}
-
-/*  Form  */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.form-container,
-.input-container,
-.textarea-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h2,
-button,
-p {
-  margin: 8px 0;
-}
-
-input,
-textarea {
-  margin: 25px 0px;
-  padding: 20px 15px;
-  color: #000000;
-  border-radius: 0;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-  text-align: left;
-}
-
-input:focus,
-textarea {
-  box-shadow: 0 0 10px #0000002a;
-  background-color: #0000002a;
-}
-
-.modal-body button {
-  background-image: linear-gradient(to right, #00bfff, #2480f0, #26206e);
-  border-radius: 30px;
-  border: transparent;
-  width: 200px;
-  transition: 0.2s all ease;
-}
-
-.modal-body button:hover {
-  background-image: linear-gradient(to right, #37cdff, #52a0ff, #4940b0);
 }
 
 /*
-  Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  Este CSS esta configurado para full mobile, las media Query son  para dispositivos Tables e desktop.
 */
 
-@media (max-width: 1200px) {
+@media (min-width: 640px) {
 
-  section {
-    height: 70vh;
-  }
+    
+}
 
-  .container-fluid {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+@media (min-width: 768px) {
 
-  .container-action {
-    display: flex;
-    flex-direction: row;
-    padding-top: 10px;
-    gap: 40px;
-  }
-
-  .container-link a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+    
 
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
 
-  section {
-    height: 70vh;
-  }
+    
 
 }
 
-@media (max-width: 768px) {
-  section {
-    height: 80vh;
-  }
+@media (min-width: 1280px) {
+
+    
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1536px) {
 
-  section {
-    height: 80vh;
-  }
-
-}
-
-@media (max-width: 430px) {
-
-  section {
-    height: 90vh;
-  }
-
-}
-
-@media (max-width: 360px) {
-  section {
-    height: 180vh;
-  }
-  
+   
+    
 }

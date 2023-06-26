@@ -6,7 +6,7 @@ import { Login } from 'src/app/Model/Auth/login';
 import { JwtDto } from 'src/app/Model/Auth/jwt-dto';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

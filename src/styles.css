@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.texto {
+  font-size: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 550;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Imagen */
+
+figure {
+  text-align: center;
+}
+
+figure img {
+  width: 25px;
+}
+
+figcaption {
+  color: white;
+}
+
+#img {
+  text-align: center;
+}
+
+.logo {
+  transition: all 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/*  ACTIONS --> solo admin  */
+
+.container-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 5px;
+  }
+  
+  .action {
+    border: none;
+    align-items: center;
+    gap: 2px;
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    transition: color .2s ease-in;
+  }
+
+  .action p {
+    font-size: 16px;
+  }
+  
+  .action-1:hover {
+    color: #22c55e;
+  }
+  
+  .action-2:hover {
+    color: #06b6d4;
+  }
+  
+  .action-3:hover {
+    color: #ef4444;
+  }
+  
+  /*  FIN ACTIONS --> solo admin  */
+
+/*	MODAL		*/
+
+.modal-header {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eee;
+  }
+  
+  .modal-body button {
+    background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
+    border-radius: 30px;
+    border: transparent;
+    width: 200px;
+    transition: .2s all ease;
+  }
+  
+  .modal-body button:hover {
+    background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
+  }
+  
+  .modal-footer {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #eee;
+    }
+
+  /*  Form  */
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .form-container, .input-container, .textarea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h2, button, p {
+    margin: 8px 8px;
+  }
+  
+  input, textarea {
+    margin: 25px 0px;
+    padding: 20px 15px;
+    color: #000000;
+    border-radius: 0;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    text-align: left;
+  }
+  
+  input:focus, textarea {
+    box-shadow: 0 0 10px #0000002a;
+    background-color: #0000002a;
+  }
+
+  /*  TIMELINE  */
+
+.timeline {
+  border-left: 1px dashed #6366f1;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.timeline .timeline-box {
+  padding-left: 40px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-icon { 
+  left: -18px;
+  top: 115px;
+  background-color: #32349e;
+  position: absolute;
+  width: 35px;
+  z-index: 1;
+  text-align: center;
+  line-height: 35px;
+}
+
+.timeline-icon i {
+  color: rgb(224, 222, 222);
+}

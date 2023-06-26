@@ -4,19 +4,12 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 10px;
   text-align: center;
+  font-size: 20px;
 }
 
 .texto {
-  font-family: "Playfair Display", serif;
-  font-weight: bold;
-  padding-left: 10px;
-  text-align: left;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  padding-left: 0;
+  font-size: 14px;
 }
 
 /*          CONTACT          */
@@ -33,13 +26,13 @@ section {
 
 .rectangulo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 150px;
-  margin-top: -3rem;
-  background-color: #6366f1;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  background-color: #7071c9;
   border-radius: 10px;
   box-shadow: 0px 1px 4px 1px white;
 }
@@ -69,7 +62,7 @@ button:hover {
 
 button i {
   color: white;
-  font-size: 1rem;
+  font-size: 16px;
   transition: all 0.2 ease-in-out;
 }
 
@@ -77,113 +70,45 @@ button:hover i {
   color: black;
 }
 
-
 /*
-    Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
-  */
+  Este CSS esta configurado para full mobile, las media Query son  para dispositivos Tables e desktop.
+*/
 
-  @media (max-width: 1200px) {
-  
-    .rectangulo {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px;
-      width: 70%;
-      height: 400px;
-      margin-top: -5rem;
-    }
+@media (min-width: 640px) {
 
-    .titulo {
-      font-size: 2.5rem;
-    }
-
-    .texto {
-      font-size: 1.2rem;
-      text-align: center;
-    }
-  
-  }
-
-
-
-  @media (max-width: 1024px) {
-  
-    .rectangulo {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px;
-      width: 70%;
-      height: 400px;
-      margin-top: -5rem;
-    }
-
-    .titulo {
-      font-size: 2.5rem;
-    }
-
-    .texto {
-      font-size: 1.2rem;
-      text-align: center;
-    }
-  
-  }
-  
-  @media (max-width: 768px) {
-  
-    .rectangulo {
-      padding: 20px;
-      width: 60%;
-      height: 400px;
-    }
-
-    .titulo {
-      font-size: 2.3rem;
-    }
-
-    .texto {
-      font-size: 1.rem;
-      text-align: center;
-    }
-  
-  }
-  
-  @media (max-width: 640px) {
-  
-    .rectangulo {
-      padding: 20px;
-      width: 100%;
-      height: 400px;
-    }
-
-    .titulo {
-      font-size: 2rem;
-    }
-
-    .texto {
-      font-size: 0.8rem;
-      text-align: center;
-    }
     
-  
-  }
-  
-  @media (max-width: 320px) {
-  
-    .rectangulo {
-      padding: 20px;
-      width: 100%;
-      height: 500px;
-    }
+}
 
-    .titulo {
-      font-size: 2rem;
-    }
+@media (min-width: 768px) {
 
-    .texto {
-      font-size: 1rem;
-      text-align: center;
-    }
-  
+  .rectangulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-top: -10px;
+    margin-bottom: -10px;
+    background-color: #7071c9;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 1px white;
   }
+
+}
+
+@media (min-width: 1024px) {
+
+    
+
+}
+
+@media (min-width: 1280px) {
+
+    
+}
+
+@media (min-width: 1536px) {
+
+   
+    
+}

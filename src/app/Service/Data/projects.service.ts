@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Projects } from 'src/app/Model/Data/projects';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,12 @@ export class ProjectsService {
 
   //Metodos Get
 
-  public getDataProject(): Observable<Projects[]> {
-    return this.httpClient.get<Projects[]>(environment.apiUrl + this.api + 'getDataProject');
+  public getDataProject(id:number): Observable<Projects> {
+    return this.httpClient.get<Projects>(environment.apiUrl + this.api + 'getDataProject/' + `${id}`);
+  }
+
+  public getAllDataProject(): Observable<Projects[]> {
+    return this.httpClient.get<Projects[]>(environment.apiUrl + this.api + 'getAllDataProject');
   }
 
   //Metodos Post

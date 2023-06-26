@@ -1,21 +1,5 @@
-/*  OCULTAR NAVBAR  */
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  color: white;
-  background-color: #2980b9;
-  padding: 0 2rem;
-  transition: all 0.9s ease-in;
-  z-index: 3;
-}
-
-nav.nav--hidden {
-  transform: translateY(-100%);
-}
-
 /*  NAV */
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -25,7 +9,7 @@ nav.nav--hidden {
 }
 
 br {
-  display: none;
+  display: block;
 }
 
 .header {
@@ -35,6 +19,7 @@ br {
   align-items: center;
   height: 85px;
   padding: 10px 10px;
+  min-width: 300px;
 }
 
 nav ul{
@@ -42,10 +27,12 @@ nav ul{
   margin-right: 20px;
 }
 
-nav ul li{
-  display: inline-block;
-  line-height: 80px;
+nav ul li {
   margin: 0 5px;
+  display: block;
+  margin: 50px 0;
+  line-height: 30px;
+
 }
 
 nav ul li a {
@@ -60,34 +47,23 @@ nav ul li a {
 nav ul li a:hover {
   transform: scale(1.2);
   color: #6663f1;
+  text-decoration: underline;
 }
 
+nav ul li a:active {
+  color: #32349e;
+}
 
-/* Imagen */
-
-figure {
-  width: 10vw;
+ul {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #2c3e50;
+  top: 80px;
+  left: -100%;
   text-align: center;
-}
-
-figure img {
-  width: 25px;
-}
-
-figcaption {
-  color: white;
-}
-
-#img {
-  text-align: center;
-}
-
-.logo {
-  transition: all 0.5s ease;
-}
-
-.logo:hover {
-  transform: scale(1.2);
+  transition: all 0.5s;
+  z-index: 5;
 }
 
 /*  INFO  */
@@ -110,7 +86,6 @@ figcaption {
 }
 
 
-
 /*  checkbox  */
 
 .checkbtn {
@@ -118,93 +93,70 @@ figcaption {
   color: #000;
   float: right;
   line-height: 80px;
-  margin-right: 40px;
+  margin-right: 0px;
   cursor: pointer;
-  display: none;
+  display: block;
 }
 
 #check {
   display: none;
 }
 
-/*  LINK  */
+/*  OCULTAR NAVBAR  */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  background-color: #2980b9;
+  padding: 0 2rem;
+  transition: all 0.9s ease-in;
+  z-index: 3;
+}
+
+nav.nav--hidden {
+  transform: translateY(-100%);
+}
+
+/*  OCULTAR NAVBAR  */
+
+#check:checked ~ ul {
+  left: 0;
+}
 
 /*
     Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
   */
 
-@media (max-width: 1200px) {
+@media (min-width: 760px) {
 
   br {
-    display: block;
+    display: none;
   }
 
   .checkbtn {
-    display: block;
+    display: none;
   }
 
   ul {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #2c3e50;
-    top: 80px;
-    left: -100%;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    top: auto;
+    left: auto;
     text-align: center;
     transition: all 0.5s;
     z-index: 5;
   }
 
   nav ul li {
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-
-  nav ul li a {
-    font-size: 20px;
-  }
-
-  li a:hover, li a.active {
-    background: none;
-    color: red;
-  }
-
-
-  #check:checked ~ ul {
-    left: 0;
-  }
-
-  figcaption {
-    font-size: 16px;
-  }
-
-  figure img {
-    width: 20px;
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
   }
 
 }  
 
-@media (max-width: 1024px) {
 
-}
-
-@media (max-width: 768px) {
-
-  .logo {
-    min-width: 70px;
-  }
-
-}
-
-@media (max-width: 640px) {
-
-
-}
-
-@media (max-width: 320px) {
-  .header {
-    min-width: 300px;
-  }
-
-}

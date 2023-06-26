@@ -1,11 +1,5 @@
 /*    SECTIONS    */
 
-.container {
-  display: flex;
-  flex-direction: column;
-  background-color: #eee;
-}
-
 section {
   display: flex;
   flex-direction: column;
@@ -14,25 +8,30 @@ section {
   background-color: #eee;
 }
 
-
-
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+}
 
 span {
-  font-size: 1.2rem;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  font-size: 20px;
+  text-align: left;
   text-decoration: none;
 }
 
-.aprendizaje {
-  text-align: left;
-}
-
 .educacion-texto {
-  font-size: 20px;
+  text-align: left;
+  font-size: 16px;
   font-weight: bold;
   margin: 10px 0;
+}
+
+.header-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*    INFO    */
@@ -50,17 +49,20 @@ span {
 
 .titulo-seccion {
   font-family: "Rubik Dirt", cursive;
-  padding: 100px 0 20px 0;
+  padding: 20px 0;
 }
 
 .titulo {
   font-family: "Playfair Display SC", serif;
   font-size: 20px;
+  text-align: left;
 }
 
 .texto {
   font-family: "Playfair Display", serif;
   font-weight: bold;
+  padding: 5px 0;
+  margin: 0;
 }
 
 span {
@@ -74,45 +76,6 @@ span {
   text-decoration: underline;
 }
 
-/*  ACTIONS --> solo admin  */
-
-.header-icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-.container-action {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin: 15px;
-  width: 20%;
-  height: 90px;
-  gap: 10px;
-}
-
-.action {
-  border: none;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  padding: 10px;
-  transition: color 0.2s ease-in;
-}
-
-.action-1:hover {
-  color: #22c55e;
-}
-
-.action-2:hover {
-  color: #06b6d4;
-}
-
-.action-3:hover {
-  color: #ef4444;
-}
-
 /* IMAGE */
 
 .container-imagen {
@@ -120,167 +83,50 @@ span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40%;
-  height: 20%;
+  left: 0;
+  width: 50%;
 }
 
 img {
   height: 100%;
   width: 100%;
-  padding: 10px;
-  border-radius: 10%;
 }
 
-/*  TIMELINE  */
-
-.timeline {
-  border-left: 1px dashed #6366f1;
-  margin-left: 20px;
-  margin-bottom: 30px;
-}
-
-.timeline .timeline-box {
-  padding-left: 40px;
-  margin-bottom: 60px;
-  position: relative;
-}
-
-.timeline-icon { 
-  left: -18px;
-  top: 115px;
-  background-color: #32349e;
-  position: absolute;
-  width: 35px;
-  z-index: 1;
-  text-align: center;
-  line-height: 35px;
-}
-
-.timeline-icon i {
-  color: rgb(224, 222, 222);
-}
-
-/*	MODAL		*/
-
-.modal-header {
-  display:flex;
+.container-action {
+  display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  background-color: #eee;
-}
-
-.modal-footer {
-  display:flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background-color: #eee;
-}
-
-/*  Form  */
-
-.form {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-}
-
-.form-container, .input-container, .textarea-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h2, button, p {
-  margin: 8px 0;
-}
-
-input, textarea {
-  margin: 25px 0px;
-  padding: 20px 15px;
-  color: #000000;
-  border-radius: 0;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-  text-align: left;
-}
-
-input:focus, textarea {
-  box-shadow: 0 0 10px #0000002a;
-  background-color: #0000002a;
-}
-
-.modal-body button {
-  background-image: linear-gradient(to right, #00bfff , #2480f0, #26206e);
-  border-radius: 30px;
-  border: transparent;
-  width: 200px;
-  transition: .2s all ease;
-}
-
-.modal-body button:hover {
-  background-image: linear-gradient(to right, #37cdff , #52a0ff, #4940b0);
 }
 
 /*
-  Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  Este CSS esta configurado para full mobile, las media Query son  para dispositivos Tables e desktop.
 */
 
-@media (max-width: 1024px) {
-  
+@media (min-width: 640px) {
+
     
-  
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
 
-  .titulo-seccion {
-    padding: 0;
-    margin: 0;
-  } 
-
-  .container-action {
-    height: 60px;
-  }
+    
 
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
 
-  .titulo-seccion {
-    padding: 40px;
-  }
-
-  .header-icon {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-evenly;
-  }
-  
-  .container-action {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    width: 20%;
-    height: 90px;
-  }
-
-  img {
-    padding: 0;
-    border-radius: 0;
-  }
-
-  .titulo-seccion {
-    padding: 40px 0;
-  }
+    
 
 }
 
-@media (max-width: 320px) {
+@media (min-width: 1280px) {
 
- 
+    
+}
 
+@media (min-width: 1536px) {
+
+   
+    
 }

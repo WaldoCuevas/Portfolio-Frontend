@@ -9,25 +9,25 @@
 
     <figure class="logo">
         <img src="../../../assets/recursos/icon/icon Argentina programa.png" alt="Icon Argentina Programa">
-        <figcaption> <a routerLink="" style="color:white"> Argentina Programa</a> </figcaption>
+        <figcaption> <a href="https://argentinaprograma.inti.gob.ar/" target="_blank"> Argentina<br>Programa</a> </figcaption>
     </figure>
 
     <ul>
         <li>
-            <a *ngIf="isLogged" class="nav-link" routerLink="home">Home</a>
+            <a *ngIf="isLogged" class="nav-link" routerLink="home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
         </li>
 
         <li>
-            <a *ngIf="isLogged" class="nav-link" routerLink="know-skill">knowledge and skills
+            <a *ngIf="isLogged" class="nav-link" routerLink="know-skill" routerLinkActive="active-link" >Conocimientos
             </a>
         </li>
 
         <li>
-            <a *ngIf="isLogged" class="nav-link" routerLink="education-expwork">Educations and Work Exp</a>
+            <a *ngIf="isLogged" class="nav-link" routerLink="education-expwork" routerLinkActive="active-link">Estudios</a>
         </li>
 
         <li>
-            <a *ngIf="isLogged" class="nav-link" routerLink="project">Projects</a>
+            <a *ngIf="isLogged" class="nav-link" routerLink="project" routerLinkActive="active-link">Proyectos</a>
         </li>
 
     </ul>

@@ -4,7 +4,7 @@
     <h1 class="titulo-seccion">Conocimientos</h1>
 
     <div class="container-action" *ngIf="isAdmin">
-        <button (click)="modalService.open(AddDataTechnologysModal)" class="action action-1">
+        <button (click)="FormAdd(AddDataTechnologysModal)" class="action action-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -14,22 +14,31 @@
 
         <div class="row">
 
-            <div *ngFor="let technology of technologys" class="columna col-xs-12 col-md-12 col-xl-3">
+            <div *ngFor="let technology of technologys" class="columna col-xs-12 col-md-12 col-xl-6">
 
-                <div *ngIf="isAdmin" class="container-action">
-                    <button (click)="modalService.open(ModifyDataTechnologysModal)" class="action action-2">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        <p>Modificar</p>
-                    </button>
-                    <button (click)="DeleteDataTechnologys(this.technology.tecnology_id)" class="action action-3">
-                        <i class="fa-solid fa-trash"></i>
-                        <p>Borrar</p>
-                    </button>
+
+                <div class="container-title">
+                    <h3 class="titulo"> {{ this.technology.name_technology }}</h3>
+
+                    <div *ngIf="isAdmin" class="container-action">
+
+                        <button (click)="FormModify(ModifyDataTechnologysModal,this.technology.tecnology_id)"
+                            class="action action-2">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <p>Modificar</p>
+                        </button>
+
+                        <button (click)="DeleteDataTechnologys(this.technology.tecnology_id)" class="action action-3">
+                            <i class="fa-solid fa-trash"></i>
+                            <p>Borrar</p>
+                        </button>
+
+                    </div>
                 </div>
 
                 <div class="container-info">
-                    <h3 class="titulo"> {{ this.technology.name_technology }}</h3>
                     <p class="texto"> {{ this.technology.description_technology_r1 }} </p>
+                    <br>
                     <p class="texto"> {{ this.technology.description_technology_r2 }} </p>
                 </div>
 
@@ -45,7 +54,7 @@
                 <ng-template #ModifyDataTechnologysModal let-modal>
                     <div class="modal-header">
                         <h4 class="modal-title">Modificar</h4>
-                        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                        <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -127,7 +136,7 @@
 <ng-template #AddDataTechnologysModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Añadir Conocimiento</h4>
-        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+        <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>

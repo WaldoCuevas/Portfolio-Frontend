@@ -1,4 +1,4 @@
-export class ExpWork {
+export interface ExpWork {
     work_exp_id: number;
     work_image: string;
     workplace: string;

@@ -2,7 +2,7 @@
     <h2 class="titulo-seccion">Experiencia Laboral</h2>
 
     <div class="container-icon" *ngIf="isAdmin">
-        <button (click)="modalService.open(AddDataWorkModal)" class="icon icon-1">
+        <button (click)="FormAdd(AddDataWorkModal)" class="icon icon-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="container-action" *ngIf="isAdmin">
-                                    <button (click)="modalService.open(ModifyDataWorkModal)" class="action action-2"
+                                    <button (click)="FormModify(ModifyDataWorkModal, this.ExpWorks.work_exp_id)" class="action action-2"
                                         >
                                         <i class="fa-solid fa-pen-to-square"></i>
                                         <p>Modificar</p>
@@ -69,7 +69,7 @@
                             <ng-template #ModifyDataWorkModal let-modal>
                                 <div class="modal-header">
                                     <h4 class="modal-title">Modificar Work Exp</h4>
-                                    <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                                    <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -173,7 +173,7 @@
 <ng-template #AddDataWorkModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Añadir Work Exp</h4>
-        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+        <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>

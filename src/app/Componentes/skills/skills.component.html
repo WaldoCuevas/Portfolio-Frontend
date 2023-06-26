@@ -4,7 +4,7 @@
     <h1 class="titulo-seccion">Habilidades</h1>
 
     <div class="container-action" *ngIf="isAdmin">
-        <button (click)="modalService.open(AddDataSkillModal)" class="action action-1">
+        <button (click)="FormAdd(AddDataSkillModal)" class="action action-1">
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -14,10 +14,11 @@
 
         <div class="row">
 
-            <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-12 col-xl-4">
+            <div *ngFor="let skill of skills" class="columna col-xs-12 col-md-3 col-xl-3">
 
+    
                 <div class="container-action" *ngIf="isAdmin">
-                    <button (click)="modalService.open(ModifyDataSkillModal)" class="action action-2" >
+                    <button (click)="FormModify(ModifyDataSkillModal,this.skill.skill_id)" class="action action-2" >
                         <i class="fa-solid fa-pen-to-square"></i>
                         <p>Modificar</p>
                     </button>
@@ -28,23 +29,34 @@
                 </div>
 
                 <div class="container-circle">
-                    <circle-progress [percent]="this.skill.skill_porcent" [imageSrc]="this.skill.skill_image"
-                        [showImage]="true" [imageHeight]="100" [imageWidth]="100" [radius]="100" subtitle=""
-                        [outerStrokeWidth]="10" [innerStrokeWidth]="5" [outerStrokeColor]="'#6366f1'"
-                        [innerStrokeColor]="'#32349e'" [animation]="true" [animationDuration]="300">
+                    <circle-progress 
+                    [percent]="this.skill.skill_porcent" 
+                    [imageSrc]="this.skill.skill_image"
+                    [showImage]="true" 
+                    [imageHeight]="50" 
+                    [imageWidth]="50" 
+                    [radius]="50" 
+                    subtitle=""
+                    [outerStrokeWidth]="5" 
+                    [innerStrokeWidth]="3" 
+                    [responsive]="true"
+                    [outerStrokeColor]="'#6366f1'"
+                    [innerStrokeColor]="'#32349e'" 
+                    [animation]="true" 
+                    [animationDuration]="300">
                     </circle-progress>
                 </div>
 
                 <div class="container-info">
-                    <h3 class="texto">{{this.skill.skills_name}} </h3>
-                    <span class="number">%{{this.skill.skill_porcent}} </span>
+                    <h3 class="texto">{{this.skill.skills_name}} <br></h3>
+                    <span class="number">{{this.skill.skill_porcent}}% </span>
                 </div>
 
                 <!--Modal-->
                 <ng-template #ModifyDataSkillModal let-modal>
                     <div class="modal-header">
                         <h4 class="modal-title">Titulo modal</h4>
-                        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                        <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -98,7 +110,7 @@
 <ng-template #AddDataSkillModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Registrar una Experiencia Laboral</h4>
-        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+        <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>

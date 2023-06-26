@@ -57,9 +57,6 @@ export class AboutMeComponent implements OnInit {
   }
 
   public FormModify(): any {
-
-    this.getDataFromApi();
-
     this.formModify = this.formBuilder.group({
       user_id: [{ value: '', disabled: true }, Validators.required],
       name: ['', [Validators.required]],
@@ -84,25 +81,13 @@ export class AboutMeComponent implements OnInit {
     }
   }
 
-  //Get Data from api
-  getDataFromApi(): any {
-    this.personaService.getPersonalData().subscribe({
-      next: (data: any) => {
-        this.formModify.patchValue(data);
-      },
-      error(err) {
-        console.log("error")
-      },
-    });
-
-  }
-
   //Method CRUD
 
   public GetPersonalData() {
     this.personaService.getPersonalData().subscribe({
       next: (data: Persona) => {
         this.persona = data;
+        this.formModify.patchValue(data);
       },
       error(err: any) {
         console.error();

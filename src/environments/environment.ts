@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://portfolio-backend-u2ee.onrender.com/',
+  apiUrl:'http://localhost:8080/',
 };
 
 

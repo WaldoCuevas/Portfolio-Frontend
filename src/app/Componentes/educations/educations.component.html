@@ -4,7 +4,7 @@
     <h1 class="titulo-seccion">Educación</h1>
 
     <div class="container-action" *ngIf="isAdmin">
-        <button (click)="modalService.open(AddDataEducationModal)" class="action action-1" >
+        <button (click)="FormAdd(AddDataEducationModal)" class="action action-1" >
             <i class="fa-solid fa-square-plus"></i>
             <p>Añadir</p>
         </button>
@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="container-action" *ngIf="isAdmin">
-                                    <button (click)="modalService.open(ModifyDataEducationModal)" class="action action-2"
+                                    <button (click)="FormModify(ModifyDataEducationModal,this.education.education_id)" class="action action-2"
                                         >
                                         <i class="fa-solid fa-pen-to-square"></i>
                                         <p>Modificar</p>
@@ -47,7 +47,7 @@
                             <div class="container-info">
                                 <h3 class="titulo">{{ this.education.school }} </h3>
                                 <hr>
-                                <h5 class="texto"> {{ this.education.qualification }}</h5>
+                                <h5 class="titulo texto"> {{ this.education.qualification }}</h5>
                             </div>
 
                             <div class="container-description">
@@ -68,7 +68,7 @@
                             <ng-template #ModifyDataEducationModal let-modal>
                                 <div class="modal-header">
                                     <h4 class="modal-title">Modificar Educacion</h4>
-                                    <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+                                    <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -174,7 +174,7 @@
 <ng-template #AddDataEducationModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Añadir Educacion</h4>
-        <button type="button" class="close" aria-label="close" (click)="modal.dismiss()">
+        <button type="button" class="close btn btn-danger" aria-label="close" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>

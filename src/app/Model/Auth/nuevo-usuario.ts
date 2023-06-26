@@ -1,4 +1,4 @@
-export class NuevoUsuario {
+export interface NuevoUsuario {
 
     //Datos
     nombre: string;

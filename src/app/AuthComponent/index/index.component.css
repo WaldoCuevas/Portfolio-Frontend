@@ -28,7 +28,7 @@ section {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
   font-weight: 500;
-  font-size: 50px;
+  font-size: 30px;
   padding-top: 20px;
   color: rgb(119, 118, 118);
 }
@@ -39,15 +39,15 @@ button {
   background-image: linear-gradient(to right, #00bfff, #3b78c2, #4239a1);
   border-radius: 30px;
   border: transparent;
-  width: 200px;
-  height: 40px;
+  width: 100px;
+  height: 30px;
   transition: 0.2s all ease;
 }
 
-button a {
+button > a {
   color: rgb(194, 193, 193);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 button:hover {
@@ -58,47 +58,30 @@ button:hover {
     Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
   */
 
-@media (max-width: 768px) {
-  .titulo {
-    font-size: 35px;
-  }
+@media (min-width: 640px) {
 
-  button {
-    width: 120px;
-    height: 50px;
-  }
-
-  button a {
-    font-size: 15px;
-  }
+    
 }
 
-@media (max-width: 640px) {
-  .titulo {
-    font-size: 25px;
-  }
+@media (min-width: 768px) {
 
-  button {
-    width: 100px;
-    height: 40px;
-  }
+    
 
-  button a {
-    font-size: 10px;
-  }
 }
 
-@media (max-width: 320px) {
-  .titulo {
-    font-size: 15px;
-  }
+@media (min-width: 1024px) {
 
-  button {
-    width: 150px;
-    height: 40px;
-  }
+    
 
-  button > a {
-    font-size: 10px;
-  }
+}
+
+@media (min-width: 1280px) {
+
+    
+}
+
+@media (min-width: 1536px) {
+
+   
+    
 }

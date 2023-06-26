@@ -1,43 +1,44 @@
 /* SECTIONS */
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 section {
   background: #eee;
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0 44px;
+  padding-top: 90px;
   margin-top: 0px;
   position: relative;
-  height: calc(80vh + 20vh);
   z-index: 0;
 }
 
 /*  INFO  */
 
 .container-info {
-  width: 50%;
-  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .container-info h2,
-.container-info span {
+.container-info span,
+.container-info p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin: 0;
-  font-size: 4rem;
+  font-size: 50px;
   font-weight: 600;
 }
 
 .container-info p {
   margin: 20px 0;
   font-size: 24px;
-  font-weight: 500;
   color: #1f1f1f;
 }
 
@@ -45,7 +46,7 @@ section {
 
 .container-image {
   position: relative;
-  width: 300px;
+  width: 250px;
   display: grid;
   place-content: center;
   clip-path: circle(87.6% at 50% 11%);
@@ -53,21 +54,27 @@ section {
 
 .fondo-imagen {
   background-color: #6366f1;
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   clip-path: circle(57.9% at 51% 92%);
 }
 
 img {
   position: absolute;
   z-index: 0;
-  width: 300px;
+  width: 250px;
 }
 
 /* LINK  */
+.container-link, .container-link a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .link-info {
-  width: 450px;
+  width: 250px;
   height: 50px;
   padding: 10px 40px;
   box-shadow: 0 0 5px rgba(0 0 0 /0.1);
@@ -75,7 +82,7 @@ img {
   border-radius: 8px;
   font-size: 24px;
   font-weight: bold;
-  margin-right: 20px;
+  margin: 10px;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
@@ -101,234 +108,51 @@ img {
   color: #eee;
 }
 
-.container-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/*  ACTIONS --> Solo admin  */
-
-.container-action {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  gap: 10px;
-  height: 80px;
-}
-
-.action {
-  border: none;
-  align-items: center;
-  font-size: 20px;
-  transition: color 0.2s ease-in;
-}
-
-.action-1:hover {
-  color: #22c55e;
-}
-
-.action-2:hover {
-  color: #06b6d4;
-}
-
-.action-3:hover {
-  color: #ef4444;
-}
-
-/*	MODAL		*/
-
-.modal-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #eee;
-}
-
-.modal-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background-color: #eee;
-}
-
-/*  Form  */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.form-container,
-.input-container,
-.textarea-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h2,
-button,
-p {
-  margin: 8px 0;
-}
-
-input,
-textarea {
-  margin: 25px 0px;
-  padding: 20px 15px;
-  color: #000000;
-  border-radius: 0;
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
-  text-align: left;
-}
-
-input:focus,
-textarea {
-  box-shadow: 0 0 10px #0000002a;
-  background-color: #0000002a;
-}
-
-.modal-body button {
-  background-image: linear-gradient(to right, #00bfff, #2480f0, #26206e);
-  border-radius: 30px;
-  border: transparent;
-  width: 200px;
-  transition: 0.2s all ease;
-}
-
-.modal-body button:hover {
-  background-image: linear-gradient(to right, #37cdff, #52a0ff, #4940b0);
-}
-
 /*
-Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  Este CSS esta configurado para full mobile, las media Query son  para dispositivos Tables e desktop.
 */
 
-@media (max-width: 1024px) {
-  section {
-    padding-top: 90px;
-    height: 130vh;
-    position: relative;
-    flex-direction: column-reverse;
-    justify-content: space-evenly;
-  }
+@media (min-width: 640px) {
 
-  .container-info {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 40%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .container-action {
-    display: flex;
-    flex-direction: row;
-    padding-top: 10px;
-    gap: 40px;
-  }
-
-  .container-link a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .link-info {
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    height: 50px;
-    margin: 10px;
-  }
+    
 }
 
-@media (max-width: 640px) {
+@media (min-width: 768px) {
+
   section {
-    height: 140vh;
-    padding-top: 90px;
+    height: 100vh;
+    flex-direction: row;
   }
 
   .container-info {
     width: 50%;
-    height: 40%;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+
   }
 
-  .container-info span,
-  .container-info h2 {
-    text-align: center;
-    font-size: 3rem;
-  }
-
-  .container-info p {
-    text-align: center;
-    font-size: 2rem;
+  .container-link {
+    flex-direction: row;
   }
 
   .container-action {
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
+
 }
 
-@media (max-width: 320px) {
-  section {
-    height: 180vh;
-  }
+@media (min-width: 1024px) {
 
-  .container-image {
-    width: 250px;
-  }
+    
 
-  .fondo-imagen {
-    background-color: #6366f1;
-    width: 250px;
-    height: 250px;
-  }
+}
 
-  img {
-    width: 250px;
-  }
+@media (min-width: 1280px) {
 
-  .container-info {
-    width: 100%;
-    height: 40%;
-    align-items: center;
-    justify-content: center;
-  }
+    
+}
 
-  .container-info span,
-  .container-info h2 {
-    text-align: center;
-    font-size: 2.5rem;
-  }
+@media (min-width: 1536px) {
 
-  .container-info p {
-    text-align: center;
-    font-size: 1.8rem;
-  }
-
-  .link-info {
-    display: flex;
-    flex-direction: column;
-    width: 240px;
-    height: 50px;
-    margin: 10px;
-  }
-
-  .container-action {
-    display: flex;
-    flex-direction: row;
-  }
-
+   
+    
 }

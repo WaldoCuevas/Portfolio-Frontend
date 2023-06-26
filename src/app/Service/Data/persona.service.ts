@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Persona } from 'src/app/Model/Data/persona';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

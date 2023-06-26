@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Skills } from 'src/app/Model/Data/skills';
 import { TokenService } from 'src/app/Service/Auth/token.service';
 import { SkillsService } from 'src/app/Service/Data/skills.service';
@@ -16,15 +16,18 @@ export class SkillsComponent implements OnInit {
   skills: Skills[] = [];
   skillsBack: Skills[] = [];
   skillsFront: Skills[] = [];
-  skillTS: Skills = new Skills();
+  skillTS: Skills;
 
   //var
   isLogged = true;
   isAdmin = false;
   roles: string[];
   id:number;
+
+  //var modal
   public formAdd: FormGroup;
   public formModify: FormGroup;
+  closeResult = '';
 
   constructor(
     private skillsService: SkillsService,
@@ -35,18 +38,27 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.FormAdd();
-
-    this.FormModify();
-
-    this.getDataSkill();
+    this.getAllDataSkill();
 
     this.Admin();
   }
 
   //Forms
 
-  public FormAdd(): any {
+  public FormAdd(AddDataSkillModal:any): any {
+
+    this.modalService
+      .open(AddDataSkillModal, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+
+
     this.formAdd = this.formBuilder.group({
       skill_image: ['', [Validators.required]],
       skills_name: ['', [Validators.required, ]],
@@ -54,9 +66,20 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  public FormModify(): any {
+  public FormModify(ModifyDataSkillModal:any, id:number): any {
 
-    this.getDataFromApi();
+    this.modalService
+      .open(ModifyDataSkillModal, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+
+    this.getDataSkill(id);
 
     this.formModify = this.formBuilder.group({
       skill_id: [{ value: '', disabled: true }, Validators.required],
@@ -64,6 +87,17 @@ export class SkillsComponent implements OnInit {
       skills_name: ['', [Validators.required, ]],
       skill_porcent: ['', [Validators.required ]],
     });
+  }
+
+  // Modal close
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   //Method for admin rol
@@ -81,8 +115,8 @@ export class SkillsComponent implements OnInit {
   }
 
   //Get Data from api
-  getDataFromApi(): any {
-    this.skillsService.getDataSkill().subscribe({
+  getDataSkill(id:number): any {
+    this.skillsService.getDataSkill(id).subscribe({
       next: (data: any) => {
         this.formModify.patchValue(data);
       },
@@ -95,8 +129,8 @@ export class SkillsComponent implements OnInit {
 
   //Method CRUD
 
-  public getDataSkill(): void {
-    this.skillsService.getDataSkill().subscribe({
+  public getAllDataSkill(): void {
+    this.skillsService.getAllDataSkill().subscribe({
       next: (data: Skills[]) => {
         this.skills = data;
         console.log(this.skills);
@@ -112,7 +146,7 @@ export class SkillsComponent implements OnInit {
     this.skillsService.addDataSkill(this.skillTS).subscribe({
       next: (data) => {
         alert('data Registrada con exito');
-        this.getDataSkill();
+        this.getAllDataSkill();
       },
       error(err) {
         alert('Error al registrar');
@@ -125,7 +159,7 @@ export class SkillsComponent implements OnInit {
     this.skillsService.modifyDataSkill(id, this.skillTS).subscribe({
       next: (data) => {
         alert('data Modificada con exito');
-        this.getDataSkill();
+        this.getAllDataSkill();
       },
       error(err) {
         alert('Error al modificar');
@@ -137,11 +171,12 @@ export class SkillsComponent implements OnInit {
     this.skillsService.deleteDataSkill(id).subscribe({
       next: (data) => {
         alert('data delete');
-        this.getDataSkill();
+        this.getAllDataSkill();
       },
       error(err) {
         alert('error data delete');
       },
     });
   }
+  
 }

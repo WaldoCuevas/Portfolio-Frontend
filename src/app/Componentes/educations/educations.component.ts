@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Educations } from 'src/app/Model/Data/educations';
 import { TokenService } from 'src/app/Service/Auth/token.service';
 import { EducationsService } from 'src/app/Service/Data/educations.service';
@@ -13,15 +13,19 @@ import { EducationsService } from 'src/app/Service/Data/educations.service';
 export class EducationsComponent implements OnInit {
   //Object Instance
   educations: Educations[];
-  educationTS: Educations = new Educations();
+  educationTS: Educations;
 
   //var
   isLogged = true;
   isAdmin = false;
   roles: string[];
+  
+  textVacio: string = '';
+
+  //var modal
   public formAdd: FormGroup;
   public formModify: FormGroup;
-  textVacio: string = '';
+  closeResult = '';
 
   constructor(
     private educationService: EducationsService,
@@ -36,18 +40,26 @@ export class EducationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.FormAdd();
-
-    this.FormModify();
-
-    this.getDataEducation();
+    this.getAllDataEducation();
 
     this.Admin();
   }
 
   //Forms
 
-  public FormAdd(): any {
+  public FormAdd(AddDataEducationModal:any): any {
+
+    this.modalService
+      .open(AddDataEducationModal, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+
     this.formAdd = this.formBuilder.group({
       education_image: ['', [Validators.required]],
       school: ['', [Validators.required, ]],
@@ -61,9 +73,20 @@ export class EducationsComponent implements OnInit {
     });
   }
 
-  public FormModify(): any {
+  public FormModify(ModifyDataEducationModal:any, id:number): any {
 
-    this.getDataFromApi();
+    this.modalService
+      .open(ModifyDataEducationModal, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+
+    this.getDataEducation(id);
 
     this.formModify = this.formBuilder.group({
       education_id: [{ value: '', disabled: true }, Validators.required],
@@ -80,6 +103,17 @@ export class EducationsComponent implements OnInit {
     });
   }
 
+  // Modal close
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
   //Method for admin rol
   public Admin(): void {
     this.roles = this.tokenService.getAuthorities();
@@ -94,9 +128,11 @@ export class EducationsComponent implements OnInit {
     }
   }
 
+  //Method CRUD
+
   //Get Data from api
-  getDataFromApi(): any {
-    this.educationService.getDataEducation().subscribe({
+  getDataEducation(id:number): any {
+    this.educationService.getDataEducation(id).subscribe({
       next: (data: any) => {
         this.formModify.patchValue(data);
       },
@@ -107,10 +143,8 @@ export class EducationsComponent implements OnInit {
 
   }
 
-  //Method CRUD
-
-  public getDataEducation(): void {
-    this.educationService.getDataEducation().subscribe({
+  public getAllDataEducation(): void {
+    this.educationService.getAllDataEducation().subscribe({
       next: (data: Educations[]) => {
         this.educations = data;
         console.log(this.educations);
@@ -126,7 +160,7 @@ export class EducationsComponent implements OnInit {
     this.educationService.addDataEducation(this.educationTS).subscribe({
       next: (data) => {
         alert('data Registrada con exito');
-        this.getDataEducation();
+        this.getAllDataEducation();
       },
       error(err) {
         alert('Error al registrar');
@@ -139,7 +173,7 @@ export class EducationsComponent implements OnInit {
     this.educationService.modifyDataEducation(id, this.educationTS).subscribe({
       next: (data) => {
         alert('data Modificada con exito');
-        this.getDataEducation();
+        this.getAllDataEducation();
       },
       error(err) {
         alert('Error al modificar');
@@ -151,7 +185,7 @@ export class EducationsComponent implements OnInit {
     this.educationService.deleteDataEducation(id).subscribe({
       next: (data) => {
         alert('data delete');
-        this.getDataEducation();
+        this.getAllDataEducation();
       },
       error(err) {
         alert('error data delete');

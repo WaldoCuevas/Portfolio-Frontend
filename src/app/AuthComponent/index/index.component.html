@@ -2,7 +2,7 @@
 
     <h1 class="titulo">Welcome to <br> my Personal Portfolio</h1>
 
-    <button> <a routerLink="/login">Login for out more</a></button>
+    <button *ngIf="!isLogged"> <a routerLink="/login">Login</a></button>
 
 
 </section>

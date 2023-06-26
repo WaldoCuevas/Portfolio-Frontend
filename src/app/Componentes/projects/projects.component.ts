@@ -1,7 +1,7 @@
 import { ReturnStatement } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbCarousel, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Projects } from 'src/app/Model/Data/projects';
 import { TokenService } from 'src/app/Service/Auth/token.service';
 import { ProjectsService } from 'src/app/Service/Data/projects.service';
@@ -15,14 +15,17 @@ export class ProjectsComponent implements OnInit {
 
   //Object Instance
   Projects: Projects[];
-  projectTS: Projects = new Projects();
+  projectTS: Projects;
 
   //Var
   isLogged = true;
   isAdmin = false;
   roles: string[];
+  
+  //var modal
   public formAdd: FormGroup;
   public formModify: FormGroup;
+  closeResult = '';
 
   constructor(
     private projectsService: ProjectsService,
@@ -33,18 +36,26 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.FormAdd();
-
-    this.FormModify();
-
-    this.getDataProject();
+    this.getAllDataProject();
 
     this.Admin();
   }
 
   //Forms
 
-  public FormAdd(): any {
+  public FormAdd(AddDataProjectModal:any): any {
+
+    this.modalService
+      .open(AddDataProjectModal, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+
     this.formAdd = this.formBuilder.group({
       project_image: ['', [Validators.required]],
       project_title: ['', [Validators.required, ]],
@@ -57,9 +68,20 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
-  public FormModify(): any {
+  public FormModify(ModifyDataProjectModal:any, id:number): any {
 
-    this.getDataFromApi();
+    this.modalService
+      .open(ModifyDataProjectModal, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+
+    this.getDataProject(id);
 
     this.formModify = this.formBuilder.group({
       project_id: [{ value: '', disabled: true }, Validators.required],
@@ -73,6 +95,17 @@ export class ProjectsComponent implements OnInit {
       end_project: ['', [Validators.required ]],
     
     });
+  }
+
+  // Modal close
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   //Method for admin rol
@@ -89,9 +122,10 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
-  //Get Data from api
-  getDataFromApi(): any {
-    this.projectsService.getDataProject().subscribe({
+  //Method CRUD
+
+  getDataProject(id:number): any {
+    this.projectsService.getDataProject(id).subscribe({
       next: (data: any) => {
         this.formModify.patchValue(data);
       },
@@ -102,10 +136,8 @@ export class ProjectsComponent implements OnInit {
 
   }
 
-  //Method CRUD
-
-  public getDataProject(): void {
-    this.projectsService.getDataProject().subscribe({
+  public getAllDataProject(): void {
+    this.projectsService.getAllDataProject().subscribe({
       next: (data: Projects[]) => {
         this.Projects = data;
         console.log(this.Projects);
@@ -121,7 +153,7 @@ export class ProjectsComponent implements OnInit {
     this.projectsService.addDataProject(this.projectTS).subscribe({
       next: (data) => {
         alert('data Registrada con exito');
-        this.getDataProject();
+        this.getAllDataProject();
       },
       error(err) {
         alert('Error al registrar');
@@ -134,7 +166,7 @@ export class ProjectsComponent implements OnInit {
     this.projectsService.modifyDataProject(id, this.projectTS).subscribe({
       next: (data) => {
         alert('data Modificada con exito');
-        this.getDataProject();
+        this.getAllDataProject();
       },
       error(err) {
         alert('Error al modificar');
@@ -146,7 +178,7 @@ export class ProjectsComponent implements OnInit {
     this.projectsService.deleteDataProject(id).subscribe({
       next: (data) => {
         alert('data delete');
-        this.getDataProject();
+        this.getAllDataProject();
       },
       error(err) {
         alert('error data delete');

@@ -1,13 +1,6 @@
 /*    ESTILOS GENERALES    */
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 .texto {
-  font-size: 1.5rem;
   padding: 20px;
   margin-bottom: 30px;
 }
@@ -24,33 +17,6 @@ footer {
   width: 100%;
   min-height: 500px;
   height: 50vh;
-}
-
-/* Imagen */
-
-figure {
-  width: 300px;
-  text-align: center;
-}
-
-figure img {
-  width: 25px;
-}
-
-figcaption {
-  color: white;
-}
-
-#img {
-  text-align: center;
-}
-
-.logo {
-  transition: all 0.5s ease;
-}
-
-.logo:hover {
-  transform: scale(1.2);
 }
 
 /*  ICON  */
@@ -98,49 +64,33 @@ figcaption {
 }
 
 /*
-  Este CSS esta configurado para full Screen, las media Query para dispositivos Tables e Mobiles.
+  Este CSS esta configurado para full mobile, las media Query son  para dispositivos Tables e desktop.
 */
 
-@media (max-width: 1024px) {
-  
+@media (min-width: 640px) {
+
     
-  
-  figcaption {
-    font-size: 16px;
-  }
+}
 
-  figure img {
-    width: 20px;
-  }
+@media (min-width: 768px) {
 
-}  
-
-@media (max-width: 1024px) {
-
-  figure img {
-    width: 25px;
-  }
+    
 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
 
-  .logo {
-    min-width: 70px;
-  }
+    
 
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1280px) {
 
-  
-
+    
 }
 
-@media (max-width: 320px) {
+@media (min-width: 1536px) {
 
- .texto {
-  font-size: 16px;
- }
-
+   
+    
 }

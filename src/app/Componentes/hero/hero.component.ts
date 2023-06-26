@@ -13,7 +13,6 @@ import { __values } from 'tslib';
   styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent implements OnInit {
-
   //object instance
   persona: Persona = new Persona();
 
@@ -21,7 +20,7 @@ export class HeroComponent implements OnInit {
   roles: string[];
   isAdmin = false;
   isLogged = false;
-  id:number;
+  id: number;
   public formAdd: FormGroup;
   public formModify: FormGroup;
 
@@ -33,7 +32,6 @@ export class HeroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     //formulario Añadir
     this.FormAdd();
 
@@ -61,8 +59,6 @@ export class HeroComponent implements OnInit {
 
   public FormModify(): any {
 
-    this.getDataFromApi();
-
     this.formModify = this.formBuilder.group({
       user_id: [{ value: '', disabled: true }, Validators.required],
       name: ['', [Validators.required]],
@@ -89,25 +85,13 @@ export class HeroComponent implements OnInit {
     }
   }
 
-  //Get Data from api
-  getDataFromApi(): any {
-    this.personaService.getPersonalData().subscribe({
-      next: (data: any) => {
-        this.formModify.patchValue(data);
-      },
-      error(err) {
-        console.log("error")
-      },
-    });
-
-  }
-
   //Method CRUD
 
   public GetPersonalData() {
     this.personaService.getPersonalData().subscribe({
       next: (data: Persona) => {
         this.persona = data;
+        this.formModify.patchValue(data);
       },
       error(err: any) {
         console.error();
@@ -145,6 +129,7 @@ export class HeroComponent implements OnInit {
   }
 
   public DeletePersonalData() {
+
     this.personaService.deletePersonalData().subscribe({
       next: (data) => {
         alert('data delete');
@@ -155,5 +140,4 @@ export class HeroComponent implements OnInit {
       },
     });
   }
-
 }

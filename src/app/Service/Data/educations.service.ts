@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Educations } from 'src/app/Model/Data/educations';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,12 @@ export class EducationsService {
 
   //Metodos Get
 
-  public getDataEducation(): Observable<Educations[]> {
-    return this.httpClient.get<Educations[]>(environment.apiUrl + this.api + 'getDataEducation');
+  public getDataEducation(id:number): Observable<Educations> {
+    return this.httpClient.get<Educations>(environment.apiUrl + this.api + 'getDataEducation/' + `${id}`);
+  }
+
+  public getAllDataEducation(): Observable<Educations[]> {
+    return this.httpClient.get<Educations[]>(environment.apiUrl + this.api + 'getAllDataEducation');
   }
 
   //Metodos Post

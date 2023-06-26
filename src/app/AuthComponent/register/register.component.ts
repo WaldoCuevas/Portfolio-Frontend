@@ -13,7 +13,7 @@ import { TokenService } from 'src/app/Service/Auth/token.service';
 export class RegisterComponent implements OnInit {
 
   //Object Instance
-  usuario: NuevoUsuario = new NuevoUsuario();
+  usuario: NuevoUsuario;
 
   //var
   isLogged = false;

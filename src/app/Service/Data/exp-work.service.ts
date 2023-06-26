@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ExpWork } from 'src/app/Model/Data/exp-work';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
@@ -18,8 +18,12 @@ export class ExpWorkService {
 
   //Metodos Get 
 
-  public getDataWork(): Observable<ExpWork[]> {
-    return this.httpClient.get<ExpWork[]>(environment.apiUrl + this.api + 'getDataWork');
+  public getDataWork(id:number): Observable<ExpWork> {
+    return this.httpClient.get<ExpWork>(environment.apiUrl + this.api + 'getDataWork/' + `${id}`);
+  }
+
+  public getAllDataWork(): Observable<ExpWork[]> {
+    return this.httpClient.get<ExpWork[]>(environment.apiUrl + this.api + 'getAllDataWork');
   }
 
   //Metodos Post

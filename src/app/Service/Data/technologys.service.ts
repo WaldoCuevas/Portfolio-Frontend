@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Technologys } from 'src/app/Model/Data/technologys';
 
 // Variables de entorno
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,12 @@ export class TechnologysService {
 
   //Metodos Get
 
-  public getDataTechnology(): Observable<Technologys[]> {
-    return this.httpClient.get<Technologys[]>(environment.apiUrl + this.api + 'getDataTechnology');
+  public getDataTechnology(id:number): Observable<Technologys> {
+    return this.httpClient.get<Technologys>(environment.apiUrl + this.api + 'getDataTechnology/' + `${id}`);
+  }
+
+  public getAllDataTechnology(): Observable<Technologys[]> {
+    return this.httpClient.get<Technologys[]>(environment.apiUrl + this.api + 'getAllDataTechnology');
   }
 
   //Metodos Post

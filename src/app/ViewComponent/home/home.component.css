@@ -8,3 +8,10 @@ section {
     background-color: #eee;
     width: 100%;
 }
+
+.container-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+  }

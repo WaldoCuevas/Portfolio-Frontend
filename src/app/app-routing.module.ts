@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 //Componentes
-import { HeroComponent } from './Componentes/hero/hero.component';
-import { TechnologysComponent } from './Componentes/technologys/technologys.component';
-import { ExpWorkComponent } from './Componentes/exp-work/exp-work.component';
 import { ProjectsComponent } from './Componentes/projects/projects.component';
 import { LoginComponent } from './AuthComponent/login/login.component';
 import { RegisterComponent } from './AuthComponent/register/register.component';

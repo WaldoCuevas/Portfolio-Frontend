@@ -1,4 +1,4 @@
-export class Educations {
+export interface Educations {
   education_id: number;
   education_image: string;
   school: string;
